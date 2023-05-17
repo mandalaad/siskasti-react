@@ -1,0 +1,38 @@
+.sidebar {
+    width: 200px;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: #222D31;
+    position: absolute;
+    padding: 20px;
+}
+
+.content-sidebar {
+    margin-top: 150px;
+    display: block;
+    cursor: pointer;
+    .menu-sidebar {
+        margin-top: 20px;
+        padding: 5px;
+        .menu1 {
+            margin-left: 20px;
+            p {
+                list-style: none;
+                color: white;
+            }
+            .link-menu {
+                text-decoration: none;
+                color: white;
+                font-size: 12px;
+            }
+        }
+    }
+    .menu-sidebar:hover {
+        background-color: orange;
+        border-radius: 20px;
+        transition: .2s;
+        cursor: pointer;
+        width: 160px;
+    }
+}
