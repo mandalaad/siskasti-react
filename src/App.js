@@ -4,14 +4,14 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Pages/Login';
 // import Loginn from './Component/Login';
-import Dashboard from './Pages/Dashboard';
+import Dashboardutama from './Pages/Dashboard-utama';
 function App() {
   return (
     <>
     <Routes>
       <Route path='/' Component={Login}/>
       <Route path='/login' Component={Login}/>
-      <Route path='/dashboard' Component={Dashboard}/>
+      <Route path='/dashboard' Component={Dashboardutama}/>
     </Routes>
     </>
   );

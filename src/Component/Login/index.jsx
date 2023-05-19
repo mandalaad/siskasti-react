@@ -4,7 +4,7 @@ import '../Login/loginstyle.css'
 
 function login() {
   return (
-    <div className='container'>
+    <div className='container-login'>
         <div className='form'>
             <div className='gambar'>
                 <img src={logo} alt="" />

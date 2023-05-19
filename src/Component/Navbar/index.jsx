@@ -1,25 +1,24 @@
 import React from 'react'
-import {Navbar} from 'react-bootstrap'
-import {} from 'react-router-dom'
-import '../Navbar/navstyle.css'
+import './navstyle.css'
+import { NavDropdown, Navbar } from 'react-bootstrap'
+import {MdOutlineAccountCircle} from 'react-icons/md'
+
+const style1 = {fontSize: "1.5em" }
 function Navbarr() {
   return (
     <Navbar className='custom-navbar fixed-top'>
-      {/* <Container>
-        <Navbar.Brand href="/"><h2>Dashboard</h2></Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto custom-nav">
-            <Nav.Link href="/discovery" className='px-3'>Disovery</Nav.Link>
-            <Nav.Link href="/destination" className='px-3'>Destination</Nav.Link>
-            <Nav.Link href="#home" className='px-3'>Package</Nav.Link>
-            <Nav.Link href="/Aboutus" className='px-3'>About Us</Nav.Link>
-          </Nav>
-          <Link>
-          <button className='btn-normal'>Register</button>
-          </Link>
-        </Navbar.Collapse>
-      </Container> */}
+        <div className='left-side'>
+          <h3>SISKASTI</h3>
+        </div>
+        <div className='right-side d-flex'>
+            <NavDropdown className='dropdown mt-1' title="" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Logout</NavDropdown.Item>
+            </NavDropdown>
+            <i className='me-2'><MdOutlineAccountCircle style={style1}/></i>
+            <h6 className='mt-1'>Tri Mandala Adi Dalem</h6>
+          
+        </div>
+    
     </Navbar>
   )
 }

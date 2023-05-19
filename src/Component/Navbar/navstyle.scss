@@ -1,5 +1,24 @@
+// * {
+//     outline: 1px red solid;
+// }
 .custom-navbar {
     background-color: #72BF44;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
     height: 60px;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    .left-side {
+        margin-left: 20px;
+        h3 {
+            color: white;
+        }
+    }
+    .right-side {
+        margin-right: 20px;
+    }
 }
+
+// .dropdown {
+//     margin-left: 20px;
+// }

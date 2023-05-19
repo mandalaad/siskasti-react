@@ -1,5 +1,5 @@
 import React from 'react'
-import { AiOutlineCloudUpload, AiOutlineDownload, AiOutlineSetting} from 'react-icons/ai'
+import { AiOutlineCloudUpload, AiOutlineDownload, AiOutlineSetting, AiOutlineDashboard} from 'react-icons/ai'
 import {GoReport} from 'react-icons/go'
 import {MdManageAccounts} from 'react-icons/md'
 
@@ -11,8 +11,17 @@ const style1 = { color: "white", fontSize: "1.5em" }
 
 function sidebar() {
   return (
-    <div className='sidebar'>
+    <body>
+      <div className='sidebar'>
       <div className='content-sidebar'>
+      <div className='menu-sidebar d-flex'>
+            <div className='logo'>
+              <i><AiOutlineDashboard style={style1}/></i>
+            </div>
+            <div className='menu1'>
+              <Link className='link-menu'>Dashboard</Link>
+            </div>
+          </div>
           <div className='menu-sidebar d-flex'>
             <div className='logo'>
               <i><AiOutlineDownload style={style1}/></i>
@@ -55,6 +64,8 @@ function sidebar() {
           </div>
       </div>
     </div>
+    </body>
+    
   )
   
 }
