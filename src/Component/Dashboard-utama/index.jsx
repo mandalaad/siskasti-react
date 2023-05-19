@@ -27,7 +27,7 @@ function Dashboardutama() {
           </div>
           <div className='midleside-content'>
             <Row>
-              <Col xxl = {3} xl = {6}>
+              <Col xxl = {3} md = {6}>
                 <div className='kartu mt-4'>
                   <div className="kartu-content">
                     <div>
@@ -42,7 +42,7 @@ function Dashboardutama() {
                   </div>
                 </div>
               </Col>
-              <Col xxl = {3} xl = {6}>
+              <Col xxl = {3} md = {6}>
                 <div className='kartu mt-4'>
                   <div className="kartu-content">
                     <div>
@@ -57,7 +57,7 @@ function Dashboardutama() {
                   </div>
                 </div>
               </Col>
-              <Col xxl = {3} xl = {6}>
+              <Col xxl = {3} md = {6}>
                 <div className='kartu mt-4'>
                   <div className="kartu-content">
                     <div>
@@ -72,7 +72,7 @@ function Dashboardutama() {
                   </div>
                 </div>
               </Col>
-              <Col xxl = {3} xl = {6}>
+              <Col xxl = {3} md = {6}>
                 <div className='kartu mt-4'>
                   <div className="kartu-content">
                     <div>

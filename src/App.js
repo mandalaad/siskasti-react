@@ -1,17 +1,19 @@
 // import logo from './logo.svg';
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
+import {   Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Pages/Login';
-// import Loginn from './Component/Login';
-import Dashboardutama from './Pages/Dashboard-utama';
+
+import Sidebar from './Component/Sidebar';
+import Dashboardutama from './Pages/Dashboard-utama/index';
+import Penerimaan from './Pages/penerimaan/Penerimaan';
+
 function App() {
   return (
     <>
     <Routes>
-      <Route path='/' Component={Login}/>
-      <Route path='/login' Component={Login}/>
+      <Route path='/' Component={Dashboardutama}/>
       <Route path='/dashboard' Component={Dashboardutama}/>
+      <Route path='/penerimaan' Component={Penerimaan}/>
     </Routes>
     </>
   );

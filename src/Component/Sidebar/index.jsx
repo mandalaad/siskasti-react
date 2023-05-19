@@ -19,7 +19,7 @@ function sidebar() {
               <i><AiOutlineDashboard style={style1}/></i>
             </div>
             <div className='menu1'>
-              <Link className='link-menu'>Dashboard</Link>
+              <Link to="/dashboard" className='link-menu'>Dashboard</Link>
             </div>
           </div>
           <div className='menu-sidebar d-flex'>
@@ -27,7 +27,7 @@ function sidebar() {
               <i><AiOutlineDownload style={style1}/></i>
             </div>
             <div className='menu1'>
-              <Link className='link-menu'>Penerimaan</Link>
+              <Link to="/penerimaan" className='link-menu'>Penerimaan</Link>
             </div>
           </div>
           <div className='menu-sidebar d-flex'>
