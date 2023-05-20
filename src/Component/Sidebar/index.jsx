@@ -19,7 +19,7 @@ function sidebar() {
               <i><AiOutlineDashboard style={style1}/></i>
             </div>
             <div className='menu1'>
-              <Link className='link-menu'>Dashboard</Link>
+              <Link to="/dashboard" className='link-menu'>Dashboard</Link>
             </div>
           </div>
           <div className='menu-sidebar d-flex'>
@@ -27,7 +27,7 @@ function sidebar() {
               <i><AiOutlineDownload style={style1}/></i>
             </div>
             <div className='menu1'>
-              <Link className='link-menu'>Penerimaan</Link>
+              <Link to="/penerimaan" className='link-menu'>Penerimaan</Link>
             </div>
           </div>
           <div className='menu-sidebar d-flex'>
@@ -35,7 +35,7 @@ function sidebar() {
               <i><AiOutlineCloudUpload style={style1}/></i>
             </div>
             <div className='menu1'>
-              <Link className='link-menu'>Pengeluaran</Link>
+              <Link to="/pengeluaran" className='link-menu'>Pengeluaran</Link>
             </div>
           </div>
           <div className='menu-sidebar d-flex'>
@@ -43,7 +43,7 @@ function sidebar() {
               <i><GoReport style={style1}/></i>
             </div>
             <div className='menu1'>
-              <Link className='link-menu'>Laporan</Link>
+              <Link to="/laporan" className='link-menu'>Laporan</Link>
             </div>
           </div>
           <div className='menu-sidebar d-flex'>
@@ -51,7 +51,7 @@ function sidebar() {
               <i><MdManageAccounts style={style1}/></i>
             </div>
             <div className='menu1'>
-              <Link className='link-menu'>Manajemen User</Link>
+              <Link to="/manajemen-user" className='link-menu'>Manajemen User</Link>
             </div>
           </div>
           <div className='menu-sidebar d-flex'>
@@ -59,7 +59,7 @@ function sidebar() {
               <i><AiOutlineSetting style={style1}/></i>
             </div>
             <div className='menu1'>
-              <Link className='link-menu'>Ubah Password</Link>
+              <Link to="/ubah-password" className='link-menu'>Ubah Password</Link>
             </div>
           </div>
       </div>

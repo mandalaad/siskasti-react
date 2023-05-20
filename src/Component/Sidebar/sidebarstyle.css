@@ -40,4 +40,10 @@ body {
   transition: 0.2s;
   cursor: pointer;
   width: 160px;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
 }/*# sourceMappingURL=sidebarstyle.css.map */
