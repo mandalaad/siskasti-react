@@ -42,8 +42,20 @@ body {
     }
 }
 
+.sidebar-link {
+    text-decoration: none;
+}
+
+@media screen and (max-width:1024px) {
+    .sidebar {
+        // display: none;
+        height: 1000px;
+    }
+}
+
 @media screen and (max-width:768px) {
     .sidebar {
-        display: none;
+        // display: none;
+        height: 1000px;
     }
 }

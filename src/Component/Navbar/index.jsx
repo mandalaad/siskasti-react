@@ -13,7 +13,7 @@ function Navbarr() {
         </div>
         <div className='right-side d-flex'>
             <NavDropdown className='dropdown mt-1' title="" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Logout</NavDropdown.Item>
+              <NavDropdown.Item href="/login">Logout</NavDropdown.Item>
             </NavDropdown>
             <i className='me-2'><MdOutlineAccountCircle style={style1}/></i>
             <h6 className='mt-1'>Tri Mandala Adi Dalem</h6>

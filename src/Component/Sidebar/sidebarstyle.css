@@ -42,8 +42,17 @@ body {
   width: 160px;
 }
 
+.sidebar-link {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    height: 1000px;
+  }
+}
 @media screen and (max-width: 768px) {
   .sidebar {
-    display: none;
+    height: 1000px;
   }
 }/*# sourceMappingURL=sidebarstyle.css.map */

@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../../Asset/img/Mockup- SISKASTI 5.0.png'
 import '../Login/loginstyle.css'
+import { Link } from 'react-router-dom'
 
 function login() {
   return (
@@ -27,7 +28,10 @@ function login() {
                         <input type="checkbox" />
                         <p>Simpan user ID</p>
                     </div>
-                    <button type='submit'><h1>Login</h1></button>
+                    <Link to='/dashboard'>
+                        <button type='submit'><h1>Login</h1></button>
+                    </Link>
+                    
                 </div>
             </div>
         </div>
