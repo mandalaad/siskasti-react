@@ -6,7 +6,8 @@ import {MdOutlineAccountCircle} from 'react-icons/md'
 const style1 = {fontSize: "1.5em" }
 function Navbarr() {
   return (
-    <Navbar className='custom-navbar fixed-top'>
+    <body>
+      <Navbar className='custom-navbar fixed-top'>
         <div className='left-side'>
           <h3>SISKASTI</h3>
         </div>
@@ -16,10 +17,10 @@ function Navbarr() {
             </NavDropdown>
             <i className='me-2'><MdOutlineAccountCircle style={style1}/></i>
             <h6 className='mt-1'>Tri Mandala Adi Dalem</h6>
-          
         </div>
+      </Navbar>
+    </body>
     
-    </Navbar>
   )
 }
 
