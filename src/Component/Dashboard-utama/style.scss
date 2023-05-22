@@ -1,5 +1,5 @@
 body {
-    background: rgba(64, 114, 34, 0.8);
+    background-color: #396121;
 }
 
 .container-dashboard {
@@ -29,9 +29,6 @@ body {
         margin-top: 20px;
         margin-right: 40px;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
-        h3 {
-            margin: auto;
-        }
     }
     .midleside-content {
         margin-top: 40px;
@@ -67,4 +64,8 @@ body {
     transform: scale(110%);
     transition: 0.2s;
     z-index: 1;
+}
+
+.dashboard-link {
+    text-decoration: none;
 }

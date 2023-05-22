@@ -1,11 +1,10 @@
 import React from 'react'
-import Table  from 'react-bootstrap/Table'
+import { Container, Table } from 'react-bootstrap'
 import './style.css'
-import { Container } from 'react-bootstrap'
-function penerimaan() {
+function Pengeluarann() {
   return (
     <body>
-        <div className='table-penerimaan'>
+        <div className='table-pengeluaran'>
             <Container fluid>
                         <div class="card-body">
                             <div className="table-responsive">
@@ -91,8 +90,7 @@ function penerimaan() {
         </Container>
         </div>
     </body>
-    
   )
 }
 
-export default penerimaan
+export default Pengeluarann

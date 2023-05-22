@@ -5,6 +5,7 @@ import {VscOutput} from 'react-icons/vsc'
 import {AiOutlineDollarCircle, AiOutlineHome, AiOutlineRight} from 'react-icons/ai'
 
 import './style.css'
+import { Link } from 'react-router-dom'
 function Dashboardutama() {
   return (
     <body>
@@ -12,9 +13,9 @@ function Dashboardutama() {
         <div className='dashboard-content'>
           <div className='sub-navbar'>
             <div>
-              <h3>DASHBOARD</h3>
+              <h3 style={{color:'white'}}>DASHBOARD</h3>
             </div>
-            <div className='sub-navbtn d-flex'>
+            <div className='sub-navbtn d-flex' style={{color:'white'}}>
               <i><AiOutlineHome style={{fontSize:'1.5rem'}}/></i>
               <p className='mt-1 mx-1'>Home</p>
               <i><AiOutlineRight className='mt-1'/></i>
@@ -28,19 +29,21 @@ function Dashboardutama() {
           <div className='midleside-content'>
             <Row>
               <Col xxl = {3} md = {6}>
-                <div className='kartu mt-4'>
-                  <div className="kartu-content">
-                    <div>
-                      <h5>Total Penerimaan</h5>
+                <Link to="/penerimaan" className='dashboard-link'>
+                  <div className='kartu mt-4'>
+                    <div className="kartu-content">
+                      <div>
+                        <h5>Total Penerimaan</h5>
+                      </div>
+                      <div className='jumlahpenerimaan' id='jumlahpenerimaan'>
+                        <h5>Rp. 1.000.000.000,00</h5>
+                      </div>
                     </div>
-                    <div className='jumlahpenerimaan' id='jumlahpenerimaan'>
-                      <h5>Rp. 1.000.000.000,00</h5>
+                    <div className='logo-kartu'>
+                        <i><MdOutlineSettingsInputComposite style={{color:'white', fontSize:'1.5rem'}}/></i>
                     </div>
                   </div>
-                  <div className='logo-kartu'>
-                      <i><MdOutlineSettingsInputComposite style={{color:'white', fontSize:'1.5rem'}}/></i>
-                  </div>
-                </div>
+                </Link>
               </Col>
               <Col xxl = {3} md = {6}>
                 <div className='kartu mt-4'>

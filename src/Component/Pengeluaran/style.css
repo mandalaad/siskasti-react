@@ -1,12 +1,12 @@
-.table-penerimaan {
+.table-pengeluaran {
   background-color: white;
   height: 560px;
   margin-top: 150px;
   padding: 50px;
 }
-.table-penerimaan .card-body {
+.table-pengeluaran .card-body {
   margin-left: 200px;
 }
-.table-penerimaan .card-body .table-responsive {
+.table-pengeluaran .card-body .table-responsive {
   margin-top: 30px;
 }/*# sourceMappingURL=style.css.map */
