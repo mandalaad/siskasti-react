@@ -48,11 +48,11 @@ function Sidebar() {
                 </div>
               </div>
             </Link>
-            <Link to="/laporan" className='sidebar-link'>
+            <Link className='sidebar-link'>
               <>
                 <Button
                   variant='outline'
-                  className='buton menu-sidebar'
+                  className='butonn menu-sidebar'
                   onClick={() => setOpen(!open)}
                   aria-controls="example-collapse-text"
                   aria-expanded={open}

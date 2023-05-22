@@ -7,6 +7,8 @@ body {
 .sidebar {
     width: 200px;
     height: 100%;
+    left: 0;
+    top: 0;
     background-color: #222D31;
     position: fixed;
     padding: 20px;
@@ -41,7 +43,7 @@ body {
     }
 }
 
-.buton {
+.butonn {
     text-align: left;
     font-size: 12px;
     padding: 0;
