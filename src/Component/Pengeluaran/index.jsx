@@ -7,6 +7,22 @@ function Pengeluarann() {
         <div className='table-pengeluaran'>
             <Container fluid>
                         <div class="card-body">
+                            <div className="fungsi">
+                                <div className="content-left">
+                                    <p>Divisi</p>
+                                    <select name="cars" id="cars">
+                                        <option value="volvo">5</option>
+                                        <option value="saab">10</option>
+                                        <option value="opel">15</option>
+                                        <option value="audi">20</option>
+                                    </select>
+                                    <p>data</p>
+                                </div>
+                                    <div className="content-right">
+                                    <p>cari</p>
+                                    <input type="text" />
+                                </div>
+                            </div>
                             <div className="table-responsive">
                                 <Table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>

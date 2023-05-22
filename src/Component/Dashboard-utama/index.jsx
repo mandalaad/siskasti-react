@@ -46,19 +46,21 @@ function Dashboardutama() {
                 </Link>
               </Col>
               <Col xxl = {3} md = {6}>
-                <div className='kartu mt-4'>
-                  <div className="kartu-content">
-                    <div>
-                      <h5>Total Pengeluaran</h5>
+                <Link to="/pengeluaran" className='dashboard-link'>
+                  <div className='kartu mt-4'>
+                    <div className="kartu-content">
+                      <div>
+                        <h5>Total Pengeluaran</h5>
+                      </div>
+                      <div className='jumlahpengeluaran' id='jumlahpengeluaran'>
+                        <h5>Rp. 1.500.000.000,00</h5>
+                      </div>
                     </div>
-                    <div className='jumlahpengeluaran' id='jumlahpengeluaran'>
-                      <h5>Rp. 1.500.000.000,00</h5>
+                    <div className='logo-kartu'>
+                        <i><VscOutput style={{color:'white', fontSize:'1.5rem'}}/></i>
                     </div>
                   </div>
-                  <div className='logo-kartu'>
-                      <i><VscOutput style={{color:'white', fontSize:'1.5rem'}}/></i>
-                  </div>
-                </div>
+                </Link>
               </Col>
               <Col xxl = {3} md = {6}>
                 <div className='kartu mt-4'>

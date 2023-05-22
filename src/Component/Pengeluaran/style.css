@@ -1,12 +1,31 @@
 .table-pengeluaran {
   background-color: white;
-  height: 560px;
+  height: auto;
   margin-top: 150px;
-  padding: 50px;
+  padding: 50px 50px 20px 50px;
 }
 .table-pengeluaran .card-body {
   margin-left: 200px;
 }
 .table-pengeluaran .card-body .table-responsive {
   margin-top: 30px;
+}
+
+.card-body .fungsi {
+  display: flex;
+  justify-content: space-between;
+}
+.card-body .fungsi .content-left {
+  display: flex;
+  gap: 20px;
+}
+.card-body .fungsi .content-left select {
+  height: 30px;
+}
+.card-body .fungsi .content-right {
+  display: flex;
+  gap: 20px;
+}
+.card-body .fungsi .content-right input {
+  height: 30px;
 }/*# sourceMappingURL=style.css.map */
