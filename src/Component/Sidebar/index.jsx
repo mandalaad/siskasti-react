@@ -95,7 +95,7 @@ function Sidebar() {
                   <i><MdManageAccounts style={style1}/></i>
                 </div>
                 <div className='menu1'>
-                  <Link to="/manajemen-user" className='link-menu'>Manajemen User</Link>
+                  <Link to="/manajemen-user" className='link-menu'>Manajemen user</Link>
                 </div>
               </div>
             </Link>
