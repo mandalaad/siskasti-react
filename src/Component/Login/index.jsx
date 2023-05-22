@@ -24,12 +24,8 @@ function login() {
                     </div>
                     <div> <input type="password" />
                     </div>
-                    <div className='checkout'>
-                        <input type="checkbox" />
-                        <p>Simpan user ID</p>
-                    </div>
                     <Link to='/dashboard'>
-                        <button type='submit'><h1>Login</h1></button>
+                        <button type='submit' className='mt-4'><h1>Login</h1></button>
                     </Link>
                     
                 </div>

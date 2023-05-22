@@ -6,8 +6,6 @@ body {
 
 .sidebar {
   width: 200px;
-  left: 0;
-  top: 0;
   height: 100%;
   background-color: #222D31;
   position: fixed;
@@ -41,6 +39,18 @@ body {
   transition: 0.2s;
   cursor: pointer;
   width: 160px;
+}
+
+.buton {
+  text-align: left;
+  font-size: 12px;
+  padding: 0;
+  padding-left: 5px;
+  width: 160px;
+  color: white;
+}
+.buton i {
+  margin-right: 20px;
 }
 
 .sidebar-link {

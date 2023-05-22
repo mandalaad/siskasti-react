@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AiOutlineCloudUpload, AiOutlineDownload, AiOutlineSetting, AiOutlineDashboard} from 'react-icons/ai'
 import {GoReport} from 'react-icons/go'
+import {HiOutlineLogin} from 'react-icons/hi'
+import {HiOutlineLogout} from 'react-icons/hi'
 import {MdManageAccounts} from 'react-icons/md'
-
 import { Link } from 'react-router-dom'
 import '../Sidebar/sidebarstyle.css'
+import Button from 'react-bootstrap/Button';
+import Collapse from 'react-bootstrap/Collapse';
 
 
 const style1 = { color: "white", fontSize: "1.5em" }
 
-function sidebar() {
+function Sidebar() {
+  const [open, setOpen] = useState(false);
   return (
     <body>
       <div className='sidebar'>
@@ -45,14 +49,36 @@ function sidebar() {
               </div>
             </Link>
             <Link to="/laporan" className='sidebar-link'>
-              <div className='menu-sidebar d-flex'>
-                <div className='logo'>
-                  <i><GoReport style={style1}/></i>
-                </div>
-                <div className='menu1'>
-                  <Link to="/laporan" className='link-menu'>Laporan</Link>
-                </div>
-              </div>
+              <>
+                <Button
+                  variant='outline'
+                  className='buton menu-sidebar'
+                  onClick={() => setOpen(!open)}
+                  aria-controls="example-collapse-text"
+                  aria-expanded={open}
+                > <i><GoReport style={style1}/></i> Laporan
+                </Button>
+                <Collapse in={open}>
+                  <div id="example-collapse-text">
+                    <div className='menu-sidebar d-flex'>
+                      <div className='logo'>
+                        <i><HiOutlineLogin style={style1}/></i>
+                      </div>
+                      <div className='menu1'>
+                        <Link to="/laporan" className='link-menu'>Penerimaan</Link>
+                      </div>
+                    </div>
+                    <div className='menu-sidebar d-flex'>
+                      <div className='logo'>
+                        <i><HiOutlineLogout style={style1}/></i>
+                      </div>
+                      <div className='menu1'>
+                        <Link to="/laporan" className='link-menu'>Pengeluaran</Link>
+                      </div>
+                    </div>
+                  </div>
+                </Collapse>
+              </>
             </Link>
             <Link to="/manajemen-user" className='sidebar-link'>
               <div className='menu-sidebar d-flex'>
@@ -78,8 +104,8 @@ function sidebar() {
       </div>
     </body>
     
-  )
+  );
   
 }
 
-export default sidebar
+export default Sidebar
