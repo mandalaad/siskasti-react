@@ -1,6 +1,9 @@
 import React from 'react'
 import { Container, Table } from 'react-bootstrap'
 import './style.css'
+import { MdOutlineAddBox } from 'react-icons/md';
+import { BiEdit } from 'react-icons/bi';
+
 function Pengeluarann() {
   return (
     <body>
@@ -100,6 +103,10 @@ function Pengeluarann() {
                                         </tr>
                                     </tbody>
                                 </Table>
+                                <div className="buton">
+                                    <button><MdOutlineAddBox/> Tambah</button>
+                                    <button><BiEdit/> Edit</button> 
+                                </div>
                             </div>
                         </div>
             
