@@ -1,3 +1,5 @@
+
+
 .table-penerimaan {
     background-color: white;
     height: auto;
@@ -10,8 +12,6 @@
         }
     }
 }
-
-
 .card-body {
     .fungsi {
         display: flex;
@@ -21,6 +21,10 @@
             gap: 20px;
             select {
                 height: 30px;
+                width: 150px;
+            }
+            p {
+                line-height: 50px;
             }
         }
         .content-right {
@@ -40,6 +44,26 @@
             width: 100px;
             color: white;
             font-size: 14px;
+            i {
+                font-size: 20px;
+            }
         }
     }
+}
+
+.toggle {
+    width: 160px;
+    text-align: left;
+    background-color: #00AB4E;
+    color: white;
+    font-weight: 500;
+}
+
+.toggle:hover {
+    background-color: orange;
+    color: white;
+}
+
+.link {
+    text-decoration: none;
 }

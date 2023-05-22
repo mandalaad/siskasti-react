@@ -10,6 +10,7 @@ import Pengeluaran from './Pages/pengeluaran/Pengeluaran';
 import Laporan from './Pages/laporan/Laporan';
 import Manajemen from './Pages/manajemen-user/Manajemen';
 import Ubahpassword from './Pages/ubah-password/Ubahpassword';
+import Lpenerimaan from './Pages/laporan-penerimaan/Lpenerimaan';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Route path='/dashboard' Component={Dashboardutama}/>
       <Route path='/penerimaan' Component={Penerimaan}/>
       <Route path='/pengeluaran' Component={Pengeluaran}/>
+      <Route path='/laporan-penerimaan' Component={Lpenerimaan}/>
       <Route path='/laporan' Component={Laporan}/>
       <Route path='/manajemen-user' Component={Manajemen}/>
       <Route path='/ubah-password' Component={Ubahpassword}/>
