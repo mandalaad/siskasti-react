@@ -4,6 +4,7 @@ import {GoReport} from 'react-icons/go'
 import {HiOutlineLogin} from 'react-icons/hi'
 import {HiOutlineLogout} from 'react-icons/hi'
 import {MdManageAccounts} from 'react-icons/md'
+import {CgFileDocument} from 'react-icons/cg'
 import { Link } from 'react-router-dom'
 import '../Sidebar/sidebarstyle.css'
 import Button from 'react-bootstrap/Button';
@@ -74,6 +75,14 @@ function Sidebar() {
                       </div>
                       <div className='menu1'>
                         <Link to="/laporan" className='link-menu'>Pengeluaran</Link>
+                      </div>
+                    </div>
+                    <div className='menu-sidebar d-flex'>
+                      <div className='logo'>
+                        <i><CgFileDocument style={style1}/></i>
+                      </div>
+                      <div className='menu1'>
+                        <Link to="/laporan" className='link-menu'>Rekapitulasi</Link>
                       </div>
                     </div>
                   </div>
