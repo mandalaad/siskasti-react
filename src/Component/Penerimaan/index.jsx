@@ -1,6 +1,5 @@
 import React from 'react'
 import Table  from 'react-bootstrap/Table'
-import './style.css'
 import { Container } from 'react-bootstrap'
 import { MdOutlineAddBox } from 'react-icons/md';
 import { BiEdit } from 'react-icons/bi';
@@ -110,7 +109,7 @@ function penerimaan() {
                                 </div>
                             </div>
                         </div>
-            
+
         </Container>
         </div>
     </body>
