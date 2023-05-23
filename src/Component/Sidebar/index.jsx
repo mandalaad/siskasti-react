@@ -74,7 +74,7 @@ function Sidebar() {
                         <i><HiOutlineLogout style={style1}/></i>
                       </div>
                       <div className='menu1'>
-                        <Link to="/laporan" className='link-menu'>Pengeluaran</Link>
+                        <Link to="/laporan-pengeluaran-mingguan" className='link-menu'>Pengeluaran</Link>
                       </div>
                     </div>
                     <div className='menu-sidebar d-flex'>

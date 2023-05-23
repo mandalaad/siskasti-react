@@ -1,36 +1,20 @@
 import React from 'react'
-import { Container, Dropdown, Table } from 'react-bootstrap'
+import { Container, Table } from 'react-bootstrap'
 import { AiOutlinePrinter } from 'react-icons/ai'
-import './laporanpenerimaan.css'
-import { Link } from 'react-router-dom'
+import './LPbulanan.css'
+import DropdownLaporanPengeluaran from '../dropdown-laporan-pengeluaran/DropdownLaporanPengeluaran'
 
-function LaporanPenerimaan() {
+function LPbulanan() {
   return (
     <>
-        <body>
+        <body> 
         <div className='table-penerimaan'>
             <Container fluid>
                         <div class="card-body">
                         <div className="fungsi">
                             <div className="content-left">
                                 <p>Rentang Cetak</p>
-                                <Dropdown>
-                                <Dropdown.Toggle variant="" className='toggle' id="dropdown-basic">
-                                    Pilih
-                                </Dropdown.Toggle>
-
-                                <Dropdown.Menu>
-                                    <Link to="/dashboard" className='link' >
-                                    <Dropdown.Item href="#/action-1">Mingguan</Dropdown.Item>
-                                    </Link>
-                                    <Link to="/dashboard" className='link' >
-                                    <Dropdown.Item href="#/action-1">Bulanan</Dropdown.Item>
-                                    </Link>
-                                    <Link to="/dashboard" className='link' >
-                                    <Dropdown.Item href="#/action-1">Tahunan</Dropdown.Item>
-                                    </Link>
-                                </Dropdown.Menu>
-                                </Dropdown>
+                                <DropdownLaporanPengeluaran/>
                             </div>
                             <div className="content-right">
                                 <div className="buton">
@@ -44,7 +28,7 @@ function LaporanPenerimaan() {
                                         <tr>
                                             <th>No</th>
                                             <th>Jabatan</th>
-                                            <th>Tanggal</th>
+                                            <th>Bulan</th>
                                             <th>Keterangan</th>
                                             <th>Jumlah</th>
                                         </tr>
@@ -76,4 +60,4 @@ function LaporanPenerimaan() {
   )
 }
 
-export default LaporanPenerimaan
+export default LPbulanan
