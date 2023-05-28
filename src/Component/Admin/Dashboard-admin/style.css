@@ -1,5 +1,5 @@
 body {
-  background-color: #396121;
+  background-color: white;
 }
 
 .container-dashboard {
@@ -23,7 +23,7 @@ body {
 }
 .dashboard-content .upside-content {
   padding: 10px;
-  background-color: rgba(191, 215, 48, 0.8);
+  background-color: #00AB4E;
   width: 98%;
   height: 50px;
   margin-top: 20px;
@@ -45,7 +45,7 @@ body {
   color: white;
 }
 .dashboard-content .midleside-content .kartu .logo-kartu {
-  background-color: #8AC967;
+  background-color: white;
   margin: auto;
   height: 40px;
   padding: 5px;

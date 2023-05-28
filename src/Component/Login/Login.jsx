@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import logo from '../../Asset/img/Mockup- SISKASTI 5.0.png'
-import '../Login/loginstyle.css'
+import './loginstyle.css'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
-
+import backgroundlogin from '../../Asset/img/Abstract-Green-Wave-PNG-File.png'
 
 function Login() {
   
@@ -35,10 +35,15 @@ function Login() {
           console.error(error);
         }
       };
-      
+    //   if(username === 'Admin'){
+
+    //   }
     
   return (
     <body>
+        <div className='background-login'>
+            <img src={backgroundlogin} alt="" />
+        </div>
         <div className='container-login'>
             <div className='form'>
                 <div className='gambar'>

@@ -1,7 +1,7 @@
 import React from 'react'
-import Sidebarr from '../../Component/Sidebar'
-import Navbarr from '../../Component/Navbar'
-import Dashboardutama from '../../Component/Dashboard-utama'
+import Sidebarr from '../../Component/Sidebar/Sidebar'
+import Navbarr from '../../Component/Navbar/Navbar'
+import Dashboardutama from '../../Component/Admin/Dashboard-admin/Dashboardutama'
 function Dashboard() {
   return (
     <>

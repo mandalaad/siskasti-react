@@ -16,8 +16,8 @@ import Ltahun from './Pages/laporantahunan/Ltahun';
 import Lpengeluaranmingguan from './Pages/Lpengeluaran-mingguan/Lpengeluaranmingguan';
 import Lpengeluaranbulanan from './Pages/Lpengeluaran-bulanan/Lpengeluaranbulanan';
 import Lpengeluarantahunan from './Pages/Lpengeluaran-tahunan/Lpengeluarantahunan';
-
-
+import DashboardAdmin from './Pages/Dashboard-Admin/DashboardAdmin';
+import Dashboardsuperadmin from './Pages/Dashboard-super-admin/Dashboardsuperadmin';
 function App() {
   return (
     <>
@@ -36,6 +36,12 @@ function App() {
       <Route path='/laporan' Component={Laporan}/>
       <Route path='/manajemen-user' Component={Manajemen}/>
       <Route path='/ubah-password' Component={Ubahpassword}/>
+      
+      {/* khusus admin */}
+      <Route path='/dashboard-admin' Component={DashboardAdmin}/>
+      
+      {/* khusus super admin */}
+      <Route path='/dashboard-super' Component={Dashboardsuperadmin}/>
     </Routes>
     </>
   );

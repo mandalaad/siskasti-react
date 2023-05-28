@@ -1,4 +1,4 @@
-.custom-navbar {
+.custom-navbar-super-admin {
   background-color: #00AB4E;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   height: 60px;
@@ -6,12 +6,12 @@
   display: flex;
   justify-content: space-between;
 }
-.custom-navbar .left-side {
+.custom-navbar-super-admin .left-side {
   margin-left: 20px;
 }
-.custom-navbar .left-side h3 {
+.custom-navbar-super-admin .left-side h3 {
   color: white;
 }
-.custom-navbar .right-side {
+.custom-navbar-super-admin .right-side {
   margin-right: 20px;
-}/*# sourceMappingURL=navstyle.css.map */
+}/*# sourceMappingURL=navbarsuperstyle.css.map */

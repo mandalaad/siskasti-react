@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbarr from '../../Component/Navbar'
-import Sidebarr from '../../Component/Sidebar'
+import Navbarr from '../../Component/Navbar/Navbar'
+import Sidebarr from '../../Component/Sidebar/Sidebar'
 import LaporanTahunan from '../../Component/laporan-tahunan/LaporanTahunan'
 
 function Ltahun() {

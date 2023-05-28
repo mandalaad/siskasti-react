@@ -6,16 +6,16 @@ import {AiOutlineDollarCircle, AiOutlineHome, AiOutlineRight} from 'react-icons/
 
 import './style.css'
 import { Link } from 'react-router-dom'
-function Dashboardutama() {
+function Dashboardadmin() {
   return (
     <body>
       <div className='container-dashboard'>
         <div className='dashboard-content'>
           <div className='sub-navbar'>
             <div>
-              <h3 style={{color:'white'}}>DASHBOARD</h3>
+              <h3 style={{color:'black'}}>DASHBOARD</h3>
             </div>
-            <div className='sub-navbtn d-flex' style={{color:'white'}}>
+            <div className='sub-navbtn d-flex' style={{color:'Black'}}>
               <i><AiOutlineHome style={{fontSize:'1.5rem'}}/></i>
               <p className='mt-1 mx-1'>Home</p>
               <i><AiOutlineRight className='mt-1'/></i>
@@ -24,7 +24,7 @@ function Dashboardutama() {
           </div>
           <div className='upside-content d-flex'>
             <i><MdAccountCircle style={{fontSize:'1.5rem'}}/></i>
-            <h6 className='mt-1' id='selamatdatang' style={{marginLeft:'10px'}}>Selamat Datang Tri!</h6>
+            <h6 className='mt-1' id='selamatdatang' style={{marginLeft:'10px'}}>Selamat Datang El Pardo!</h6>
           </div>
           <div className='midleside-content'>
             <Row>
@@ -40,7 +40,7 @@ function Dashboardutama() {
                       </div>
                     </div>
                     <div className='logo-kartu'>
-                        <i><MdOutlineSettingsInputComposite style={{color:'white', fontSize:'1.5rem'}}/></i>
+                        <i><MdOutlineSettingsInputComposite style={{color:'grey', fontSize:'1.5rem'}}/></i>
                     </div>
                   </div>
                 </Link>
@@ -57,7 +57,7 @@ function Dashboardutama() {
                       </div>
                     </div>
                     <div className='logo-kartu'>
-                        <i><VscOutput style={{color:'white', fontSize:'1.5rem'}}/></i>
+                        <i><VscOutput style={{color:'grey', fontSize:'1.5rem'}}/></i>
                     </div>
                   </div>
                 </Link>
@@ -73,7 +73,7 @@ function Dashboardutama() {
                     </div>
                   </div>
                   <div className='logo-kartu'>
-                      <i><AiOutlineDollarCircle style={{color:'white', fontSize:'1.5rem'}}/></i>
+                      <i><AiOutlineDollarCircle style={{color:'grey', fontSize:'1.5rem'}}/></i>
                   </div>
                 </div>
               </Col>
@@ -88,7 +88,7 @@ function Dashboardutama() {
                     </div>
                   </div>
                   <div className='logo-kartu'>
-                      <i><MdSupervisorAccount style={{color:'white', fontSize:'1.5rem'}}/></i>
+                      <i><MdSupervisorAccount style={{color:'grey', fontSize:'1.5rem'}}/></i>
                   </div>
                 </div>
               </Col>
@@ -101,4 +101,4 @@ function Dashboardutama() {
   )
 }
 
-export default Dashboardutama
+export default Dashboardadmin
