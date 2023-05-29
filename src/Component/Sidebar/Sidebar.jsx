@@ -24,6 +24,7 @@ function Sidebar() {
   }
   return (
     <body>
+      <nav>
       <div className='sidebar'>
         <div className='content-sidebar'>
           <NavLink style={navLinkStyles} to='/dashboard' className='sidebar-link'>
@@ -124,6 +125,8 @@ function Sidebar() {
             </NavLink>
           </div>
       </div>
+      </nav>
+      
     </body>
     
   );

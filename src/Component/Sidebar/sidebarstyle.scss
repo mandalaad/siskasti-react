@@ -51,6 +51,7 @@ body {
     }
     p {
         margin-top: 5px;
+        color: white;
     }
 }
 
@@ -58,6 +59,9 @@ body {
     text-decoration: none;
 }
 
+// nav a.active {
+//     background-color: orange;
+// }
 @media screen and (max-width:1024px) {
     .sidebar {
         // display: none;
