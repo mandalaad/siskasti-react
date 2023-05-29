@@ -28,7 +28,7 @@ function LPmingguan() {
                                         <tr>
                                             <th>No</th>
                                             <th>Jabatan</th>
-                                            <th>Bulan</th>
+                                            <th>Tgl/Minggu</th>
                                             <th>Keterangan</th>
                                             <th>Jumlah</th>
                                         </tr>
