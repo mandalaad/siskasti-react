@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import {   Route, Routes } from 'react-router-dom';
+import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Pages/Login';
 import Dashboardutama from './Pages/Dashboard-utama/index';
@@ -14,6 +15,7 @@ import Ltahun from './Pages/laporantahunan/Ltahun';
 import Lpengeluaranmingguan from './Pages/Lpengeluaran-mingguan/Lpengeluaranmingguan';
 import Lpengeluaranbulanan from './Pages/Lpengeluaran-bulanan/Lpengeluaranbulanan';
 import Lpengeluarantahunan from './Pages/Lpengeluaran-tahunan/Lpengeluarantahunan';
+import KaryawanTransaksi from './Pages/karyawan-transaksi/KaryawanTransaksi';
 function App() {
   return (
     <>
@@ -32,6 +34,7 @@ function App() {
       <Route path='/laporan' Component={Laporan}/>
       <Route path='/manajemen-user' Component={Manajemen}/>
       <Route path='/ubah-password' Component={Ubahpassword}/>
+      <Route path='/pembayaran' Component={KaryawanTransaksi}/>
     </Routes>
     </>
   );

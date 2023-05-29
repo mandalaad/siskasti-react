@@ -29,13 +29,13 @@ function Sidebar() {
                     </div>
                 </div>
             </Link>
-            <Link to="/pengeluaran" className='sidebar-link'>
+            <Link to="/pembayaran" className='sidebar-link'>
               <div className='menu-sidebar d-flex'>
                 <div className='logo'>
                   <i><MdPayment style={style1}/></i>
                 </div>
                 <div className='menu1'>
-                  <Link to="/pengeluaran" className='link-menu'>Pembayaran</Link>
+                  <Link to="/pembayaran" className='link-menu'>Pembayaran</Link>
                 </div>
               </div>
             </Link>
