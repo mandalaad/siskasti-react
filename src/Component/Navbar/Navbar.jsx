@@ -2,14 +2,16 @@ import React from 'react'
 import './navstyle.css'
 import { NavDropdown, Navbar } from 'react-bootstrap'
 import {MdOutlineAccountCircle} from 'react-icons/md'
-
+import logo from '../../Asset/img/logo-siskasti.png'
 const style1 = {fontSize: "1.5em" }
 function Navbarr() {
   return (
     <body>
       <Navbar className='custom-navbar fixed-top'>
         <div className='left-side'>
-          <h3>SISKASTI</h3>
+          
+            <img src={logo} alt="" />
+            <h3>SISKASTI</h3>
         </div>
         <div className='right-side d-flex'>
             <NavDropdown className='dropdown mt-1' title="" id="basic-nav-dropdown">

@@ -1,16 +1,20 @@
 .custom-navbar {
   background-color: #00AB4E;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  height: 60px;
+  height: 80px;
   z-index: 1;
   display: flex;
   justify-content: space-between;
 }
 .custom-navbar .left-side {
   margin-left: 20px;
+  display: flex;
 }
 .custom-navbar .left-side h3 {
-  color: white;
+  color: #C7F14F;
+  margin-top: 20px;
+  margin-left: 10px;
+  font-weight: 700;
 }
 .custom-navbar .right-side {
   margin-right: 20px;

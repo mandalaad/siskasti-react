@@ -42,13 +42,16 @@ body {
 .butonn {
     text-align: left;
     font-size: 12px;
-    padding: 0;
-    padding-left: 5px;
     width: 160px;
     color: white;
     display: flex;
     i {
         margin-right: 25px;
+        margin-top: 2px;
+    }
+    p {
+        margin-top: 5px;
+        color: white;
     }
 }
 
@@ -56,6 +59,9 @@ body {
     text-decoration: none;
 }
 
+// nav a.active {
+//     background-color: orange;
+// }
 @media screen and (max-width:1024px) {
     .sidebar {
         // display: none;
