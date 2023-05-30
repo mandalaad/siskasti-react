@@ -17,6 +17,7 @@ import Lpengeluaranbulanan from './Pages/Lpengeluaran-bulanan/Lpengeluaranbulana
 import Lpengeluarantahunan from './Pages/Lpengeluaran-tahunan/Lpengeluarantahunan';
 import KaryawanTransaksi from './Pages/karyawan-transaksi/KaryawanTransaksi';
 import KaryawanHistory from './Pages/karyawan-history/KaryawanHistory';
+import Income from './Pages/income/Income'
 function App() {
   return (
     <>
@@ -37,6 +38,7 @@ function App() {
       <Route path='/ubah-password' Component={Ubahpassword}/>
       <Route path='/pembayaran' Component={KaryawanTransaksi}/>
       <Route path='/history' Component={KaryawanHistory}/>
+      <Route path='/income' Component={Income}/>
     </Routes>
     </>
   );

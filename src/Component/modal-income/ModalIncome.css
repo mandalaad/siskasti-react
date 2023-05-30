@@ -1,0 +1,17 @@
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.field input {
+  width: 220px;
+  height: 30px;
+}
+.field select {
+  width: 220px;
+  height: 30px;
+}
+
+button {
+  width: 130px;
+}/*# sourceMappingURL=ModalIncome.css.map */
