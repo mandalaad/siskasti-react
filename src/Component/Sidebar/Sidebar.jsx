@@ -37,14 +37,17 @@ function Sidebar() {
                     <Link to="/dashboard" className='link-menu'>Dashboard</Link>
                     </div>
                 </div>
-            </Link>
-            <Link to="/pembayaran" className='sidebar-link'>
-              <div className='menu-sidebar d-flex'>
-                <div className='logo'>
-                  <i><MdPayment style={style1}/></i>
-                </div>
-                <div className='menu1'>
-                  <Link to="/pembayaran" className='link-menu'>Pembayaran</Link>
+            {/* </Link> */}
+          </NavLink>
+
+          <NavLink style={navLinkStyles} to='/pembayaran' className='sidebar-link'>
+                <div className='menu-sidebar d-flex'>
+                  <div className='logo'>
+                    <i><MdPayment style={style1}/></i>
+                  </div>
+                  <div className='menu1'>
+                    <Link to="/pembayaran" className='link-menu'>Pembayaran</Link>
+                  </div>
                 </div>
           </NavLink>
             
