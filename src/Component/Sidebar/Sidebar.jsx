@@ -71,7 +71,7 @@ function Sidebar() {
                           <i><HiOutlineLogin style={style1}/></i>
                         </div>
                         <div className='menu1'>
-                          <Link to="/laporan-penerimaan" className='link-menu'>Penerimaan</Link>
+                          <Link to="/laporan-penerimaan" className='link-menu'>Income</Link>
                         </div>
                       </div>
                     </NavLink>

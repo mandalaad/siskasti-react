@@ -24,7 +24,7 @@ function Login() {
         e.preventDefault();
         const username = e.target.elements.username.value;
         const password = e.target.elements.password.value;
-      
+        const passalert = document.getElementById('pw-alert');
         try {
           const response = await axios.post('http://172.168.101.200:8080/api/auth/login', { username, password });
           // Handle the successful login response here
@@ -33,6 +33,9 @@ function Login() {
         } catch (error) {
           // Handle any error that occurred during login
           console.error(error);
+          //pass alert
+          passalert.style.display = 'block';
+
         }
       };
     //   if(username === 'Admin'){
@@ -61,7 +64,11 @@ function Login() {
                         <div className='password'>
                             <label htmlFor="password" aria-required>Password</label>
                         </div>
-                        <div> <input type="password" name='password' placeholder='Password'/>
+                        <div> 
+                            <input type="password" name='password' placeholder='Password'/>
+                        </div>
+                        <div id='pw-alert' className='mt-2 pass-alert'>
+                            <p style={{color:'red'}}>Akun atau password salah</p>
                         </div>
                         {/* <Link to='/dashboard'> */}
                             <button type='submit' onSubmit={handleLogin} className='mt-4'><h1>Login</h1></button>
