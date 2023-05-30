@@ -16,6 +16,7 @@ import Lpengeluaranmingguan from './Pages/Lpengeluaran-mingguan/Lpengeluaranming
 import Lpengeluaranbulanan from './Pages/Lpengeluaran-bulanan/Lpengeluaranbulanan';
 import Lpengeluarantahunan from './Pages/Lpengeluaran-tahunan/Lpengeluarantahunan';
 import KaryawanTransaksi from './Pages/karyawan-transaksi/KaryawanTransaksi';
+import KaryawanHistory from './Pages/karyawan-history/KaryawanHistory';
 function App() {
   return (
     <>
@@ -35,6 +36,7 @@ function App() {
       <Route path='/manajemen-user' Component={Manajemen}/>
       <Route path='/ubah-password' Component={Ubahpassword}/>
       <Route path='/pembayaran' Component={KaryawanTransaksi}/>
+      <Route path='/history' Component={KaryawanHistory}/>
     </Routes>
     </>
   );
