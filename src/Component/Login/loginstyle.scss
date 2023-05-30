@@ -84,7 +84,7 @@
     padding-left: 5px;
 }
 
-button {
+.button-login {
     margin-top: 5px;
     width: 388px;
     height: 36px;
@@ -93,14 +93,14 @@ button {
     border: none;
 }
 
-button h1 {
+.button-login h1 {
     font-weight: 400;
     font-size: 16px;
     margin: auto;
     color: #FFFFFF;
 }
 
-button:hover {
+.button-login:hover {
     background-color: orange;
     transition: .2s;
 }

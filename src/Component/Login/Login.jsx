@@ -71,7 +71,7 @@ function Login() {
                             <p style={{color:'red'}}>Akun atau password salah</p>
                         </div>
                         {/* <Link to='/dashboard'> */}
-                            <button type='submit' onSubmit={handleLogin} className='mt-4'><h1>Login</h1></button>
+                            <button type='submit' onSubmit={handleLogin} className='button-login mt-4'><h1>Login</h1></button>
                         {/* </Link> */}
                     </form>
                 </div>
