@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import { Table } from "react-bootstrap"
-import './TransaksiIncome.css'
+import './spendingstyle.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import MyVerticallyCenteredModal from '../modal-income/ModalIncome'
+import MyVerticallyCenteredSpendingModal from '../Modal-spending/Modalspending'
 
 
-function TransaksiIncome() {
+function TransaksiSpending() {
   //   const [data, setData] = useState([]);
 
   //   useEffect(() => {
@@ -97,66 +97,66 @@ function TransaksiIncome() {
     </div> */}
     <div className="content">
       <div className="tabel-income">
-        <h3>Income</h3>
-        <div className="content1 mt-4">
-          <div className="tanggal">
-            <div className="date">
-              <DatePicker
-                  dateFormat="MM yyyy"
-                  showMonthYearPicker
-                  selected={selectedDate}
-                  onChange={handleChange}
-                  placeholderText="Tanggal"
-              />
-            </div>
-            <div className="buton">
-            <button onClick={() => setModalShow(true)}>Tambah</button>
-            </div>
-            <MyVerticallyCenteredModal
-              show={modalShow}
-              onHide={() => setModalShow(false)}
+      <h3>Spending</h3>
+      <div className="content1 mt-4">
+        <div className="tanggal">
+          <div className="date">
+            <DatePicker
+                dateFormat="MM yyyy"
+                showMonthYearPicker
+                selected={selectedDate}
+                onChange={handleChange}
+                placeholderText="Tanggal"
             />
           </div>
           <div className="buton">
-            <button>print</button>
+          <button onClick={() => setModalShow(true)}>Tambah</button>
           </div>
+          <MyVerticallyCenteredSpendingModal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
         </div>
-        <div className="table-responsive">
-            <Table className="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
-                <thead>
-                    <tr>
-                    <th>No</th>
-                    <th>Tanggal</th>
-                    <th>Nama</th>
-                    <th>NIK</th>
-                    <th>Grade</th>
-                    <th>Nominal</th>
-                    <th>Unit Kerja</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  {limitedData.map((item, index) => (
-                    <tr key={index}>
-                      <td>{item.no}</td>
-                      <td>{item.tanggal}</td>
-                      <td>{item.nama}</td>
-                      <td>{item.nik}</td>
-                      <td>{item.grade}</td>
-                      <td>{item.nominal}</td>
-                      <td>{item.unit}</td>
-                    </tr>
-                  ))}
-                </tbody>
-            </Table>
-              <div className="buton">
-                <button onClick={prevPage}>Sebelumnya</button>
-                <button onClick={nextPage}>Berikutnya</button>
-              </div>
+        <div className="buton">
+          <button>print</button>
         </div>
+      </div>
+      <div className="table-responsive">
+          <Table className="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
+              <thead>
+                  <tr>
+                  <th>No</th>
+                  <th>Tanggal</th>
+                  <th>Nama</th>
+                  <th>NIK</th>
+                  <th>Grade</th>
+                  <th>Nominal</th>
+                  <th>Unit Kerja</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {limitedData.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.no}</td>
+                    <td>{item.tanggal}</td>
+                    <td>{item.nama}</td>
+                    <td>{item.nik}</td>
+                    <td>{item.grade}</td>
+                    <td>{item.nominal}</td>
+                    <td>{item.unit}</td>
+                  </tr>
+                ))}
+              </tbody>
+          </Table>
+            <div className="buton">
+              <button onClick={prevPage}>Sebelumnya</button>
+              <button onClick={nextPage}>Berikutnya</button>
+            </div>
+      </div>
       </div>
     </div>
     </>
   )
 }
 
-export default TransaksiIncome
+export default TransaksiSpending

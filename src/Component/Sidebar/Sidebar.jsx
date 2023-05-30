@@ -65,23 +65,23 @@ function Sidebar() {
                 </Button>
                 <Collapse in={open}>
                   <div id="example-collapse-text">
-                    <NavLink style={navLinkStyles} to='/laporan-penerimaan'>
+                    <NavLink style={navLinkStyles} to='/Income'>
                       <div className='menu-sidebar d-flex'>
                         <div className='logo'>
                           <i><HiOutlineLogin style={style1}/></i>
                         </div>
                         <div className='menu1'>
-                          <Link to="/laporan-penerimaan" className='link-menu'>Income</Link>
+                          <Link to="/Income" className='link-menu'>Income</Link>
                         </div>
                       </div>
                     </NavLink>
-                    <NavLink style={navLinkStyles} to='/laporan-pengeluaran-mingguan'>
+                    <NavLink style={navLinkStyles} to='/Pengeluaran'>
                       <div className='menu-sidebar d-flex'>
                         <div className='logo'>
                           <i><HiOutlineLogout style={style1}/></i>
                         </div>
                         <div className='menu1'>
-                          <Link to="/laporan-pengeluaran-mingguan" className='link-menu'>Pengeluaran</Link>
+                          <Link to="/spending" className='link-menu'>Spending</Link>
                         </div>
                       </div>
                     </NavLink>
