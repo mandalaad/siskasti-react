@@ -17,6 +17,9 @@
 }
 .tabel-income .buton button {
   width: 120px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #C7F14F;
 }
 .tabel-income .content1 {
   padding: 0;

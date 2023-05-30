@@ -108,13 +108,15 @@ function TransaksiIncome() {
                 onChange={handleChange}
             />
           </div>
+          <div className="buton">
           <button onClick={() => setModalShow(true)}>Tambah</button>
+          </div>
           <MyVerticallyCenteredModal
             show={modalShow}
             onHide={() => setModalShow(false)}
           />
         </div>
-        <div className="print">
+        <div className="buton">
           <button>print</button>
         </div>
       </div>
