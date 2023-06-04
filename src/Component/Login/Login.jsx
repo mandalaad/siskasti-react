@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import logo from '../../Asset/img/Mockup- SISKASTI 5.0.png'
 import './loginstyle.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import backgroundlogin from '../../Asset/img/Abstract-Green-Wave-PNG-File.png'
 
@@ -19,8 +19,14 @@ function Login() {
     //         console.log(error);
     //       });
     // }
+
+    const [isClicked, setIsClicked] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const handleLogin = async (e) => {
+        if (!isClicked && !isLoading) {
+        setIsClicked(true);
+        setIsLoading(true);
         e.preventDefault();
         const username = e.target.elements.username.value;
         const password = e.target.elements.password.value;
@@ -36,6 +42,9 @@ function Login() {
           //pass alert
           passalert.style.display = 'block';
 
+        } finally {
+            setIsLoading(false);
+        }
         }
       };
     //   if(username === 'Admin'){
@@ -71,7 +80,7 @@ function Login() {
                             <p style={{color:'red'}}>Akun atau password salah</p>
                         </div>
                         {/* <Link to='/dashboard'> */}
-                            <button type='submit' onSubmit={handleLogin} className='button-login mt-4'><h1>Login</h1></button>
+                            <button type='submit' onSubmit={handleLogin} disabled={isLoading} className='button-login mt-4'><h1>Login</h1></button>
                         {/* </Link> */}
                     </form>
                 </div>
