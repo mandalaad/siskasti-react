@@ -1,0 +1,21 @@
+.content-parameter {
+    background-color: white;
+    height: auto;
+    margin-top: 100px;
+    padding: 30px 50px 20px 40px;
+    margin-left: 200px;
+    .tabel-parameter {
+        margin-top: 30px;
+    }
+    .buton {
+        display: flex;
+        justify-content: end;
+        gap: 20px;
+        button {
+            width: 120px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: white;
+        }
+    }
+}
