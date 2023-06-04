@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {AiOutlineSetting, AiOutlineDashboard} from 'react-icons/ai'
+import {AiOutlineSetting, AiOutlineDashboard, AiOutlineBarChart} from 'react-icons/ai'
 import {AiOutlineShoppingCart, AiFillCaretDown, AiOutlineHistory} from 'react-icons/ai'
 import {HiOutlineLogin} from 'react-icons/hi'
 import {HiOutlineLogout} from 'react-icons/hi'
@@ -15,7 +15,7 @@ const style1 = { color: "white", fontSize: "1.5em" }
 const style2 = { color: "white", fontSize: "1.2em" }
 function Sidebar() {
   const [open, setOpen] = useState(false);
-  
+  const [open2, setOpen2] = useState(false);
   const navLinkStyles = ({isActive}) => {
     return{
       fontWeight: isActive ? 'bold' : 'normal',
@@ -50,12 +50,22 @@ function Sidebar() {
                   </div>
                 </div>
           </NavLink>
-            
-            <Link className='sidebar-link'>
+          <NavLink style={navLinkStyles} to='/history' className='sidebar-link'>
+                <div className='menu-sidebar d-flex'>
+                  <div className='logo'>
+                    <i><AiOutlineHistory style={style1}/></i>
+                  </div>
+                  <div className='menu1'>
+                    <Link to="/history" className='link-menu'>History</Link>
+                  </div>
+                </div>
+            </NavLink>
+
+            <NavLink className='sidebar-link'>
               <>
                 <Button
                   variant='outline'
-                  className='butonn menu-sidebar'
+                  className='button-dropdown menu-sidebar'
                   onClick={() => setOpen(!open)}
                   aria-controls="example-collapse-text"
                   aria-expanded={open}
@@ -85,44 +95,62 @@ function Sidebar() {
                         </div>
                       </div>
                     </NavLink>
+                  </div>
+                </Collapse>
+              </>
+            </NavLink>
+
+            <NavLink className='sidebar-link'>
+              <>
+                <Button
+                  variant='outline'
+                  className='button-dropdown menu-sidebar'
+                  onClick={() => setOpen2(!open2)}
+                  aria-controls="example-collapse-text"
+                  aria-expanded={open}
+                > <i><AiOutlineSetting style={style1}/></i> <p className='link-menu'>Settings</p> <i>
+                  <AiFillCaretDown className='mx-2 mt-1' style={style2}/>
+                </i>
+                </Button>
+                <Collapse in={open2}>
+                  <div id="example-collapse-text">
+                    <NavLink style={navLinkStyles} to='/parameter-super-admin'>
+                      <div className='menu-sidebar d-flex'>
+                        <div className='logo'>
+                          <i><AiOutlineBarChart style={style1}/></i>
+                        </div>
+                        <div className='menu1'>
+                          <Link to="/parameter-super-admin" className='link-menu'>Parameter</Link>
+                        </div>
+                      </div>
+                    </NavLink>
+                    <NavLink style={navLinkStyles} to='/manajemen-user' className='sidebar-link'>
+                          <div className='menu-sidebar d-flex'>
+                            <div className='logo'>
+                              <i><MdManageAccounts style={style1}/></i>
+                            </div>
+                            <div className='menu1'>
+                              <Link to="/manajemen-user" className='link-menu'>Manajemen user</Link>
+                            </div>
+                          </div>
+                    </NavLink>
+            
+                    <NavLink style={navLinkStyles} to='/ubah-password' className='sidebar-link'>
+                        <div className='menu-sidebar d-flex'>
+                          <div className='logo'>
+                            <i><AiOutlineSetting style={style1}/></i>
+                          </div>
+                          <div className='menu1'>
+                            <Link to="/ubah-password" className='link-menu'>Ubah Password</Link>
+                          </div>
+                        </div>
+                    </NavLink>
                    
                   </div>
                 </Collapse>
               </>
-            </Link>
-
-            <NavLink style={navLinkStyles} to='/history' className='sidebar-link'>
-                <div className='menu-sidebar d-flex'>
-                  <div className='logo'>
-                    <i><AiOutlineHistory style={style1}/></i>
-                  </div>
-                  <div className='menu1'>
-                    <Link to="/history" className='link-menu'>History</Link>
-                  </div>
-                </div>
             </NavLink>
             
-            <NavLink style={navLinkStyles} to='/manajemen-user' className='sidebar-link'>
-                <div className='menu-sidebar d-flex'>
-                  <div className='logo'>
-                    <i><MdManageAccounts style={style1}/></i>
-                  </div>
-                  <div className='menu1'>
-                    <Link to="/manajemen-user" className='link-menu'>Manajemen user</Link>
-                  </div>
-                </div>
-            </NavLink>
-            
-            <NavLink style={navLinkStyles} to='/ubah-password' className='sidebar-link'>
-                <div className='menu-sidebar d-flex'>
-                  <div className='logo'>
-                    <i><AiOutlineSetting style={style1}/></i>
-                  </div>
-                  <div className='menu1'>
-                    <Link to="/ubah-password" className='link-menu'>Ubah Password</Link>
-                  </div>
-                </div>
-            </NavLink>
           </div>
       </div>
       </nav>

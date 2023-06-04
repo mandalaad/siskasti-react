@@ -39,18 +39,18 @@ body {
   width: 160px;
 }
 
-.butonn {
+.button-dropdown {
   text-align: left;
   font-size: 12px;
   width: 160px;
   color: white;
   display: flex;
 }
-.butonn i {
+.button-dropdown i {
   margin-right: 25px;
   margin-top: 2px;
 }
-.butonn p {
+.button-dropdown p {
   margin-top: 5px;
   color: white;
 }
