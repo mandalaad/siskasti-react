@@ -10,6 +10,8 @@ import KaryawanTransaksi from './Pages/karyawan-transaksi/KaryawanTransaksi';
 import KaryawanHistory from './Pages/karyawan-history/KaryawanHistory';
 import Income from './Pages/income/Income'
 import Spending from './Pages/Spending/Spending';
+import IncomeSA from './Pages/income-SA/IncomeSA';
+import SAHistory from './Pages/sa-history/SAHistory';
 function App() {
   return (
     <>
@@ -23,6 +25,8 @@ function App() {
       <Route path='/history' Component={KaryawanHistory}/>
       <Route path='/income' Component={Income}/>
       <Route path='/spending' Component={Spending}/>
+      <Route path='/income-sa' Component={IncomeSA}/>
+      <Route path='/history-sa' Component={SAHistory}/>
 
     </Routes>
     </>
