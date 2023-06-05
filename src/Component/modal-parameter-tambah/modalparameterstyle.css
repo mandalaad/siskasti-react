@@ -1,0 +1,11 @@
+.buton {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+.buton button {
+  width: 120px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: white;
+}/*# sourceMappingURL=modalparameterstyle.css.map */

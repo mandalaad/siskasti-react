@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import Tambahmodalparameterr from '../modal-parameter-tambah/tambahmodalparameter';
 import { Table } from 'react-bootstrap'
 import './parameterstyle.css'
 function Parametersuperadmin() {
@@ -35,6 +35,7 @@ function Parametersuperadmin() {
     }
   };
   const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow2, setModalShow2] = React.useState(false);
   return (
     <body>
          <div className='container-parameter'>
@@ -45,6 +46,11 @@ function Parametersuperadmin() {
                 <div className="buton mx-2">
                   <button onClick={() => setModalShow(true)}>Tambah</button>
                 </div>
+                
+                <Tambahmodalparameterr 
+                  show={modalShow}
+                  onHide={() => setModalShow(false)}
+                  />
                 <div className="buton mx-4">
                   <button>Edit</button>
                 </div>
