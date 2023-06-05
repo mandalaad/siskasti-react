@@ -114,13 +114,13 @@ function Sidebar() {
                 </Button>
                 <Collapse in={open2}>
                   <div id="example-collapse-text">
-                    <NavLink style={navLinkStyles} to='/parameter-super-admin'>
+                    <NavLink style={navLinkStyles} to='/parameter'>
                       <div className='menu-sidebar d-flex'>
                         <div className='logo'>
                           <i><AiOutlineBarChart style={style1}/></i>
                         </div>
                         <div className='menu1'>
-                          <Link to="/parameter-super-admin" className='link-menu'>Parameter</Link>
+                          <Link to="/parameter" className='link-menu'>Parameter</Link>
                         </div>
                       </div>
                     </NavLink>
