@@ -4,7 +4,8 @@ import './TransaksiIncome.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import MyVerticallyCenteredModal from '../modal-income/ModalIncome'
-
+import jsPDF from 'jspdf'
+import 'jspdf-autotable'
 
 function TransaksiIncome() {
   //   const [data, setData] = useState([]);
@@ -23,42 +24,88 @@ function TransaksiIncome() {
   //   fetchData();
   // }, []);
 
-  // react-datepicker
-  const [selectedDate, setSelectedDate] = useState(null);
-  const handleChange = date => {
-      setSelectedDate(date);
+  // PAKE INI
+  // const [selectedMonth, setSelectedMonth] = useState(null);
+  // const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+
+  // const fetchData = () => {
+  //   // Ganti URL_API dengan URL API yang sesuai
+  //   fetch('URL_API')
+  //     .then((response) => response.json())
+  //     .then((data) => setData(data))
+  //     .catch((error) => console.log(error));
+  // };
+
+  // const handleMonthChange = (date) => {
+  //   setSelectedMonth(date);
+  // };
+
+  // const handlePrint = () => {
+  //   if (selectedMonth) {
+  //     const filteredData = processData(selectedMonth); // Memproses data sesuai bulan yang dipilih
+
+  //     const doc = new jsPDF();
+  //     doc.text(`Data for ${selectedMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`, 10, 10);
+
+  //     doc.autoTable({
+  //       head: [['ID', 'Nama', 'Usia']],
+  //       body: filteredData.map((item) => [item.id, item.name, item.age])
+  //     });
+
+  //     doc.save('data.pdf');
+  //   }
+  // };
+
+  // const processData = (selectedMonth) => {
+  //   const filteredData = data.filter(
+  //     (item) =>
+  //       new Date(item.date).getMonth() === selectedMonth.getMonth() &&
+  //       new Date(item.date).getFullYear() === selectedMonth.getFullYear()
+  //   );
+  //   return filteredData;
+  // };
+  // SAMPE SINI
+  
+  const [selectedMonth, setSelectedMonth] = useState(null);
+  
+  const handleMonthChange = (date) => {
+    setSelectedMonth(date);
   };
 
-  const data = [
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn' },
-  ];
+  const handlePrint = () => {
+    if (selectedMonth) {
+      const filteredData = processData(selectedMonth); // Memproses data sesuai bulan yang dipilih
 
-  const itemsPerPage = 5; // Jumlah data per halaman
-  const [currentPage, setCurrentPage] = useState(1);
+      const doc = new jsPDF();
+      doc.text(`Data for ${selectedMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`, 10, 10);
 
-  // Menghitung indeks data pertama dan terakhir pada halaman saat ini
-  const lastIndex = currentPage * itemsPerPage;
-  const firstIndex = lastIndex - itemsPerPage;
-  const limitedData = data.slice(firstIndex, lastIndex);
+      doc.autoTable({
+        head: [['ID', 'Nama', 'Usia']],
+        body: filteredData.map((item) => [item.id, item.name, item.age])
+      });
 
-  // Mengubah halaman saat tombol ditekan
-  const nextPage = () => {
-    if (currentPage < Math.ceil(data.length / itemsPerPage)) {
-      setCurrentPage(currentPage + 1);
+      doc.save('data.pdf');
     }
   };
 
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
+  const processData = (selectedMonth) => {
+    // Contoh data tabel
+    const data = [
+      { id: 1, name: 'John Doe', age: 30, date: new Date('2023-01-10'), tanggal:+'date' },
+      { id: 2, name: 'Jane Smith', age: 25, date: new Date('2023-02-15') },
+      { id: 3, name: 'Bob Johnson', age: 35, date: new Date('2023-02-20') }
+    ];
+
+    const filteredData = data.filter(
+      (item) =>
+        item.date.getMonth() === selectedMonth.getMonth() &&
+        item.date.getFullYear() === selectedMonth.getFullYear()
+    );
+    return filteredData;
   };
 
   
@@ -102,11 +149,10 @@ function TransaksiIncome() {
           <div className="tanggal">
             <div className="date">
               <DatePicker
-                  dateFormat="MM yyyy"
-                  showMonthYearPicker
-                  selected={selectedDate}
-                  onChange={handleChange}
-                  placeholderText="Tanggal"
+                selected={selectedMonth}
+                onChange={handleMonthChange}
+                dateFormat="MM/yyyy"
+                showMonthYearPicker
               />
             </div>
             <div className="buton">
@@ -118,41 +164,31 @@ function TransaksiIncome() {
             />
           </div>
           <div className="buton">
-            <button>print</button>
+            <button onClick={handlePrint} disabled={!selectedMonth}>print</button>
           </div>
         </div>
-        <div className="table-responsive">
-            <Table className="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
-                <thead>
-                    <tr>
-                    <th>No</th>
-                    <th>Tanggal</th>
-                    <th>Nama</th>
-                    <th>NIK</th>
-                    <th>Grade</th>
-                    <th>Nominal</th>
-                    <th>Unit Kerja</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  {limitedData.map((item, index) => (
-                    <tr key={index}>
-                      <td>{item.no}</td>
-                      <td>{item.tanggal}</td>
-                      <td>{item.nama}</td>
-                      <td>{item.nik}</td>
-                      <td>{item.grade}</td>
-                      <td>{item.nominal}</td>
-                      <td>{item.unit}</td>
-                    </tr>
-                  ))}
-                </tbody>
-            </Table>
-              <div className="buton">
-                <button onClick={prevPage}>Sebelumnya</button>
-                <button onClick={nextPage}>Berikutnya</button>
-              </div>
-        </div>
+        {selectedMonth && (
+          <div className="table-responsive">
+          <Table className="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Usia</th>
+            </tr>
+          </thead>
+          <tbody>
+            {processData(selectedMonth).map((item) => (
+              <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>{item.name}</td>
+                <td>{item.age}</td>
+              </tr>
+            ))}
+          </tbody>
+          </Table>
+      </div>
+      )}  
       </div>
     </div>
     </>
