@@ -85,7 +85,7 @@ function Sidebar() {
                         </div>
                       </div>
                     </NavLink>
-                    <NavLink style={navLinkStyles} to='/Pengeluaran'>
+                    <NavLink style={navLinkStyles} to='/spending'>
                       <div className='menu-sidebar d-flex'>
                         <div className='logo'>
                           <i><HiOutlineLogout style={style1}/></i>

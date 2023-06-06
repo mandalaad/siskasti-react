@@ -1,0 +1,39 @@
+.custom-navbar {
+    background-color: #00AB4E;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+    height: 80px;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    .left-side {
+        margin-left: 20px;
+        display: flex;
+        h3 {
+            color: #C7F14F;
+            margin-top: 20px;
+            margin-left: 10px;
+            font-weight: 700;
+        }
+    }
+    .right-side {
+        margin-right: 20px;
+        .nama-dropdown {
+            .nama-akun {
+                cursor: pointer;
+                h6 {
+                    margin-top: 2px;
+                }
+            }
+            .content-drop {
+                background-color: white;
+                box-sizing: border-box;
+                box-shadow: 1px 1px 1px 1px;
+                border-radius: 20px;
+                width: 100px;
+                padding: 10px;
+                position: absolute;
+                display: none;
+            }
+        }
+    }
+}
