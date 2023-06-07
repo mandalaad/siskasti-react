@@ -25,7 +25,7 @@ function Sidebar() {
   return (
     <body>
       <nav>
-      <div className='sidebar'>
+      <div className='sidebar scrol'>
         <div className='content-sidebar'>
           <NavLink style={navLinkStyles} to='/dashboard' className='sidebar-link'>
             {/* <Link to="/dashboard" className='sidebar-link'> */}
