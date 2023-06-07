@@ -1,41 +1,63 @@
-.tabel-income {
+.tabel-income-admin {
   background-color: white;
   height: auto;
   margin-top: 10px;
   padding: 30px 50px 20px 40px;
 }
-.tabel-income .card-body {
+.tabel-income-admin .card-body {
   margin-left: 200px;
 }
-.tabel-income .card-body .table-responsive {
+.tabel-income-admin .card-body .table-responsive {
   margin-top: 30px;
 }
-.tabel-income .buton {
+.tabel-income-admin .buton {
   display: flex;
-  justify-content: end;
+  justify-content: start;
+  margin-bottom: 20px;
   gap: 20px;
 }
-.tabel-income .buton button {
-  width: 120px;
-  height: 40px;
+.tabel-income-admin .buton button {
+  width: 150px;
+  height: 35x;
   border-radius: 20px;
-  background-color: #C7F14F;
 }
-.tabel-income .content1 {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 30px;
+.tabel-income-admin .buton-fungsi {
+  width: 70px;
+  margin-right: 20px;
+  box-sizing: border-box;
+}
+
+.modal .field {
   display: flex;
   justify-content: space-between;
 }
-.tabel-income .content1 .tanggal {
+.modal .field p {
+  line-height: 40px;
+  font-weight: 700;
+  font-size: 20px;
+}
+.modal .field input, .modal .field select {
+  height: 40px;
+  width: 250px;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+.modal .buton {
+  justify-content: end;
   display: flex;
 }
-.tabel-income .content1 .tanggal .date {
-  width: 130px;
+.modal .buton button {
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  font-weight: 700;
 }
-.tabel-income .content1 .tanggal .date input {
-  width: 120px;
-  padding-left: 10px;
-  line-height: 40px;
+.modal .buton-save {
+  display: flex;
+  justify-content: space-between;
+}
+.modal .buton-save button {
+  width: 200px;
+  height: 35px;
+  border-radius: 20px;
 }/*# sourceMappingURL=TransaksiIncome.css.map */
