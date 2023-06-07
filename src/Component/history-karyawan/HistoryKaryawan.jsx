@@ -5,21 +5,21 @@ import { Table } from "react-bootstrap"
 import './HistoryKaryawan.css'
 
 function HistoryKaryawan() {
-  //   const [data, setData] = useState([]);
 
-  //   useEffect(() => {
-  //   // Fungsi untuk mendapatkan data dari API
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('URL_API_ANDA');
-  //       setData(response.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
+    // const [data, setData] = useState([]);
+  
+    // useEffect(() => {
+    //   fetchData();
+    // }, []);
+  
+    // const fetchData = async () => {
+    //   try {
+    //     const response = await axios.get('URL_API_ANDA');
+    //     setData(response.data);
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // };
 
   const data = [
     { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn' },
