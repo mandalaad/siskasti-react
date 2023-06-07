@@ -97,7 +97,7 @@ function TransaksiIncome() {
     </div> */}
     <div className="content">
       <div className="tabel-income">
-        <h3>Income</h3>
+        <h3>Pendapatan Admin</h3>
         <div className="content1 mt-4">
           <div className="tanggal">
             <div className="date">

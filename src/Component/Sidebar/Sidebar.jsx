@@ -50,13 +50,13 @@ function Sidebar() {
                   </div>
                 </div>
           </NavLink>
-          <NavLink style={navLinkStyles} to='/history' className='sidebar-link'>
+          <NavLink style={navLinkStyles} to='/history-sa' className='sidebar-link'>
                 <div className='menu-sidebar d-flex'>
                   <div className='logo'>
                     <i><AiOutlineHistory style={style1}/></i>
                   </div>
                   <div className='menu1'>
-                    <Link to="/history" className='link-menu'>History</Link>
+                    <Link to="/history-sa" className='link-menu'>Histori</Link>
                   </div>
                 </div>
             </NavLink>
@@ -69,7 +69,7 @@ function Sidebar() {
                   onClick={() => setOpen(!open)}
                   aria-controls="example-collapse-text"
                   aria-expanded={open}
-                > <i><AiOutlineShoppingCart style={style1}/></i> <p className='link-menu'>Transaction</p> <i>
+                > <i><AiOutlineShoppingCart style={style1}/></i> <p className='link-menu'>Transaksi</p> <i>
                   <AiFillCaretDown className='mx-2 mt-1' style={style2}/>
                 </i>
                 </Button>
@@ -81,7 +81,17 @@ function Sidebar() {
                           <i><HiOutlineLogin style={style1}/></i>
                         </div>
                         <div className='menu1'>
-                          <Link to="/Income" className='link-menu'>Income</Link>
+                          <Link to="/Income" className='link-menu'>Pendapatan admin</Link>
+                        </div>
+                      </div>
+                    </NavLink>
+                    <NavLink style={navLinkStyles} to='/Income-sa'>
+                      <div className='menu-sidebar d-flex'>
+                        <div className='logo'>
+                          <i><HiOutlineLogin style={style1}/></i>
+                        </div>
+                        <div className='menu1'>
+                          <Link to="/Income" className='link-menu'>Pendapatan SA</Link>
                         </div>
                       </div>
                     </NavLink>
@@ -91,7 +101,17 @@ function Sidebar() {
                           <i><HiOutlineLogout style={style1}/></i>
                         </div>
                         <div className='menu1'>
-                          <Link to="/spending" className='link-menu'>Spending</Link>
+                          <Link to="/spending" className='link-menu'>Pengeluaram Admin</Link>
+                        </div>
+                      </div>
+                    </NavLink>
+                    <NavLink style={navLinkStyles} to='/spending-sa'>
+                      <div className='menu-sidebar d-flex'>
+                        <div className='logo'>
+                          <i><HiOutlineLogout style={style1}/></i>
+                        </div>
+                        <div className='menu1'>
+                          <Link to="/spending-sa" className='link-menu'>Pengeluaram SA</Link>
                         </div>
                       </div>
                     </NavLink>
