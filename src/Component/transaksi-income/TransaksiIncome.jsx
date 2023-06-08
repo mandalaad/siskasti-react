@@ -3,7 +3,7 @@ import { Modal, Table } from "react-bootstrap"
 import './TransaksiIncome.css'
 
 
-function TransaksiIncome() {
+function TransaksiIncome2() {
 
   const [dataa, setData] = useState([]);
   const [nama, setNama] = useState('');
@@ -300,4 +300,4 @@ const data = [
   )
 }
 
-export default TransaksiIncome
+export default TransaksiIncome2
