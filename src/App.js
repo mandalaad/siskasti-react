@@ -13,6 +13,7 @@ import Spending from './Pages/Spending/Spending';
 import IncomeSA from './Pages/income-SA/IncomeSA';
 import SAHistory from './Pages/sa-history/SAHistory';
 import Parameter from './Pages/parameter-super-admin/Parameter';
+import SpendingSA from './Pages/spending-SA/spendingSA';
 function App() {
   return (
     <>
@@ -29,7 +30,7 @@ function App() {
       <Route path='/income-sa' Component={IncomeSA}/>
       <Route path='/history-sa' Component={SAHistory}/>
       <Route path='/parameter' Component={Parameter}/>
-
+      <Route path='/spending-sa' Component={SpendingSA}/>
     </Routes>
     </>
   );
