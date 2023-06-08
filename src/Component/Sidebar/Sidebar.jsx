@@ -3,19 +3,20 @@ import {AiOutlineSetting, AiOutlineDashboard, AiOutlineBarChart} from 'react-ico
 import {AiOutlineShoppingCart, AiFillCaretDown, AiOutlineHistory} from 'react-icons/ai'
 import {HiOutlineLogin} from 'react-icons/hi'
 import {HiOutlineLogout} from 'react-icons/hi'
-import {MdManageAccounts} from 'react-icons/md'
+import {MdManageAccounts, MdOutlineHistoryEdu, MdOutlineWorkHistory} from 'react-icons/md'
 import {MdPayment} from 'react-icons/md'
 import { Link, NavLink } from 'react-router-dom'
 import '../Sidebar/sidebarstyle.css'
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
-
+import {RiFileHistoryLine} from 'react-icons/ri'
 
 const style1 = { color: "white", fontSize: "1.5em" }
 const style2 = { color: "white", fontSize: "1.2em" }
 function Sidebar() {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
+  const [open3, setOpen3] = useState(false);
   const navLinkStyles = ({isActive}) => {
     return{
       fontWeight: isActive ? 'bold' : 'normal',
@@ -50,7 +51,7 @@ function Sidebar() {
                   </div>
                 </div>
           </NavLink>
-          <NavLink style={navLinkStyles} to='/history-sa' className='sidebar-link'>
+          {/* <NavLink style={navLinkStyles} to='/history-sa' className='sidebar-link'>
                 <div className='menu-sidebar d-flex'>
                   <div className='logo'>
                     <i><AiOutlineHistory style={style1}/></i>
@@ -59,6 +60,54 @@ function Sidebar() {
                     <Link to="/history-sa" className='link-menu'>Riwayat</Link>
                   </div>
                 </div>
+            </NavLink> */}
+            <NavLink className='sidebar-link'>
+              <>
+                <Button
+                  variant='outline'
+                  className='button-dropdown menu-sidebar'
+                  onClick={() => setOpen3(!open3)}
+                  aria-controls="example-collapse-text"
+                  aria-expanded={open}
+                > <i><AiOutlineHistory style={style1}/></i> <p className='link-menu'>Riwayat</p> <i>
+                  <AiFillCaretDown className='mx-2 mt-1' style={style2}/>
+                </i>
+                </Button>
+                <Collapse in={open3}>
+                  <div id="example-collapse-text">
+                    <NavLink style={navLinkStyles} to='/history-karyawan'>
+                      <div className='menu-sidebar d-flex'>
+                        <div className='logo'>
+                          <i><MdOutlineWorkHistory style={style1}/></i>
+                        </div>
+                        <div className='menu1'>
+                          <Link to="/history-karyawan" className='link-menu'>Riwayat Transaksi Karyawan</Link>
+                        </div>
+                      </div>
+                    </NavLink>
+                    <NavLink style={navLinkStyles} to='/history-pemasukan'>
+                      <div className='menu-sidebar d-flex'>
+                        <div className='logo'>
+                          <i><RiFileHistoryLine style={style1}/></i>
+                        </div>
+                        <div className='menu1'>
+                          <Link to="/history-pemasukan" className='link-menu'>Riwayat Pemasukan</Link>
+                        </div>
+                      </div>
+                    </NavLink>
+                    <NavLink style={navLinkStyles} to='/history-pengeluaran'>
+                      <div className='menu-sidebar d-flex'>
+                        <div className='logo'>
+                          <i><MdOutlineHistoryEdu style={style1}/></i>
+                        </div>
+                        <div className='menu1'>
+                          <Link to="/history-pengeluaran" className='link-menu'>Riwayat Pengeluaran</Link>
+                        </div>
+                      </div>
+                    </NavLink>
+                  </div>
+                </Collapse>
+              </>
             </NavLink>
 
             <NavLink className='sidebar-link'>

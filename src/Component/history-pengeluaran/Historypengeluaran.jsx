@@ -1,13 +1,13 @@
 import React, { useState } from "react"
 import { Table } from "react-bootstrap"
-import './historysa2style.css'
+import './historypengeluaran.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import MyVerticallyCenteredModal from '../modal-income/ModalIncome'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
 
-function History2() {
+function Historypengeluaran() {
   //   const [data, setData] = useState([]);
 
   //   useEffect(() => {
@@ -97,7 +97,15 @@ function History2() {
     const data = [
       { id: 1, name: 'John Doe', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-01-10'), tanggal:+'date', },
       { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
-      { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  }
+      { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
+      { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
+      { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
+      { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
+      { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
+      { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
+      { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
+      { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
+      { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
     ];
 
     const filteredData = data.filter(
@@ -144,7 +152,7 @@ function History2() {
     </div> */}
     <div className="content">
       <div className="tabel-income">
-        <h3>Income</h3>
+        <h3>Riwayat Pengeluaran</h3>
         <div className="content1 mt-4">
           <div className="tanggal">
             <div className="date">
@@ -155,13 +163,6 @@ function History2() {
                 showMonthYearPicker
               />
             </div>
-            <div className="buton">
-            <button onClick={() => setModalShow(true)}>Tambah</button>
-            </div>
-            <MyVerticallyCenteredModal
-              show={modalShow}
-              onHide={() => setModalShow(false)}
-            />
           </div>
           <div className="buton">
             <button onClick={handlePrint} disabled={!selectedMonth}>print</button>
@@ -205,4 +206,4 @@ function History2() {
   )
 }
 
-export default History2
+export default Historypengeluaran

@@ -1,27 +1,14 @@
-import React, { useState, Component } from 'react'
-import ReactToPrint from 'react-to-print'
-import {AiOutlinePrinter}from 'react-icons/ai'
-import { Table } from 'react-bootstrap';
+import React, { useState } from "react"
+import { Table } from "react-bootstrap"
 import './historypemasukanstyle.css'
-function Historypemasukan() {
-  // ini buat print 
-    // handlePrint = () => {
-    //     fetch('https://example.com/api/data') // Ganti dengan URL API yang sesuai
-    //       .then((response) => response.json())
-    //       .then((data) => {
-    //         const doc = new jsPDF();
-    //         doc.autoTable({
-    //           head: [['ID', 'Nama', 'Usia']],
-    //           body: data.map((item) => [item.id, item.name, item.age])
-    //         });
-    //         doc.save('tabel.pdf');
-    //       })
-    //       .catch((error) => {
-    //         console.error('Error:', error);
-    //       });
-    //   };
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import MyVerticallyCenteredModal from '../modal-income/ModalIncome'
+import jsPDF from 'jspdf'
+import 'jspdf-autotable'
 
-      //   const [data, setData] = useState([]);
+function Historypemasukan() {
+  //   const [data, setData] = useState([]);
 
   //   useEffect(() => {
   //   // Fungsi untuk mendapatkan data dari API
@@ -37,90 +24,176 @@ function Historypemasukan() {
   //   fetchData();
   // }, []);
 
-  const data = [
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
-  ];
+  // PAKE INI
+  // const [selectedMonth, setSelectedMonth] = useState(null);
+  // const [data, setData] = useState([]);
 
-  const itemsPerPage = 5; // Jumlah data per halaman
-  const [currentPage, setCurrentPage] = useState(1);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
-  // Menghitung indeks data pertama dan terakhir pada halaman saat ini
-  const lastIndex = currentPage * itemsPerPage;
-  const firstIndex = lastIndex - itemsPerPage;
-  const limitedData = data.slice(firstIndex, lastIndex);
+  // const fetchData = () => {
+  //   // Ganti URL_API dengan URL API yang sesuai
+  //   fetch('URL_API')
+  //     .then((response) => response.json())
+  //     .then((data) => setData(data))
+  //     .catch((error) => console.log(error));
+  // };
 
-  // Mengubah halaman saat tombol ditekan
-  const nextPage = () => {
-    if (currentPage < Math.ceil(data.length / itemsPerPage)) {
-      setCurrentPage(currentPage + 1);
+  // const handleMonthChange = (date) => {
+  //   setSelectedMonth(date);
+  // };
+
+  // const handlePrint = () => {
+  //   if (selectedMonth) {
+  //     const filteredData = processData(selectedMonth); // Memproses data sesuai bulan yang dipilih
+
+  //     const doc = new jsPDF();
+  //     doc.text(`Data for ${selectedMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`, 10, 10);
+
+  //     doc.autoTable({
+  //       head: [['ID', 'Nama', 'Usia']],
+  //       body: filteredData.map((item) => [item.id, item.name, item.age])
+  //     });
+
+  //     doc.save('data.pdf');
+  //   }
+  // };
+
+  // const processData = (selectedMonth) => {
+  //   const filteredData = data.filter(
+  //     (item) =>
+  //       new Date(item.date).getMonth() === selectedMonth.getMonth() &&
+  //       new Date(item.date).getFullYear() === selectedMonth.getFullYear()
+  //   );
+  //   return filteredData;
+  // };
+  // SAMPE SINI
+  
+  const [selectedMonth, setSelectedMonth] = useState(null);
+  
+  const handleMonthChange = (date) => {
+    setSelectedMonth(date);
+  };
+
+  const handlePrint = () => {
+    if (selectedMonth) {
+      const filteredData = processData(selectedMonth); // Memproses data sesuai bulan yang dipilih
+
+      const doc = new jsPDF();
+      doc.text(`Data for ${selectedMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`, 10, 10);
+
+      doc.autoTable({
+        head: [['ID', 'Nama', 'Kas Masuk', 'Kas Keluar', 'Nominal', 'keterangan',]],
+        body: filteredData.map((item) => [item.id, item.name, item.kasmasuk, item.kaskeluar, item.nominal, item.keterangan])
+      });
+
+      doc.save('data.pdf');
     }
   };
 
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
+  const processData = (selectedMonth) => {
+    // Contoh data tabel
+    const data = [
+      { id: 1, name: 'John Doe', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-01-10'), tanggal:+'date', },
+      { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
+      { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  }
+    ];
+
+    const filteredData = data.filter(
+      (item) =>
+        item.date.getMonth() === selectedMonth.getMonth() &&
+        item.date.getFullYear() === selectedMonth.getFullYear()
+    );
+    return filteredData;
   };
+
+  
+  const [modalShow, setModalShow] = React.useState(false);
   return (
-    
     <>
-    
+    {/* <div className="content">
+        <div className="history">
+        <table>
+            <thead>
+                <tr>
+                <th>No</th>
+                <th>Tanggal</th>
+                <th>Nama</th>
+                <th>NIK</th>
+                <th>Grade</th>
+                <th>Nominal</th>
+                <th>Unit Kerja</th>
+                </tr>
+            </thead>
+            <tbody>
+                {data.map((item, index) => (
+                <tr key={index}>
+                    <td>{item.no}</td>
+                    <td>{item.tanggal}</td>
+                    <td>{item.nama}</td>
+                    <td>{item.nik}</td>
+                    <td>{item.grade}</td>
+                    <td>{item.nominal}</td>
+                    <td>{item.unit}</td>
+                </tr>
+                ))}
+            </tbody>
+        </table>
+        </div>
+    </div> */}
     <div className="content">
-      <div>
-        <ReactToPrint trigger={()=>{
-          return <button> <i><AiOutlinePrinter/></i> Print</button>
-        }}
-        content={()=>this.componentRef}
-        documentTitle='History'
-        pageStyle="print"  
-        />
-      </div>
-      <div className="tabel-history-sa" ref={el=>(this.componentRef=el)}>
-          <h3>Riwayat</h3>
-            <div className="buton">
-                <button>print</button>
-                {/* <button onClick={this.handlePrint}>print</button> */}
+      <div className="tabel-income">
+        <h3>Riwayat Pemasukan</h3>
+        <div className="content1 mt-4">
+          <div className="tanggal">
+            <div className="date">
+              <DatePicker
+                selected={selectedMonth}
+                onChange={handleMonthChange}
+                dateFormat="MM/yyyy"
+                showMonthYearPicker
+              />
             </div>
-          <div className="table-responsive">
-              <Table className="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
-                  <thead>
-                      <tr>
-                      <th>No</th>
-                      <th>Tanggal</th>
-                      <th>Kas masuk</th>
-                      <th>Kas Keluar</th>
-                      <th>Nominal</th>
-                      <th>Keterangan</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                    {limitedData.map((item, index) => (
-                      <tr key={index}>
-                        <td>{item.no}</td>
-                        <td>{item.tanggal}</td>
-                        <td>{item.kasmasuk}</td>
-                        <td>{item.kaskeluar}</td>
-                        <td>{item.nominal}</td>
-                        <td>{item.keterangan}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-              </Table>
-                <div className="buton">
-                  <button onClick={prevPage}>Sebelumnya</button>
-                  <button onClick={nextPage}>Berikutnya</button>
-                </div>
           </div>
+          <div className="buton">
+            <button onClick={handlePrint} disabled={!selectedMonth}>print</button>
+          </div>
+        </div>
+        {selectedMonth && (
+          <div className="table-responsive">
+          <Table className="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
+          <thead>
+            <tr>
+              <th>no</th>
+              <th>Nama</th>
+              {/* <th>Tanggal</th> */}
+              <th>Kas Masuk</th>
+              <th>Kas Keluar</th>
+              <th>Nominal</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            {processData(selectedMonth).map((item) => (
+              <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>{item.name}</td>
+                {/* <td>{item.date}</td> */}
+                <td>{item.kasmasuk}</td>
+                <td>{item.kaskeluar}</td>
+                <td>{item.nominal}</td>
+                <td>{item.keterangan}</td>
+
+
+              </tr>
+            ))}
+          </tbody>
+          </Table>
+      </div>
+      )}  
       </div>
     </div>
-
     </>
   )
 }
