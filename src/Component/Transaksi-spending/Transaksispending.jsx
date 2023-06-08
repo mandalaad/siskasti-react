@@ -97,7 +97,7 @@ function TransaksiSpending() {
     </div> */}
     <div className="content">
       <div className="tabel-income">
-      <h3>Spending</h3>
+      <h3>Pengeluaran Admin</h3>
       <div className="content1 mt-4">
         <div className="tanggal">
           <div className="date">
@@ -117,9 +117,9 @@ function TransaksiSpending() {
             onHide={() => setModalShow(false)}
           />
         </div>
-        <div className="buton">
+        {/* <div className="buton">
           <button>print</button>
-        </div>
+        </div> */}
       </div>
       <div className="table-responsive">
           <Table className="table table-bordered" id="dataTable" width="100%" cellspacing="0" >

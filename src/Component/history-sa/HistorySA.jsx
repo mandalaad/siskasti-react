@@ -37,14 +37,14 @@ function HistorySA() {
   // }, []);
 
   const data = [
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'babu poj' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'babu poj' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'babu poj' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'babu poj' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'babu poj' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'babu poj' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'babu poj' },
-    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'babu poj' },
+    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
+    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
+    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
+    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
+    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
+    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
+    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
+    { no: '1', tanggal: 25, kasmasuk: 236428746286, kaskeluar:3212387192, nominal:20000, keterangan:'lunas' },
   ];
 
   const itemsPerPage = 5; // Jumlah data per halaman
@@ -98,7 +98,7 @@ function HistorySA() {
     </div> */}
     <div className="content">
       <div className="tabel-history-sa">
-      <h5>History</h5>
+      <h3>Riwayat</h3>
         <div className="buton">
             <button>print</button>
             {/* <button onClick={this.handlePrint}>print</button> */}
