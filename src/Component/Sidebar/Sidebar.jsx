@@ -56,7 +56,7 @@ function Sidebar() {
                     <i><AiOutlineHistory style={style1}/></i>
                   </div>
                   <div className='menu1'>
-                    <Link to="/history-sa" className='link-menu'>Histori</Link>
+                    <Link to="/history-sa" className='link-menu'>Riwayat</Link>
                   </div>
                 </div>
             </NavLink>
@@ -81,7 +81,7 @@ function Sidebar() {
                           <i><HiOutlineLogin style={style1}/></i>
                         </div>
                         <div className='menu1'>
-                          <Link to="/Income" className='link-menu'>Pendapatan admin</Link>
+                          <Link to="/Income" className='link-menu'>Kas Masuk Admin</Link>
                         </div>
                       </div>
                     </NavLink>
@@ -91,7 +91,7 @@ function Sidebar() {
                           <i><HiOutlineLogin style={style1}/></i>
                         </div>
                         <div className='menu1'>
-                          <Link to="/Income" className='link-menu'>Pendapatan SA</Link>
+                          <Link to="/Income" className='link-menu'>Pemasukan SA</Link>
                         </div>
                       </div>
                     </NavLink>
@@ -101,7 +101,7 @@ function Sidebar() {
                           <i><HiOutlineLogout style={style1}/></i>
                         </div>
                         <div className='menu1'>
-                          <Link to="/spending" className='link-menu'>Pengeluaram Admin</Link>
+                          <Link to="/spending" className='link-menu'>Kas Keluar Admin</Link>
                         </div>
                       </div>
                     </NavLink>
@@ -111,7 +111,7 @@ function Sidebar() {
                           <i><HiOutlineLogout style={style1}/></i>
                         </div>
                         <div className='menu1'>
-                          <Link to="/spending-sa" className='link-menu'>Pengeluaram SA</Link>
+                          <Link to="/spending-sa" className='link-menu'>Pengeluaran SA</Link>
                         </div>
                       </div>
                     </NavLink>
@@ -128,7 +128,7 @@ function Sidebar() {
                   onClick={() => setOpen2(!open2)}
                   aria-controls="example-collapse-text"
                   aria-expanded={open}
-                > <i><AiOutlineSetting style={style1}/></i> <p className='link-menu'>Settings</p> <i>
+                > <i><AiOutlineSetting style={style1}/></i> <p className='link-menu'>Pengaturan</p> <i>
                   <AiFillCaretDown className='mx-2 mt-1' style={style2}/>
                 </i>
                 </Button>

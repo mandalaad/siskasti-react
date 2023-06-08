@@ -117,9 +117,9 @@ function TransaksiSpending() {
             onHide={() => setModalShow(false)}
           />
         </div>
-        <div className="buton">
+        {/* <div className="buton">
           <button>print</button>
-        </div>
+        </div> */}
       </div>
       <div className="table-responsive">
           <Table className="table table-bordered" id="dataTable" width="100%" cellspacing="0" >

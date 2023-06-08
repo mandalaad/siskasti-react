@@ -98,7 +98,7 @@ function HistorySA() {
     </div> */}
     <div className="content">
       <div className="tabel-history-sa">
-      <h5>History</h5>
+      <h3>Riwayat</h3>
         <div className="buton">
             <button>print</button>
             {/* <button onClick={this.handlePrint}>print</button> */}
