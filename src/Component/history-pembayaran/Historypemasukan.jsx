@@ -1,3 +1,4 @@
+
 import React, { useState } from "react"
 import { Table } from "react-bootstrap"
 import './historypemasukanstyle.css'
@@ -10,19 +11,19 @@ import 'jspdf-autotable'
 function Historypemasukan() {
   //   const [data, setData] = useState([]);
 
-  //   useEffect(() => {
-  //   // Fungsi untuk mendapatkan data dari API
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('URL_API_ANDA');
-  //       setData(response.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
+//   //   useEffect(() => {
+//   //   // Fungsi untuk mendapatkan data dari API
+//   //   const fetchData = async () => {
+//   //     try {
+//   //       const response = await axios.get('URL_API_ANDA');
+//   //       setData(response.data);
+//   //     } catch (error) {
+//   //       console.log(error);
+//   //     }
+//   //   };
 
-  //   fetchData();
-  // }, []);
+//   //   fetchData();
+//   // }, []);
 
   // PAKE INI
   // const [selectedMonth, setSelectedMonth] = useState(null);
@@ -198,4 +199,4 @@ function Historypemasukan() {
   )
 }
 
-export default Historypemasukan
+// export default Historypemasukan

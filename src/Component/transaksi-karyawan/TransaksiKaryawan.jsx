@@ -53,16 +53,28 @@ function TransaksiKaryawan() {
         let unitKerja = '';
     
         if (selectedGrade === 'A') {
-          jabatan = 'Manager';
-          nominal = '5000000';
+          jabatan = 'karyawan';
+          nominal = 20000;
           unitKerja = 'Sales';
         } else if (selectedGrade === 'B') {
-          jabatan = 'Supervisor';
-          nominal = '4000000';
+          jabatan = 'Karyawan';
+          nominal = 35000;
           unitKerja = 'Marketing';
         } else if (selectedGrade === 'C') {
-          jabatan = 'Staff';
-          nominal = '3000000';
+          jabatan = 'Karyawan';
+          nominal = 45000;
+          unitKerja = 'Finance';
+        } else if (selectedGrade === 'D') {
+          jabatan = 'Karyawan';
+          nominal = 75000;
+          unitKerja = 'Finance';
+        } else if (selectedGrade === 'E') {
+          jabatan = 'Kepala Departemen';
+          nominal = 100000;
+          unitKerja = 'Finance';
+        } else if (selectedGrade === 'F') {
+          jabatan = 'Kepala Divisi';
+          nominal = 150000;
           unitKerja = 'Finance';
         }
     
@@ -121,9 +133,12 @@ function TransaksiKaryawan() {
                     <p>Grade</p>
                     <select name="grade" value={data.grade} onChange={handleGradeChange}>
                         <option value="">Pilih Grade</option>
-                        <option value="A">Grade A</option>
-                        <option value="B">Grade B</option>
-                        <option value="C">Grade C</option>
+                        <option value="A">4-5</option>
+                        <option value="B">7-8</option>
+                        <option value="C">9-10</option>
+                        <option value="D">11-12</option>
+                        <option value="E">12-13</option>
+                        <option value="F">14-16</option>
                     </select>
                 </div>
                 <div className="field">
