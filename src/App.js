@@ -15,6 +15,7 @@ import SAHistory from './Pages/sa-history/SAHistory';
 import Parameter from './Pages/parameter-super-admin/Parameter';
 import SpendingSA from './Pages/spending-SA/spendingSA';
 import HistoryPemasukanAdmin from './Pages/History-pemasukan/HistoryPemasukanAdmin';
+import HistoryPengeluaran from './Pages/History-pengeluaran/HistoryPengeluaran';
 function App() {
   return (
     <>
@@ -25,7 +26,7 @@ function App() {
       <Route path='/manajemen-user' Component={Manajemen}/>
       <Route path='/ubah-password' Component={Ubahpassword}/>
       <Route path='/pembayaran' Component={KaryawanTransaksi}/>
-      <Route path='/history' Component={KaryawanHistory}/>
+      <Route path='/history-karyawan' Component={KaryawanHistory}/>
       <Route path='/income' Component={Income}/>
       <Route path='/spending' Component={Spending}/>
       <Route path='/income-sa' Component={IncomeSA}/>
@@ -33,6 +34,7 @@ function App() {
       <Route path='/parameter' Component={Parameter}/>
       <Route path='/spending-sa' Component={SpendingSA}/>
       <Route path='/history-pemasukan' Component={HistoryPemasukanAdmin}/>
+      <Route path='/history-pengeluaran' Component={HistoryPengeluaran}/>
 
     </Routes>
     </>
