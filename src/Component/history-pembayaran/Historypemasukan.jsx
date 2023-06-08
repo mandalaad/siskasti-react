@@ -1,29 +1,27 @@
-
 import React, { useState } from "react"
 import { Table } from "react-bootstrap"
 import './historypemasukanstyle.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import MyVerticallyCenteredModal from '../modal-income/ModalIncome'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
 
 function Historypemasukan() {
   //   const [data, setData] = useState([]);
 
-//   //   useEffect(() => {
-//   //   // Fungsi untuk mendapatkan data dari API
-//   //   const fetchData = async () => {
-//   //     try {
-//   //       const response = await axios.get('URL_API_ANDA');
-//   //       setData(response.data);
-//   //     } catch (error) {
-//   //       console.log(error);
-//   //     }
-//   //   };
+  //   useEffect(() => {
+  //   // Fungsi untuk mendapatkan data dari API
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get('URL_API_ANDA');
+  //       setData(response.data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
-//   //   fetchData();
-//   // }, []);
+  //   fetchData();
+  // }, []);
 
   // PAKE INI
   // const [selectedMonth, setSelectedMonth] = useState(null);
@@ -110,7 +108,6 @@ function Historypemasukan() {
   };
 
   
-  const [modalShow, setModalShow] = React.useState(false);
   return (
     <>
     {/* <div className="content">
@@ -199,4 +196,4 @@ function Historypemasukan() {
   )
 }
 
-// export default Historypemasukan
+export default Historypemasukan

@@ -130,17 +130,7 @@ function Sidebar() {
                           <i><HiOutlineLogin style={style1}/></i>
                         </div>
                         <div className='menu1'>
-                          <Link to="/Income" className='link-menu'>Kas Masuk Admin</Link>
-                        </div>
-                      </div>
-                    </NavLink>
-                    <NavLink style={navLinkStyles} to='/Income-sa'>
-                      <div className='menu-sidebar d-flex'>
-                        <div className='logo'>
-                          <i><HiOutlineLogin style={style1}/></i>
-                        </div>
-                        <div className='menu1'>
-                          <Link to="/Income" className='link-menu'>Pemasukan SA</Link>
+                          <Link to="/Income" className='link-menu'>Kas Masuk</Link>
                         </div>
                       </div>
                     </NavLink>
@@ -150,17 +140,7 @@ function Sidebar() {
                           <i><HiOutlineLogout style={style1}/></i>
                         </div>
                         <div className='menu1'>
-                          <Link to="/spending" className='link-menu'>Kas Keluar Admin</Link>
-                        </div>
-                      </div>
-                    </NavLink>
-                    <NavLink style={navLinkStyles} to='/spending-sa'>
-                      <div className='menu-sidebar d-flex'>
-                        <div className='logo'>
-                          <i><HiOutlineLogout style={style1}/></i>
-                        </div>
-                        <div className='menu1'>
-                          <Link to="/spending-sa" className='link-menu'>Pengeluaran SA</Link>
+                          <Link to="/spending" className='link-menu'>Kas Keluar</Link>
                         </div>
                       </div>
                     </NavLink>

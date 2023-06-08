@@ -3,7 +3,6 @@ import { Table } from "react-bootstrap"
 import './HistoryKaryawan.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import MyVerticallyCenteredModal from '../modal-income/ModalIncome'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
 import { AiFillCheckCircle } from "react-icons/ai"
@@ -119,8 +118,6 @@ function Historykaryawan() {
     return filteredData;
   };
 
-  
-  const [modalShow, setModalShow] = React.useState(false);
   return (
     <>
     {/* <div className="content">

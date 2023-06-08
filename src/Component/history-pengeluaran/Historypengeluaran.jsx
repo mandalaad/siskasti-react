@@ -3,7 +3,6 @@ import { Table } from "react-bootstrap"
 import './historypengeluaran.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import MyVerticallyCenteredModal from '../modal-income/ModalIncome'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
 
@@ -117,7 +116,6 @@ function Historypengeluaran() {
   };
 
   
-  const [modalShow, setModalShow] = React.useState(false);
   return (
     <>
     {/* <div className="content">
