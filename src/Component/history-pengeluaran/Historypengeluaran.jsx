@@ -1,29 +1,28 @@
-
 import React, { useState } from "react"
 import { Table } from "react-bootstrap"
-import './historypemasukanstyle.css'
+import './historypengeluaran.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import MyVerticallyCenteredModal from '../modal-income/ModalIncome'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
 
-function Historypemasukan() {
+function Historypengeluaran() {
   //   const [data, setData] = useState([]);
 
-//   //   useEffect(() => {
-//   //   // Fungsi untuk mendapatkan data dari API
-//   //   const fetchData = async () => {
-//   //     try {
-//   //       const response = await axios.get('URL_API_ANDA');
-//   //       setData(response.data);
-//   //     } catch (error) {
-//   //       console.log(error);
-//   //     }
-//   //   };
+  //   useEffect(() => {
+  //   // Fungsi untuk mendapatkan data dari API
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get('URL_API_ANDA');
+  //       setData(response.data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
-//   //   fetchData();
-//   // }, []);
+  //   fetchData();
+  // }, []);
 
   // PAKE INI
   // const [selectedMonth, setSelectedMonth] = useState(null);
@@ -98,7 +97,15 @@ function Historypemasukan() {
     const data = [
       { id: 1, name: 'John Doe', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-01-10'), tanggal:+'date', },
       { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
-      { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  }
+      { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
+      { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
+      { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
+      { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
+      { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
+      { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
+      { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
+      { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
+      { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
     ];
 
     const filteredData = data.filter(
@@ -145,7 +152,7 @@ function Historypemasukan() {
     </div> */}
     <div className="content">
       <div className="tabel-income">
-        <h3>Riwayat Pemasukan</h3>
+        <h3>Riwayat Pengeluaran</h3>
         <div className="content1 mt-4">
           <div className="tanggal">
             <div className="date">
@@ -199,4 +206,4 @@ function Historypemasukan() {
   )
 }
 
-// export default Historypemasukan
+export default Historypengeluaran
