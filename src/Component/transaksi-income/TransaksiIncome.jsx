@@ -144,16 +144,16 @@ function TransaksiIncome2() {
 
 
   const [showModal, setShowModal] = useState(false);
-  // const dataa = [
-  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-  // ];
+  const dataa = [
+    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
+    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
+    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
+    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
+    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
+    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
+    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
+    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
+  ];
 
   return (
     <>
@@ -165,9 +165,9 @@ function TransaksiIncome2() {
             <div className="buton">
             <button onClick={() => setShowModal(true)}>Masukan Data</button>
             </div>
-            <Button variant="primary" onClick={generateFakeData}>
+            {/* <Button variant="primary" onClick={generateFakeData}>
              Generate Fake Data
-            </Button>
+            </Button> */}
             <Modal
               className="modal"
               show={showModal} onHide={() => setShowModal(false)}
@@ -275,7 +275,7 @@ function TransaksiIncome2() {
                     </tr>
                 </thead>
                 <tbody>
-                  {data.map((item, index) => (
+                  {dataa.map((item, index) => (
                     <tr key={index}>
                       <td>{item.no}</td>
                       <td>{item.tanggal}</td>
