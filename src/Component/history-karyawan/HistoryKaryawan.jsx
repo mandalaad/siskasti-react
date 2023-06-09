@@ -96,15 +96,15 @@ function Historykaryawan() {
   const processData = (selectedMonth) => {
     // Contoh data tabel
     const data = [
-      { id: 1, name: 'El Pardo', nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+      { id: 1, name: 'El Pardo', tanggal: 25 , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+      { id: 1, name: 'El Pardo', tanggal: 25 , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
 
       // { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
       // { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  }
@@ -175,7 +175,7 @@ function Historykaryawan() {
             <tr>
               <th>no</th>
               <th>Nama</th>
-              {/* <th>Tanggal</th> */}
+              <th>Tanggal</th>
               <th>NIK</th>
               <th>Grade</th>
               <th>Nominal</th>
@@ -188,7 +188,7 @@ function Historykaryawan() {
               <tr key={item.id}>
                 <td>{item.id}</td>
                 <td>{item.name}</td>
-                {/* <td>{item.date}</td> */}
+                <td>{item.tanggal}</td>
                 <td>{item.nik}</td>
                 <td>{item.grade}</td>
                 <td>{item.nominal}</td>

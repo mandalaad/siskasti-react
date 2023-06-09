@@ -32,7 +32,7 @@ function Login() {
         const password = e.target.elements.password.value;
         const passalert = document.getElementById('pw-alert');
         try {
-          const response = await axios.post('http://172.168.101.200:8080/api/auth/login', { username, password });
+          const response = await axios.post('http://10.254.45.224:8080/api/auth/login', { username, password });
           // Handle the successful login response here
           console.log(response.data);
           navigate('/dashboard');

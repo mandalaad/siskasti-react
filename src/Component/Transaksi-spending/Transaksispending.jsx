@@ -141,6 +141,16 @@ function TransaksiSpending() {
 
     setData(fakeData);
   };
+  // const dataa = [
+  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn', status:'lunas' },
+  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn', status:'lunas' },
+  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn', status:'lunas' },
+  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn', status:'lunas' },
+  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
+  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn' ,status:'lunas'},
+  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
+  //   { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
+  // ];
 
 
   const [showModal, setShowModal] = useState(false);
@@ -156,9 +166,9 @@ function TransaksiSpending() {
             <div className="buton">
             <button onClick={() => setShowModal(true)}>Masukan Data</button>
             </div>
-            {/* <Button variant="primary" onClick={generateFakeData}>
+            <Button variant="primary" onClick={generateFakeData}>
              Generate Fake Data
-            </Button> */}
+            </Button>
             <Modal
               className="modal-spending"
               show={showModal} onHide={() => setShowModal(false)}
