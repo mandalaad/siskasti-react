@@ -9,11 +9,11 @@
             margin-top: 30px;
         }
     }
-    .buton {
+    .cetak {
         display: flex;
         justify-content: end;
         gap: 20px;
-        button {
+        .button-print {
             width: 120px;
             height: 40px;
             border-radius: 20px;
@@ -38,4 +38,9 @@
             }
         }
     }
+}
+
+.tanggal-cetak {
+    display: flex;
+    justify-content: space-between;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Table } from "react-bootstrap"
 import './HistoryKaryawan.css'
 import DatePicker from 'react-datepicker'
@@ -71,31 +71,68 @@ function Historykaryawan() {
   // };
   // SAMPE SINI
   
-  const [selectedMonth, setSelectedMonth] = useState(null);
+  // const [selectedMonth, setSelectedMonth] = useState(null);
   
-  const handleMonthChange = (date) => {
-    setSelectedMonth(date);
-  };
+  // const handleMonthChange = (date) => {
+  //   setSelectedMonth(date);
+  // };
 
-  const handlePrint = () => {
-    if (selectedMonth) {
-      const filteredData = processData(selectedMonth); // Memproses data sesuai bulan yang dipilih
+  // const handlePrint = () => {
+  //   if (selectedMonth) {
+  //     const filteredData = processData(selectedMonth); // Memproses data sesuai bulan yang dipilih
 
-      const doc = new jsPDF();
-      doc.text(`Data for ${selectedMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`, 10, 10);
+  //     const doc = new jsPDF();
+  //     doc.text(`Data for ${selectedMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`, 10, 10);
 
-      doc.autoTable({
-        head: [['no', 'Nama', 'NIK', 'Grade', 'Nominal', 'Unit Kerja', 'Status']],
-        body: filteredData.map((item) => [item.id, item.name, item.nik, item.grade, item.nominal, item.unitkerja, item.status])
-      });
+  //     doc.autoTable({
+  //       head: [['no', 'Nama', 'NIK', 'Grade', 'Nominal', 'Unit Kerja', 'Status']],
+  //       body: filteredData.map((item) => [item.id, item.name, item.nik, item.grade, item.nominal, item.unitkerja, item.status])
+  //     });
 
-      doc.save('data.pdf');
-    }
-  };
+  //     doc.save('data.pdf');
+  //   }
+  // };
 
-  const processData = (selectedMonth) => {
-    // Contoh data tabel
-    const data = [
+  // const processData = (selectedMonth) => {
+  //   // Contoh data tabel
+    // const dataa = [
+    //   { id: 1, name: 'El Pardo', tanggal: 25 , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+    //   { id: 1, name: 'El Pardo', tanggal: 25 , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
+
+    //   // { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
+    //   // { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  }
+    // ];
+
+  //   const filteredData = data.filter(
+  //     (item) =>
+  //       item.date.getMonth() === selectedMonth.getMonth() &&
+  //       item.date.getFullYear() === selectedMonth.getFullYear()
+  //   );
+  //   return filteredData;
+  // };
+
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
+    // Ambil data dari API atau sumber data lainnya
+    // const dataFromAPI = [
+    //   { nama: 'John Doe', usia: 25, alamat: 'Jakarta', bulan: 1 },
+    //   { nama: 'Jane Smith', usia: 30, alamat: 'Surabaya', bulan: 2 },
+    //   { nama: 'Bob Johnson', usia: 35, alamat: 'Bandung', bulan: 1 },
+    const dataFromAPI = [
       { id: 1, name: 'El Pardo', tanggal: 25 , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
       { id: 1, name: 'El Pardo', tanggal: 25 , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
       { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
@@ -109,13 +146,29 @@ function Historykaryawan() {
       // { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
       // { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  }
     ];
+    // ];
+    setData(dataFromAPI);
+    setFilteredData(dataFromAPI);
+  };
 
-    const filteredData = data.filter(
-      (item) =>
-        item.date.getMonth() === selectedMonth.getMonth() &&
-        item.date.getFullYear() === selectedMonth.getFullYear()
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    filterDataByMonth(date);
+  };
+
+  const filterDataByMonth = (date) => {
+    const filtered = data.filter(
+      (item) => item.bulan === date.getMonth() + 1 && item.tahun === date.getFullYear()
     );
-    return filteredData;
+    setFilteredData(filtered);
+  };
+
+  const handlePrint = () => {
+    const doc = new jsPDF();
+    const tableData = filteredData.map((item) => [item.id, item.name, item.nik, item.grade, item.nominal, item.unitkerja, item.status]);
+
+    doc.autoTable({ head: [['no', 'Nama', 'NIK', 'Grade', 'Nominal', 'Unit Kerja', 'Status']], body: tableData });
+    doc.save('tabel.pdf');
   };
 
   return (
@@ -150,7 +203,9 @@ function Historykaryawan() {
         </table>
         </div>
     </div> */}
-    <div className="content">
+
+    {/* cara 2 */}
+    {/* <div className="content">
       <div className="tabel-income">
         <h3>Riwayat Transaksi Karyawan</h3>
         <div className="content1 mt-4">
@@ -204,7 +259,55 @@ function Historykaryawan() {
       </div>
       )}  
       </div>
+    </div> */}
+
+    {/* cara 3 */}
+    <div className="content">
+      <div className="tabel-income">
+      <h3>Riwayat Transaksi Karyawan</h3>
+        <div className="tanggal-cetak mt-3">
+          <div className="tanggal">
+            <DatePicker selected={selectedDate} onChange={handleDateChange} dateFormat="MM/yyyy" showMonthYearPicker />
+          </div>
+          <div className="cetak">
+            <button className="button-print" onClick={handlePrint}>Cetak PDF</button>
+          </div>
+        </div>
+      
+      
+      <Table className="table table-bordered mt-5" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+          <th>no</th>
+              <th>Nama</th>
+              <th>Tanggal</th>
+              <th>NIK</th>
+              <th>Grade</th>
+              <th>Nominal</th>
+              <th>Unit Kerja</th>
+              <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredData.map((item, index) => (
+            <tr key={index}>
+              <td>{item.id}</td>
+                <td>{item.name}</td>
+                <td>{item.tanggal}</td>
+                <td>{item.nik}</td>
+                <td>{item.grade}</td>
+                <td>{item.nominal}</td>
+                <td>{item.unitkerja}</td>
+                <td><i><AiFillCheckCircle style={style1}/></i></td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+      
+      </div>
+      
     </div>
+
     </>
   )
 }
