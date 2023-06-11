@@ -6,7 +6,6 @@ import 'react-datepicker/dist/react-datepicker.css'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
 
-const style1 = { color: "green", fontSize: "1.5em" }
 function Historykaryawan() {
   //   const [data, setData] = useState([]);
 
@@ -137,6 +136,7 @@ function Historykaryawan() {
   };
 
   const handleFilterByMonth = (tanggal) => {
+    setStartDate(tanggal);
     const selectedMonth = tanggal.getMonth();
     const filteredByMonth = data.filter((item) => {
       const itemMonth = new Date(item.tanggal).getMonth();
@@ -151,6 +151,7 @@ function Historykaryawan() {
 
   useEffect(() => {
     handleShowAllData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

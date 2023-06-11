@@ -142,6 +142,7 @@ function Historypengeluaran() {
   };
 
   const handleFilterByMonth = (date) => {
+    setStartDate(date);
     const selectedMonth = date.getMonth();
     const filteredByMonth = data.filter((item) => {
       const itemMonth = new Date(item.date).getMonth();
@@ -156,6 +157,7 @@ function Historypengeluaran() {
 
   useEffect(() => {
     handleShowAllData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
