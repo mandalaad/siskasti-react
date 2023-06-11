@@ -10,12 +10,12 @@
 .tabel-income .card-body .table-responsive {
   margin-top: 30px;
 }
-.tabel-income .buton {
+.tabel-income .cetak {
   display: flex;
   justify-content: end;
   gap: 20px;
 }
-.tabel-income .buton button {
+.tabel-income .cetak .button-print {
   width: 120px;
   height: 40px;
   border-radius: 20px;
@@ -38,4 +38,9 @@
   width: 120px;
   padding-left: 10px;
   line-height: 40px;
+}
+
+.tanggal-cetak {
+  display: flex;
+  justify-content: space-between;
 }/*# sourceMappingURL=historypemasukanstyle.css.map */
