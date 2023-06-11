@@ -1,40 +1,32 @@
-.tabel-income {
+.tabel-history-karyawan {
     background-color: white;
     height: auto;
     margin-top: 10px;
     padding: 30px 50px 20px 40px;
-    .card-body {
-        margin-left: 200px;
-        .table-responsive {
-            margin-top: 30px;
-        }
-    }
-    .cetak {
+    .reset {
         display: flex;
-        justify-content: end;
-        gap: 20px;
+        justify-content: space-between;
         .button-print {
+            width: 220px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #C7F14F;
+        }
+        .button-cetak {
             width: 120px;
             height: 40px;
             border-radius: 20px;
             background-color: #C7F14F;
         }
     }
-    .content1 {
-        padding: 0;
-        margin: 0;
-        margin-bottom: 30px;
-        display: flex;
-        justify-content: space-between;
-        .tanggal {
-            display: flex;
-            .date {
-                width: 130px;
-                input {
-                    width: 120px;
-                    padding-left: 10px;
-                    line-height: 40px;
-                }
+    .tanggal {
+        margin-top: 10px;
+        .date {
+            width: 130px;
+            input {
+                width: 120px;
+                padding-left: 10px;
+                line-height: 40px;
             }
         }
     }
@@ -43,4 +35,5 @@
 .tanggal-cetak {
     display: flex;
     justify-content: space-between;
+    gap: 30px;
 }

@@ -1,28 +1,32 @@
-.tabel-income {
+.tabel-history-pengeluaran {
   background-color: white;
   height: auto;
   margin-top: 10px;
   padding: 30px 50px 20px 40px;
 }
-.tabel-income .cetak .button-print {
+.tabel-history-pengeluaran .reset {
+  display: flex;
+  justify-content: space-between;
+}
+.tabel-history-pengeluaran .reset .button-print {
+  width: 220px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #C7F14F;
+}
+.tabel-history-pengeluaran .reset .button-cetak {
   width: 120px;
   height: 40px;
   border-radius: 20px;
   background-color: #C7F14F;
 }
-.tabel-income .reset .button-print {
-  width: 200px;
-  height: 40px;
-  border-radius: 20px;
-  background-color: #C7F14F;
-}
-.tabel-income .tanggal {
+.tabel-history-pengeluaran .tanggal {
   margin-top: 10px;
 }
-.tabel-income .tanggal .date {
+.tabel-history-pengeluaran .tanggal .date {
   width: 130px;
 }
-.tabel-income .tanggal .date input {
+.tabel-history-pengeluaran .tanggal .date input {
   width: 120px;
   padding-left: 10px;
   line-height: 40px;

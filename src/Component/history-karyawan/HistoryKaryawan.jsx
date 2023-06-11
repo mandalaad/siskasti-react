@@ -5,7 +5,6 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
-import { AiFillCheckCircle } from "react-icons/ai"
 
 const style1 = { color: "green", fontSize: "1.5em" }
 function Historykaryawan() {
@@ -118,163 +117,59 @@ function Historykaryawan() {
   //   return filteredData;
   // };
 
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
+  const [data, setData] = useState([
+    { id: 1, name: 'El Pardo', tanggal: '2023-02-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst' },
+    { id: 2, name: 'El Pardo', tanggal: '2023-01-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst' },
+    
+  ]);
+  
+  const [startDate, setStartDate] = useState(null);
   const [filteredData, setFilteredData] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(null);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = () => {
-    // Ambil data dari API atau sumber data lainnya
-    // const dataFromAPI = [
-    //   { nama: 'John Doe', usia: 25, alamat: 'Jakarta', bulan: 1 },
-    //   { nama: 'Jane Smith', usia: 30, alamat: 'Surabaya', bulan: 2 },
-    //   { nama: 'Bob Johnson', usia: 35, alamat: 'Bandung', bulan: 1 },
-    const dataFromAPI = [
-      { id: 1, name: 'El Pardo', tanggal: 25 , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', tanggal: 25 , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-      { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-
-      // { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
-      // { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  }
-    ];
-    // ];
-    setData(dataFromAPI);
-    setFilteredData(dataFromAPI);
-  };
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-    filterDataByMonth(date);
-  };
-
-  const filterDataByMonth = (date) => {
-    const filtered = data.filter(
-      (item) => item.bulan === date.getMonth() + 1 && item.tahun === date.getFullYear()
-    );
-    setFilteredData(filtered);
-  };
 
   const handlePrint = () => {
     const doc = new jsPDF();
-    const tableData = filteredData.map((item) => [item.id, item.name, item.nik, item.grade, item.nominal, item.unitkerja, item.status]);
-
-    doc.autoTable({ head: [['no', 'Nama', 'NIK', 'Grade', 'Nominal', 'Unit Kerja', 'Status']], body: tableData });
-    doc.save('tabel.pdf');
+    doc.autoTable({
+      head: [['no', 'Nama', 'NIK', 'Grade', 'Nominal', 'Unit Kerja', 'Status']],
+      body: filteredData.map(({ id, name,tanggal, nik, grade, nominal, unitkerja, status }) => [id, name,tanggal, nik, grade, nominal, unitkerja, status]),
+    });
+    doc.save('table.pdf');
   };
+
+  const handleFilterByMonth = (tanggal) => {
+    const selectedMonth = tanggal.getMonth();
+    const filteredByMonth = data.filter((item) => {
+      const itemMonth = new Date(item.tanggal).getMonth();
+      return itemMonth === selectedMonth;
+    });
+    setFilteredData(filteredByMonth);
+  };
+
+  const handleShowAllData = () => {
+    setFilteredData(data);
+  };
+
+  useEffect(() => {
+    handleShowAllData();
+  }, []);
 
   return (
     <>
-    {/* <div className="content">
-        <div className="history">
-        <table>
-            <thead>
-                <tr>
-                <th>No</th>
-                <th>Tanggal</th>
-                <th>Nama</th>
-                <th>NIK</th>
-                <th>Grade</th>
-                <th>Nominal</th>
-                <th>Unit Kerja</th>
-                </tr>
-            </thead>
-            <tbody>
-                {data.map((item, index) => (
-                <tr key={index}>
-                    <td>{item.no}</td>
-                    <td>{item.tanggal}</td>
-                    <td>{item.nama}</td>
-                    <td>{item.nik}</td>
-                    <td>{item.grade}</td>
-                    <td>{item.nominal}</td>
-                    <td>{item.unit}</td>
-                </tr>
-                ))}
-            </tbody>
-        </table>
-        </div>
-    </div> */}
-
-    {/* cara 2 */}
-    {/* <div className="content">
-      <div className="tabel-income">
-        <h3>Riwayat Transaksi Karyawan</h3>
-        <div className="content1 mt-4">
-          <div className="tanggal">
-            <div className="date">
-              <DatePicker
-                selected={selectedMonth}
-                onChange={handleMonthChange}
-                dateFormat="MM/yyyy"
-                showMonthYearPicker
-              />
-            </div>
-          </div>
-          <div className="buton">
-            <button onClick={handlePrint} disabled={!selectedMonth}>print</button>
-          </div>
-        </div>
-        {selectedMonth && (
-          <div className="table-responsive">
-          <Table className="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
-          <thead>
-            <tr>
-              <th>no</th>
-              <th>Nama</th>
-              <th>Tanggal</th>
-              <th>NIK</th>
-              <th>Grade</th>
-              <th>Nominal</th>
-              <th>Unit Kerja</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {processData(selectedMonth).map((item) => (
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.name}</td>
-                <td>{item.tanggal}</td>
-                <td>{item.nik}</td>
-                <td>{item.grade}</td>
-                <td>{item.nominal}</td>
-                <td>{item.unitkerja}</td>
-                <td><i><AiFillCheckCircle style={style1}/></i></td>
-
-
-
-              </tr>
-            ))}
-          </tbody>
-          </Table>
-      </div>
-      )}  
-      </div>
-    </div> */}
-
-    {/* cara 3 */}
     <div className="content">
-      <div className="tabel-income">
+      <div className="tabel-history-karyawan">
       <h3>Riwayat Transaksi Karyawan</h3>
         <div className="tanggal-cetak mt-3">
-          <div className="tanggal">
-            <DatePicker selected={selectedDate} onChange={handleDateChange} dateFormat="MM/yyyy" showMonthYearPicker />
-          </div>
-          <div className="cetak">
-            <button className="button-print" onClick={handlePrint}>Cetak PDF</button>
+          <div className="kiri">
+            <div className="tanggal">
+              <h5>Pilih Tanggal</h5>
+              <DatePicker selected={startDate} onChange={handleFilterByMonth} showMonthYearPicker />
+            </div>
           </div>
         </div>
-      
-      
+        <div className="reset mt-3">
+          <button className="button-print" onClick={handleShowAllData}>Tampilkan Semua Data</button>
+          <button className="button-cetak" onClick={handlePrint}>Print</button>
+        </div>
       <Table className="table table-bordered mt-5" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
@@ -289,16 +184,16 @@ function Historykaryawan() {
           </tr>
         </thead>
         <tbody>
-          {filteredData.map((item, index) => (
-            <tr key={index}>
-              <td>{item.id}</td>
-                <td>{item.name}</td>
-                <td>{item.tanggal}</td>
-                <td>{item.nik}</td>
-                <td>{item.grade}</td>
-                <td>{item.nominal}</td>
-                <td>{item.unitkerja}</td>
-                <td><i><AiFillCheckCircle style={style1}/></i></td>
+          {filteredData.map(({ id, name, tanggal, nik, grade, nominal, unitkerja, status  }) => (
+              <tr key={id}>
+              <td>{id}</td>
+              <td>{name}</td>
+              <td>{tanggal}</td>
+              <td>{nik}</td>
+              <td>{grade}</td>
+              <td>{nominal}</td>
+              <td>{unitkerja}</td>
+              <td>{status}</td>
             </tr>
           ))}
         </tbody>

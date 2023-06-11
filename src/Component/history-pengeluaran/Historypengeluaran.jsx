@@ -161,7 +161,7 @@ function Historypengeluaran() {
   return (
     <>
       <div className="content">
-            <div className="tabel-income">
+            <div className="tabel-history-pengeluaran">
               <h2>Riwayat Pengeluaran</h2>
               <div className="tanggal-cetak mt-3">
                 <div className="kiri">
@@ -169,13 +169,11 @@ function Historypengeluaran() {
                     <h5>Pilih Tanggal</h5>
                     <DatePicker selected={startDate} onChange={handleFilterByMonth} showMonthYearPicker />
                   </div>
-                  <div className="reset mt-3">
-                    <button className="button-print" onClick={handleShowAllData}>Tampilkan Semua Data</button>
-                  </div>
                 </div>
-                <div className="cetak">
-                    <button className="button-print" onClick={handlePrint}>Print</button>
-                  </div>
+              </div>
+              <div className="reset mt-3">
+                <button className="button-print" onClick={handleShowAllData}>Tampilkan Semua Data</button>
+                <button className="button-cetak" onClick={handlePrint}>Print</button>
               </div>
               <Table className="table table-bordered mt-5" id="dataTable" width="100%" cellspacing="0">
                 <thead>
@@ -191,7 +189,7 @@ function Historypengeluaran() {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredData.map(({ id, name, date, tanggal, kasmasuk, kaskeluar, nominal, keterangan }) => (
+                  {filteredData.map(({ id, name, date, kasmasuk, kaskeluar, nominal, keterangan }) => (
                   <tr key={id}>
                   <td>{id}</td>
                   <td>{name}</td>
