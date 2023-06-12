@@ -119,8 +119,11 @@ function Historykaryawan() {
   // const [data, setData] = useState([]);
   const [data, setData] = useState([
     { id: 1, name: 'El Pardo', tanggal: '2023-02-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-    { id: 2, name: 'El Pardo', tanggal: '2023-01-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-    
+    { id: 2, name: 'El Pardo', tanggal: '2023-04-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
+    { id: 3, name: 'El Pardo', tanggal: '2023-02-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
+    { id: 4, name: 'El Pardo', tanggal: '2023-08-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
+    { id: 5, name: 'El Pardo', tanggal: '2023-04-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
+    { id: 6, name: 'El Pardo', tanggal: '2023-01-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
   ]);
   
   const [startDate, setStartDate] = useState(null);
