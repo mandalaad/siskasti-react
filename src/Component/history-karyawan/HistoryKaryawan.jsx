@@ -129,8 +129,8 @@ function Historykaryawan() {
   const handlePrint = () => {
     const doc = new jsPDF();
     doc.autoTable({
-      head: [['no', 'Nama', 'NIK', 'Grade', 'Nominal', 'Unit Kerja', 'Status']],
-      body: filteredData.map(({ id, name,tanggal, nik, grade, nominal, unitkerja, status }) => [id, name,tanggal, nik, grade, nominal, unitkerja, status]),
+      head: [['no', 'Nama','tanggal', 'NIK', 'Grade', 'Nominal', 'Unit Kerja', 'Status']],
+      body: filteredData.map(({ id, name, tanggal, nik, grade, nominal, unitkerja, status }) => [id, name,tanggal, nik, grade, nominal, unitkerja, status]),
     });
     doc.save('table.pdf');
   };
