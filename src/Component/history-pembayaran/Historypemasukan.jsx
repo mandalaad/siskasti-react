@@ -135,8 +135,8 @@ function Historypemasukan() {
   const handlePrint = () => {
     const doc = new jsPDF();
     doc.autoTable({
-      head: [['ID', 'Nama', 'Kas Masuk', 'Kas Keluar', 'Nominal', 'keterangan',]],
-      body: filteredData.map(({ id, name, kasmasuk, kaskeluar, nominal, keterangan }) => [id, name, kasmasuk, kaskeluar, nominal, keterangan]),
+      head: [['ID', 'Nama','tanggal', 'Kas Masuk', 'Kas Keluar', 'Nominal', 'keterangan',]],
+      body: filteredData.map(({ id, name, date, kasmasuk, kaskeluar, nominal, keterangan }) => [id, name, date, kasmasuk, kaskeluar, nominal, keterangan]),
     });
     doc.save('table.pdf');
   };
