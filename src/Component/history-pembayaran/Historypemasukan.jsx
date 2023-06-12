@@ -135,7 +135,7 @@ function Historypemasukan() {
   const handlePrint = () => {
     const doc = new jsPDF();
     doc.autoTable({
-      head: [['ID', 'Nama','tanggal', 'Kas Masuk', 'Kas Keluar', 'Nominal', 'keterangan',]],
+      head: [['No', 'Nama','Tanggal', 'Kas Masuk', 'Kas Keluar', 'Nominal', 'keterangan',]],
       body: filteredData.map(({ id, name, date, kasmasuk, kaskeluar, nominal, keterangan }) => [id, name, date, kasmasuk, kaskeluar, nominal, keterangan]),
     });
     doc.save('table.pdf');
@@ -180,7 +180,7 @@ function Historypemasukan() {
               <Table className="table table-bordered mt-5" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>no</th>
+                    <th>No</th>
                     <th>Nama</th>
                     <th>Tanggal</th>
                     <th>Kas Masuk</th>
