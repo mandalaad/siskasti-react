@@ -118,8 +118,8 @@ function Historykaryawan() {
 
   // const [data, setData] = useState([]);
   const [data, setData] = useState([
-    { id: 1, name: 'El Pardo', tanggal: '2023-02-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst' },
-    { id: 2, name: 'El Pardo', tanggal: '2023-01-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst' },
+    { id: 1, name: 'El Pardo', tanggal: '2023-02-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
+    { id: 2, name: 'El Pardo', tanggal: '2023-01-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
     
   ]);
   
@@ -129,8 +129,8 @@ function Historykaryawan() {
   const handlePrint = () => {
     const doc = new jsPDF();
     doc.autoTable({
-      head: [['no', 'Nama','tanggal', 'NIK', 'Grade', 'Nominal', 'Unit Kerja', 'Status']],
-      body: filteredData.map(({ id, name, tanggal, nik, grade, nominal, unitkerja, status }) => [id, name,tanggal, nik, grade, nominal, unitkerja, status]),
+      head: [['No', 'Nama', 'Tanggal', 'NIK', 'Grade', 'Nominal', 'Unit Kerja', 'Status']],
+      body: filteredData.map(({ id, name, tanggal, nik, grade, nominal, unitkerja, status }) => [id, name, tanggal, nik, grade, nominal, unitkerja, status]),
     });
     doc.save('table.pdf');
   };
