@@ -5,23 +5,24 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
+import axios from "axios"
 
 function Historypengeluaran() {
-  //   const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
 
-  //   useEffect(() => {
-  //   // Fungsi untuk mendapatkan data dari API
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('URL_API_ANDA');
-  //       setData(response.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
+    useEffect(() => {
+    // Fungsi untuk mendapatkan data dari API
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://648805000e2469c038fcc87f.mockapi.io/historypemasukanadmin/api/v1/super-admin');
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   // PAKE INI
   // const [selectedMonth, setSelectedMonth] = useState(null);
@@ -116,19 +117,19 @@ function Historypengeluaran() {
   // };
 
   // cara 2
-  const [data, setData] = useState([
-    { id: 1, name: 'John Doe', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-15' },
-      { id: 2, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-15' },
-      { id: 3, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-18'  },
-      { id: 4, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-23'},
-      { id: 5, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-22' },
-      { id: 6, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-19'},
-      { id: 7, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-22' },
-      { id: 8, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-10' },
-      { id: 9, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-11' },
-      { id: 10, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-12' },
-      { id: 11, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-03-17' },
-  ]);
+  // const [data, setData] = useState([
+  //   { id: 1, name: 'John Doe', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-15' },
+  //     { id: 2, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-15' },
+  //     { id: 3, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-18'  },
+  //     { id: 4, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-23'},
+  //     { id: 5, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-22' },
+  //     { id: 6, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-19'},
+  //     { id: 7, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-22' },
+  //     { id: 8, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-10' },
+  //     { id: 9, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-11' },
+  //     { id: 10, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-12' },
+  //     { id: 11, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-03-17' },
+  // ]);
   const [startDate, setStartDate] = useState(null);
   const [filteredData, setFilteredData] = useState([]);
 

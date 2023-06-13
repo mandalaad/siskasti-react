@@ -5,130 +5,39 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
+import axios from "axios"
 
 function Historypemasukan() {
-  //   const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
 
-  //   useEffect(() => {
-  //   // Fungsi untuk mendapatkan data dari API
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('URL_API_ANDA');
-  //       setData(response.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
+    useEffect(() => {
+    // Fungsi untuk mendapatkan data dari API
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://648805000e2469c038fcc87f.mockapi.io/historypemasukanadmin/api/v1/super-admin');
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-  //   fetchData();
-  // }, []);
-
-  // PAKE INI
-  // const [selectedMonth, setSelectedMonth] = useState(null);
-  // const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  // const fetchData = () => {
-  //   // Ganti URL_API dengan URL API yang sesuai
-  //   fetch('URL_API')
-  //     .then((response) => response.json())
-  //     .then((data) => setData(data))
-  //     .catch((error) => console.log(error));
-  // };
-
-  // const handleMonthChange = (date) => {
-  //   setSelectedMonth(date);
-  // };
-
-  // const handlePrint = () => {
-  //   if (selectedMonth) {
-  //     const filteredData = processData(selectedMonth); // Memproses data sesuai bulan yang dipilih
-
-  //     const doc = new jsPDF();
-  //     doc.text(`Data for ${selectedMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`, 10, 10);
-
-  //     doc.autoTable({
-  //       head: [['ID', 'Nama', 'Usia']],
-  //       body: filteredData.map((item) => [item.id, item.name, item.age])
-  //     });
-
-  //     doc.save('data.pdf');
-  //   }
-  // };
-
-  // const processData = (selectedMonth) => {
-  //   const filteredData = data.filter(
-  //     (item) =>
-  //       new Date(item.date).getMonth() === selectedMonth.getMonth() &&
-  //       new Date(item.date).getFullYear() === selectedMonth.getFullYear()
-  //   );
-  //   return filteredData;
-  // };
-  // SAMPE SINI
-  
-  // const [selectedMonth, setSelectedMonth] = useState(null);
-  
-  // const handleMonthChange = (date) => {
-  //   setSelectedMonth(date);
-  // };
-
-  // const handlePrint = () => {
-  //   if (selectedMonth) {
-  //     const filteredData = processData(selectedMonth); // Memproses data sesuai bulan yang dipilih
-
-  //     const doc = new jsPDF();
-  //     doc.text(`Data for ${selectedMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`, 10, 10);
-
-  //     doc.autoTable({
-  //       head: [['ID', 'Nama', 'Kas Masuk', 'Kas Keluar', 'Nominal', 'keterangan',]],
-  //       body: filteredData.map((item) => [item.id, item.name, item.kasmasuk, item.kaskeluar, item.nominal, item.keterangan])
-  //     });
-
-  //     doc.save('data.pdf');
-  //   }
-  // };
-
-  // const processData = (selectedMonth) => {
-  //   // Contoh data tabel
-  //   const data = [
-  //     { id: 1, name: 'John Doe', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-01-10'), tanggal:+'date', },
-  //     { id: 2, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
-  //     { id: 3, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
-  //     { id: 2, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
-  //     { id: 3, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
-  //     { id: 2, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
-  //     { id: 3, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
-  //     { id: 2, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
-  //     { id: 3, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
-  //     { id: 2, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
-  //     { id: 3, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  },
-  //   ];
-
-  //   const filteredData = data.filter(
-  //     (item) =>
-  //       item.date.getMonth() === selectedMonth.getMonth() &&
-  //       item.date.getFullYear() === selectedMonth.getFullYear()
-  //   );
-  //   return filteredData;
-  // };
+    fetchData();
+  }, []);
 
   // cara 2
-  const [data, setData] = useState([
-    { id: 1, name: 'John Doe', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-15' },
-      { id: 2, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-15' },
-      { id: 3, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-18'  },
-      { id: 4, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-23'},
-      { id: 5, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-22' },
-      { id: 6, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-19'},
-      { id: 7, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-22' },
-      { id: 8, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-10' },
-      { id: 9, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-11' },
-      { id: 10, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-12' },
-      { id: 11, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-03-17' },
-  ]);
+  // const [data, setData] = useState([
+  //   { id: 1, name: 'John Doe', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-15' },
+  //     { id: 2, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-15' },
+  //     { id: 3, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-18'  },
+  //     { id: 4, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-23'},
+  //     { id: 5, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-22' },
+  //     { id: 6, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-19'},
+  //     { id: 7, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-22' },
+  //     { id: 8, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-10' },
+  //     { id: 9, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-11' },
+  //     { id: 10, name: 'Jane Smith', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-02-12' },
+  //     { id: 11, name: 'Bob Johnson', tanggal: 25 ,kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: '2023-03-17' },
+  // ]);
   const [startDate, setStartDate] = useState(null);
   const [filteredData, setFilteredData] = useState([]);
 

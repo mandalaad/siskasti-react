@@ -165,9 +165,9 @@ function TransaksiIncome2() {
             <div className="buton">
             <button onClick={() => setShowModal(true)}>Masukan Data</button>
             </div>
-            {/* <Button variant="primary" onClick={generateFakeData}>
+            <Button variant="primary" onClick={generateFakeData}>
              Generate Fake Data
-            </Button> */}
+            </Button>
             <Modal
               className="modal"
               show={showModal} onHide={() => setShowModal(false)}
@@ -275,7 +275,7 @@ function TransaksiIncome2() {
                     </tr>
                 </thead>
                 <tbody>
-                  {dataa.map((item, index) => (
+                  {data.map((item, index) => (
                     <tr key={index}>
                       <td>{item.no}</td>
                       <td>{item.tanggal}</td>
