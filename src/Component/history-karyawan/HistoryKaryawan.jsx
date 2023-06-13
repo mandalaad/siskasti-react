@@ -5,23 +5,24 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
+import axios from "axios"
 
 function Historykaryawan() {
-  //   const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
 
-  //   useEffect(() => {
-  //   // Fungsi untuk mendapatkan data dari API
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('URL_API_ANDA');
-  //       setData(response.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
+    useEffect(() => {
+    // Fungsi untuk mendapatkan data dari API
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/pemasukan');
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   // PAKE INI
   // const [selectedMonth, setSelectedMonth] = useState(null);
@@ -117,14 +118,14 @@ function Historykaryawan() {
   // };
 
   // const [data, setData] = useState([]);
-  const [data, setData] = useState([
-    { id: 1, name: 'El Pardo', tanggal: '2023-02-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-    { id: 2, name: 'El Pardo', tanggal: '2023-04-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-    { id: 3, name: 'El Pardo', tanggal: '2023-02-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-    { id: 4, name: 'El Pardo', tanggal: '2023-08-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-    { id: 5, name: 'El Pardo', tanggal: '2023-04-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-    { id: 6, name: 'El Pardo', tanggal: '2023-01-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-  ]);
+  // const [data, setData] = useState([
+  //   { id: 1, name: 'El Pardo', tanggal: '2023-02-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
+  //   { id: 2, name: 'El Pardo', tanggal: '2023-04-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
+  //   { id: 3, name: 'El Pardo', tanggal: '2023-02-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
+  //   { id: 4, name: 'El Pardo', tanggal: '2023-08-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
+  //   { id: 5, name: 'El Pardo', tanggal: '2023-04-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
+  //   { id: 6, name: 'El Pardo', tanggal: '2023-01-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
+  // ]);
   
   const [startDate, setStartDate] = useState(null);
   const [filteredData, setFilteredData] = useState([]);
