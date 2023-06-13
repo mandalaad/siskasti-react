@@ -1,0 +1,14 @@
+{
+  "pemasukan": [
+    {
+      "tanggal": "2023-05-29T17:00:00.000Z",
+      "nama": "agung",
+      "nik": "76767676",
+      "grade": "B",
+      "nominal": "80000",
+      "unitKerja": "QA",
+      "status": "aktif",
+      "id": 1
+    }
+  ]
+}
