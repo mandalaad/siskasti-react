@@ -14,7 +14,7 @@ function Historykaryawan() {
     // Fungsi untuk mendapatkan data dari API
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/pemasukan');
+        const response = await axios.get('http://localhost:3002/pemasukan');
         setData(response.data);
       } catch (error) {
         console.log(error);
@@ -167,7 +167,7 @@ function Historykaryawan() {
           <div className="kiri">
             <div className="tanggal">
               <h5>Pilih Tanggal</h5>
-              <DatePicker selected={startDate} onChange={handleFilterByMonth} showMonthYearPicker />
+              <DatePicker selected={startDate} onChange={handleFilterByMonth} showMonthYearPicker formatdate='MM/yyyy' />
             </div>
           </div>
         </div>

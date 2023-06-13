@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Button, Modal, Table } from "react-bootstrap"
+import { Modal, Table } from "react-bootstrap"
 import './TransaksiIncome.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -14,7 +14,7 @@ function TransaksiIncome2() {
     // Fungsi untuk mendapatkan data dari API
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/pemasukan');
+        const response = await axios.get('http://localhost:3002/pemasukan');
         setData(response.data);
       } catch (error) {
         console.log(error);
@@ -40,18 +40,24 @@ function TransaksiIncome2() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/pemasukan');
+      const response = await axios.get('http://localhost:3002/pemasukan');
       setData(response.data);
     } catch (error) {
       console.error('Gagal mendapatkan data dari server:', error);
     }
   };
 
+  const formatDate = (date) => {
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formattedDate = new Date(date).toLocaleDateString('id-ID', options);
+    return formattedDate;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newData = {
-      tanggal: selectedDate ? selectedDate.toISOString() : '',
+      tanggal: selectedDate ? formatDate(selectedDate) : '',
       nama,
       nik,
       grade,
@@ -63,7 +69,7 @@ function TransaksiIncome2() {
     if (editIndex !== -1) {
       // Jika sedang dalam mode edit
       try {
-        await axios.put(`http://localhost:3001/pemasukan/${data[editIndex].id}`, newData);
+        await axios.put(`http://localhost:3002/pemasukan/${data[editIndex].id}`, newData);
         setAlertMessage('Data berhasil diperbarui.');
         setEditIndex(-1);
       } catch (error) {
@@ -73,7 +79,7 @@ function TransaksiIncome2() {
     } else {
       // Jika sedang dalam mode tambah data baru
       try {
-        await axios.post('http://localhost:3001/pemasukan', newData);
+        await axios.post('http://localhost:3002/pemasukan', newData);
         setAlertMessage('Data berhasil disimpan.');
       } catch (error) {
         console.error('Gagal menyimpan data di server:', error);
@@ -107,7 +113,7 @@ function TransaksiIncome2() {
 
   const handleDelete = async (index) => {
     try {
-      await axios.delete(`http://localhost:3001/pemasukan/${data[index].id}`);
+      await axios.delete(`http://localhost:3002/pemasukan/${data[index].id}`);
       setAlertMessage('Data berhasil dihapus.');
       fetchData(); // Memperbarui data setelah penghapusan
     } catch (error) {

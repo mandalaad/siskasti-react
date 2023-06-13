@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './TransaksiKaryawan.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import axios from 'axios';
+import { Modal, Button } from 'react-bootstrap';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function TransaksiKaryawan() {
@@ -32,76 +35,108 @@ function TransaksiKaryawan() {
     };
 
     // data grade otomatis 
-    const [data, setData] = useState({
-        grade: '',
-        jabatan: '',
-        nominal: '',
-        unitKerja: ''
-      });
-    
-      const handleInput = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value });
+    const [nama, setNama] = useState('');
+    const [grades, setGrades] = useState([]);
+    const [selectedGrade, setSelectedGrade] = useState('');
+    const [jabatan, setJabatan] = useState('');
+    const [nominal, setNominal] = useState('');
+    const [unitKerja, setUnitKerja] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isDataSubmitted, setIsDataSubmitted] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
+
+    useEffect(() => {
+      fetchGrades();
+    }, []);
+
+    const fetchGrades = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/grades');
+        setGrades(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const handleGradeChange = (e) => {
+      const selectedGrade = e.target.value;
+      setSelectedGrade(selectedGrade);
+
+      // Set data lain berdasarkan pilihan grade
+      const selectedOption = grades.find((grade) => grade.grade === selectedGrade);
+      if (selectedOption) {
+        setJabatan(selectedOption.jabatan);
+        setNominal(selectedOption.nominal);
+        setUnitKerja(selectedOption.unitKerja);
+      } else {
+        setJabatan('');
+        setNominal('');
+        setUnitKerja('');
+      }
+    };
+
+    const formatDate = (date) => {
+      const inputDate = new Date(date);
+      const day = String(inputDate.getDate()).padStart(2, '0');
+      const month = String(inputDate.getMonth() + 1).padStart(2, '0');
+      const year = inputDate.getFullYear();
+      const formattedDate = `${day} ${month} ${year}`;
+      return formattedDate;
+    };
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      // Membuat objek data untuk dikirim ke backend
+      const data = {
+        nama,
+        tanggal: selectedDate ? formatDate(selectedDate) : '',
+        grade: selectedGrade,
+        jabatan: jabatan,
+        nominal: nominal,
+        unitKerja: unitKerja,
       };
-    
-      const handleGradeChange = (e) => {
-        const selectedGrade = e.target.value;
-        setData({ ...data, grade: selectedGrade });
-    
-        // Logika untuk menentukan nilai jabatan, nominal, dan unitKerja berdasarkan pilihan grade
-        let jabatan = '';
-        let nominal = '';
-        let unitKerja = '';
-    
-        if (selectedGrade === 'A') {
-          jabatan = 'karyawan';
-          nominal = 20000;
-          unitKerja = 'Sales';
-        } else if (selectedGrade === 'B') {
-          jabatan = 'Karyawan';
-          nominal = 35000;
-          unitKerja = 'Marketing';
-        } else if (selectedGrade === 'C') {
-          jabatan = 'Karyawan';
-          nominal = 45000;
-          unitKerja = 'Finance';
-        } else if (selectedGrade === 'D') {
-          jabatan = 'Karyawan';
-          nominal = 75000;
-          unitKerja = 'Finance';
-        } else if (selectedGrade === 'E') {
-          jabatan = 'Kepala Departemen';
-          nominal = 100000;
-          unitKerja = 'Finance';
-        } else if (selectedGrade === 'F') {
-          jabatan = 'Kepala Divisi';
-          nominal = 150000;
-          unitKerja = 'Finance';
-        }
-    
-        setData({ ...data, jabatan, nominal, unitKerja });
-      };
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        axios.post('/api/save-data', data)
-        .then(response => {
-          console.log(response.data);
-          // Lakukan tindakan setelah data disimpan, misalnya mengosongkan input atau menampilkan pesan sukses
-          setData({
-            name: '',
-            tanggal: '',
-            grade: '',
-            jabatan: '',
-            nominal: '',
-            unitKerja: '',
-            file: ''
-          });
-        })
-        .catch(error => {
-          console.error(error);
-          console.log(selectedFile);
-        });
-      };
+  
+      if (!isDataSubmitted) {
+        setIsSubmitting(true);
+      try {
+        await axios.post('http://localhost:3002/pemasukan', data);
+        setModalMessage('Data berhasil ditambahkan ke database.');
+        setShowModal(true);
+
+        console.log('Data berhasil ditambahkan ke database!');
+        
+        setSelectedDate(null);
+        setNama('');
+        setSelectedGrade('');
+        setJabatan('');
+        setNominal('');
+        setUnitKerja('');
+
+        setIsDataSubmitted(true);
+
+        setTimeout(() => {
+          setIsDataSubmitted(false);
+        }, 0 * 60 * 1000); // Jeda 10 menit (10 * 60 * 1000 ms)
+        // Setelah data berhasil ditambahkan ke database, lakukan penanganan sesuai kebutuhan (misalnya notifikasi, refresh data, dll)
+
+        // Mengambil data terbaru setelah ditambahkan
+        fetchGrades();
+      } catch (error) {
+        console.error(error);
+        setModalMessage('Data gagal ditambahkan ke database.');
+        setShowModal(true);
+      }finally {
+        setIsSubmitting(false);
+      }
+    }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
 
   return (
     <>
@@ -112,6 +147,7 @@ function TransaksiKaryawan() {
                     <p>Nama Karyawan</p>
                     <input 
                     name='name'
+                    value={nama} onChange={e => setNama(e.target.value)}
                     type="text" 
                     required
                     />
@@ -131,23 +167,20 @@ function TransaksiKaryawan() {
                 </div>
                 <div className="field">
                     <p>Grade</p>
-                    <select name="grade" value={data.grade} onChange={handleGradeChange}>
-                        <option value="">Pilih Grade</option>
-                        <option value="A">4-5</option>
-                        <option value="B">7-8</option>
-                        <option value="C">9-10</option>
-                        <option value="D">11-12</option>
-                        <option value="E">12-13</option>
-                        <option value="F">14-16</option>
+                    <select value={selectedGrade} onChange={handleGradeChange}>
+                      <option value="">Select Grade</option>
+                      {grades.map((grade) => (
+                        <option key={grade.id} value={grade.grade}>
+                          {grade.grade}
+                        </option>
+                      ))}
                     </select>
                 </div>
                 <div className="field">
                     <p>Jabatan</p>
                     <input 
-                    type="text" 
                     name="jabatan"
-                    value={data.jabatan}
-                    onChange={handleInput}
+                    type="text" value={jabatan} readOnly
                     required
                     />
                 </div>
@@ -156,8 +189,7 @@ function TransaksiKaryawan() {
                     <input 
                     type="number" 
                     name="nominal"
-                    value={data.nominal}
-                    onChange={handleInput}
+                    value={nominal} readOnly
                     required
                     />
                 </div>
@@ -166,8 +198,7 @@ function TransaksiKaryawan() {
                     <input 
                     type="text" 
                     name="unitKerja"
-                    value={data.unitKerja}
-                    onChange={handleInput}
+                    value={unitKerja} readOnly
                     required
                     />
                 </div>
@@ -181,10 +212,29 @@ function TransaksiKaryawan() {
                 </div>
 
                 <div className="button">
-                    <button type='submit' onClick={handleSubmit}>Submit</button>
+                    <button type='submit' disabled={isSubmitting || isDataSubmitted}>Submit</button>
                 </div>
-
             </form>
+            {isDataSubmitted && <p>Anda telah berhasil mengirimkan data. Mohon tunggu selama 10 menit sebelum mengirimkan lagi.</p>}
+            
+            <Modal show={showModal} onHide={closeModal}
+              centered
+              >
+              <Modal.Header closeButton>
+                <Modal.Title>Status</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>{modalMessage}
+              
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={closeModal}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
+
+            <ToastContainer />
+
         </div>
     </div>
     </>
