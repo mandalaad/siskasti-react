@@ -1,0 +1,44 @@
+{
+  "pemasukan": [
+    {
+      "id": 1,
+      "tanggal": "2023-06-01",
+      "nama": "John Doe",
+      "nik": "1234567890",
+      "grade": "A",
+      "nominal": 1000000,
+      "unitKerja": "Unit 1",
+      "status": "Aktif"
+    },
+    {
+      "id": 2,
+      "tanggal": "2023-06-02",
+      "nama": "Jane Smith",
+      "nik": "0987654321",
+      "grade": "B",
+      "nominal": 2000000,
+      "unitKerja": "Unit 2",
+      "status": "Non-Aktif"
+    },
+    {
+      "tanggal": "2023-06-12T17:00:00.000Z",
+      "nama": "sdad",
+      "nik": "sdada",
+      "grade": "D",
+      "nominal": "56335",
+      "unitKerja": "dasd",
+      "status": "asdads",
+      "id": 3
+    },
+    {
+      "tanggal": "2023-04-02T17:00:00.000Z",
+      "nama": "mandala ganteng",
+      "nik": "235re253252",
+      "grade": "C",
+      "nominal": "3424",
+      "unitKerja": "342",
+      "status": "3224",
+      "id": 4
+    }
+  ]
+}
