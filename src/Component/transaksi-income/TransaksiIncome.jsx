@@ -47,17 +47,11 @@ function TransaksiIncome2() {
     }
   };
 
-  const formatDate = (date) => {
-    const options = { day: 'numeric', month: 'long', year: 'numeric' };
-    const formattedDate = new Date(date).toLocaleDateString('id-ID', options);
-    return formattedDate;
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newData = {
-      tanggal: selectedDate ? formatDate(selectedDate) : '',
+      tanggal : new Date().toLocaleDateString('en-US'),
       nama,
       nik,
       grade,
@@ -135,6 +129,12 @@ function TransaksiIncome2() {
   };
 
   const [showModal, setShowModal] = useState(false);
+
+  const formatDate = (date) => {
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formattedDate = new Date(date).toLocaleDateString('id-ID', options);
+    return formattedDate;
+  };
 
   return (
     <>
@@ -258,8 +258,8 @@ function TransaksiIncome2() {
                 <tbody>
                   {data.map((item, index) => (
                     <tr key={index}>
-                      <td>{item.no}</td>
-                      <td>{item.tanggal}</td>
+                      <td>{item.id}</td>
+                      <td>{formatDate(item.tanggal)}</td>
                       <td>{item.nama}</td>
                       <td>{item.nik}</td>
                       <td>{item.grade}</td>

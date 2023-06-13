@@ -1,49 +1,13 @@
 {
   "pemasukan": [
     {
+      "tanggal": "6/14/2023",
       "nama": "dani",
-      "tanggal": "13 Juni 2023",
-      "grade": "4-6",
-      "jabatan": "staff",
-      "nominal": 20000,
+      "grade": "11-12",
+      "nominal": 75000,
       "unitKerja": "Unit 1",
+      "status": "succes",
       "id": 1
-    },
-    {
-      "nama": "dani",
-      "tanggal": "9 Mei 2023",
-      "grade": "12-13",
-      "jabatan": "IT Advisor",
-      "nominal": 100000,
-      "unitKerja": "Unit 1",
-      "id": 2
-    },
-    {
-      "nama": "uyehsuherman",
-      "tanggal": "11 April 2023",
-      "grade": "11-12",
-      "jabatan": "kepala departement",
-      "nominal": 75000,
-      "unitKerja": "Unit 1",
-      "id": 3
-    },
-    {
-      "nama": "uyehsuherman",
-      "tanggal": "15 Desember 2023",
-      "grade": "12-13",
-      "jabatan": "IT Advisor",
-      "nominal": 100000,
-      "unitKerja": "Unit 1",
-      "id": 4
-    },
-    {
-      "nama": "Muhamadr146",
-      "tanggal": "15 05 2023",
-      "grade": "11-12",
-      "jabatan": "kepala departement",
-      "nominal": 75000,
-      "unitKerja": "Unit 1",
-      "id": 5
     }
   ]
 }

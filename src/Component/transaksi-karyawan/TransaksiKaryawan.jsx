@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Modal, Button } from 'react-bootstrap';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import id from 'date-fns/locale/id';
 
 
 function TransaksiKaryawan() {
@@ -76,14 +77,11 @@ function TransaksiKaryawan() {
       }
     };
 
-    const formatDate = (date) => {
-      const inputDate = new Date(date);
-      const day = String(inputDate.getDate()).padStart(2, '0');
-      const month = String(inputDate.getMonth() + 1).padStart(2, '0');
-      const year = inputDate.getFullYear();
-      const formattedDate = `${day} ${month} ${year}`;
-      return formattedDate;
-    };
+    // const formatDate = (date) => {
+    //   const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    //   const formattedDate = new Date(date).toLocaleDateString('id-ID', options);
+    //   return formattedDate;
+    // };
 
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -91,7 +89,7 @@ function TransaksiKaryawan() {
       // Membuat objek data untuk dikirim ke backend
       const data = {
         nama,
-        tanggal: selectedDate ? formatDate(selectedDate) : '',
+        tanggal: selectedDate ? selectedDate.toISOString() : '',
         grade: selectedGrade,
         jabatan: jabatan,
         nominal: nominal,
@@ -156,11 +154,12 @@ function TransaksiKaryawan() {
                     <p>Tanggal</p>
                     <div>
                         <DatePicker
-                        formatdate='dd/MM/yyyy'
+                        dateFormat="dd MMMM yyyy"
                         selected={selectedDate}
                         onChange={handleChange}
                         className='control'
                         name='tanggal'
+                        locale={id}
                         required
                         />
                     </div>
