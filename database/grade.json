@@ -1,0 +1,46 @@
+{
+    "grades": [
+      {
+        "id": 1,
+        "grade": "4-6",
+        "jabatan": "staff",
+        "nominal": 20000,
+        "unitKerja": "Unit 1"
+      },
+      {
+        "id": 2,
+        "grade": "7-8",
+        "jabatan": "fisrt line manager",
+        "nominal": 35000,
+        "unitKerja": "Unit 1"
+      },
+      {
+        "id": 3,
+        "grade": "9-10",
+        "jabatan": "middle management II",
+        "nominal": 45000,
+        "unitKerja": "Unit 1"
+      },
+      {
+        "id": 4,
+        "grade": "11-12",
+        "jabatan": "kepala departement",
+        "nominal": 75000,
+        "unitKerja": "Unit 1"
+      },
+      {
+        "id": 5,
+        "grade": "12-13",
+        "jabatan": "IT Advisor",
+        "nominal": 100000,
+        "unitKerja": "Unit 1"
+      },
+      {
+        "id": 6,
+        "grade": "14-16",
+        "jabatan": "kepala divisi",
+        "nominal": 150000,
+        "unitKerja": "Unit 1"
+      }
+    ]
+  }

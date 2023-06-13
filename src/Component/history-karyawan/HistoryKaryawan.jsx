@@ -5,126 +5,29 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import jsPDF from 'jspdf'
 import 'jspdf-autotable'
+import axios from "axios"
+import id from 'date-fns/locale/id';
+import { getMonth } from "date-fns"
 
 function Historykaryawan() {
-  //   const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
 
-  //   useEffect(() => {
-  //   // Fungsi untuk mendapatkan data dari API
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('URL_API_ANDA');
-  //       setData(response.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-
-  // PAKE INI
-  // const [selectedMonth, setSelectedMonth] = useState(null);
-  // const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  // const fetchData = () => {
-  //   // Ganti URL_API dengan URL API yang sesuai
-  //   fetch('URL_API')
-  //     .then((response) => response.json())
-  //     .then((data) => setData(data))
-  //     .catch((error) => console.log(error));
-  // };
-
-  // const handleMonthChange = (date) => {
-  //   setSelectedMonth(date);
-  // };
-
-  // const handlePrint = () => {
-  //   if (selectedMonth) {
-  //     const filteredData = processData(selectedMonth); // Memproses data sesuai bulan yang dipilih
-
-  //     const doc = new jsPDF();
-  //     doc.text(`Data for ${selectedMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`, 10, 10);
-
-  //     doc.autoTable({
-  //       head: [['ID', 'Nama', 'Usia']],
-  //       body: filteredData.map((item) => [item.id, item.name, item.age])
-  //     });
-
-  //     doc.save('data.pdf');
-  //   }
-  // };
-
-  // const processData = (selectedMonth) => {
-  //   const filteredData = data.filter(
-  //     (item) =>
-  //       new Date(item.date).getMonth() === selectedMonth.getMonth() &&
-  //       new Date(item.date).getFullYear() === selectedMonth.getFullYear()
-  //   );
-  //   return filteredData;
-  // };
-  // SAMPE SINI
+    useEffect(() => {
+      fetchData();
+    }, []);
   
-  // const [selectedMonth, setSelectedMonth] = useState(null);
+    useEffect(() => {
+      setFilteredData(data);
+    }, [data]);
   
-  // const handleMonthChange = (date) => {
-  //   setSelectedMonth(date);
-  // };
-
-  // const handlePrint = () => {
-  //   if (selectedMonth) {
-  //     const filteredData = processData(selectedMonth); // Memproses data sesuai bulan yang dipilih
-
-  //     const doc = new jsPDF();
-  //     doc.text(`Data for ${selectedMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`, 10, 10);
-
-  //     doc.autoTable({
-  //       head: [['no', 'Nama', 'NIK', 'Grade', 'Nominal', 'Unit Kerja', 'Status']],
-  //       body: filteredData.map((item) => [item.id, item.name, item.nik, item.grade, item.nominal, item.unitkerja, item.status])
-  //     });
-
-  //     doc.save('data.pdf');
-  //   }
-  // };
-
-  // const processData = (selectedMonth) => {
-  //   // Contoh data tabel
-    // const dataa = [
-    //   { id: 1, name: 'El Pardo', tanggal: 25 , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-    //   { id: 1, name: 'El Pardo', tanggal: 25 , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-    //   { id: 1, name: 'El Pardo', tanggal: 25 ,nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', date: new Date('2023-01-10'), tanggal:+'date', },
-
-    //   // { id: 2, name: 'Jane Smith', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-15'),  },
-    //   // { id: 3, name: 'Bob Johnson', kasmasuk:'30.000', kaskeluar:'20.000', nominal:'50.000', keterangan:'lunas', date: new Date('2023-02-20'),  }
-    // ];
-
-  //   const filteredData = data.filter(
-  //     (item) =>
-  //       item.date.getMonth() === selectedMonth.getMonth() &&
-  //       item.date.getFullYear() === selectedMonth.getFullYear()
-  //   );
-  //   return filteredData;
-  // };
-
-  // const [data, setData] = useState([]);
-  const [data, setData] = useState([
-    { id: 1, name: 'El Pardo', tanggal: '2023-02-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-    { id: 2, name: 'El Pardo', tanggal: '2023-04-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-    { id: 3, name: 'El Pardo', tanggal: '2023-02-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-    { id: 4, name: 'El Pardo', tanggal: '2023-08-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-    { id: 5, name: 'El Pardo', tanggal: '2023-04-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-    { id: 6, name: 'El Pardo', tanggal: '2023-01-15' , nik:31289898989, grade:'4-9', nominal:'25.000', unitkerja:'System Analyst', status:'lunas' },
-  ]);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3002/pemasukan');
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
   
   const [startDate, setStartDate] = useState(null);
   const [filteredData, setFilteredData] = useState([]);
@@ -138,14 +41,20 @@ function Historykaryawan() {
     doc.save('table.pdf');
   };
 
-  const handleFilterByMonth = (tanggal) => {
-    setStartDate(tanggal);
-    const selectedMonth = tanggal.getMonth();
+  const handleFilterByMonth = (date) => {
+    setStartDate(date);
+    const selectedMonth = getMonth(date);
     const filteredByMonth = data.filter((item) => {
-      const itemMonth = new Date(item.tanggal).getMonth();
+      const itemMonth = getMonth(new Date(item.tanggal));
       return itemMonth === selectedMonth;
     });
     setFilteredData(filteredByMonth);
+  };
+  
+  const formatDate = (date) => {
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formattedDate = new Date(date).toLocaleDateString('id-ID', options);
+    return formattedDate;
   };
 
   const handleShowAllData = () => {
@@ -166,7 +75,13 @@ function Historykaryawan() {
           <div className="kiri">
             <div className="tanggal">
               <h5>Pilih Tanggal</h5>
-              <DatePicker selected={startDate} onChange={handleFilterByMonth} showMonthYearPicker />
+              <DatePicker 
+              selected={startDate} 
+              onChange={handleFilterByMonth} 
+              showMonthYearPicker 
+              dateFormat="MMMM yyyy" 
+              locale={id}
+              />
             </div>
           </div>
         </div>
@@ -188,15 +103,15 @@ function Historykaryawan() {
           </tr>
         </thead>
         <tbody>
-          {filteredData.map(({ id, name, tanggal, nik, grade, nominal, unitkerja, status  }) => (
+          {filteredData.map(({ id, nama, tanggal, nik, grade, nominal, unitKerja, status  }) => (
               <tr key={id}>
               <td>{id}</td>
-              <td>{name}</td>
-              <td>{tanggal}</td>
+              <td>{nama}</td>
+              <td>{formatDate(tanggal)}</td>
               <td>{nik}</td>
               <td>{grade}</td>
               <td>{nominal}</td>
-              <td>{unitkerja}</td>
+              <td>{unitKerja}</td>
               <td>{status}</td>
             </tr>
           ))}
@@ -212,3 +127,5 @@ function Historykaryawan() {
 }
 
 export default Historykaryawan
+
+                  

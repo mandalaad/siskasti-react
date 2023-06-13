@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Button, Modal, Table } from "react-bootstrap"
+import { Modal, Table } from "react-bootstrap"
 import './TransaksiIncome.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -8,6 +8,22 @@ import axios from "axios"
 
 function TransaksiIncome2() {
 
+  const [data, setData] = useState([]);
+
+    useEffect(() => {
+    // Fungsi untuk mendapatkan data dari API
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3002/pemasukan');
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const [selectedDate, setSelectedDate] = useState(null);
   const [nama, setNama] = useState('');
   const [nik, setNIK] = useState('');
@@ -15,7 +31,6 @@ function TransaksiIncome2() {
   const [nominal, setNominal] = useState('');
   const [unitKerja, setUnitKerja] = useState('');
   const [status, setStatus] = useState('');
-  const [data, setData] = useState([]);
   const [editIndex, setEditIndex] = useState(-1);
   const [alertMessage, setAlertMessage] = useState('');
 
@@ -25,7 +40,7 @@ function TransaksiIncome2() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://url-to-your-api-endpoint');
+      const response = await axios.get('http://localhost:3002/pemasukan');
       setData(response.data);
     } catch (error) {
       console.error('Gagal mendapatkan data dari server:', error);
@@ -36,7 +51,7 @@ function TransaksiIncome2() {
     e.preventDefault();
 
     const newData = {
-      tanggal: selectedDate ? selectedDate.toISOString() : '',
+      tanggal : new Date().toLocaleDateString('en-US'),
       nama,
       nik,
       grade,
@@ -48,7 +63,7 @@ function TransaksiIncome2() {
     if (editIndex !== -1) {
       // Jika sedang dalam mode edit
       try {
-        await axios.put(`http://url-to-your-api-endpoint/${data[editIndex].id}`, newData);
+        await axios.put(`http://localhost:3002/pemasukan/${data[editIndex].id}`, newData);
         setAlertMessage('Data berhasil diperbarui.');
         setEditIndex(-1);
       } catch (error) {
@@ -58,7 +73,7 @@ function TransaksiIncome2() {
     } else {
       // Jika sedang dalam mode tambah data baru
       try {
-        await axios.post('http://url-to-your-api-endpoint', newData);
+        await axios.post('http://localhost:3002/pemasukan', newData);
         setAlertMessage('Data berhasil disimpan.');
       } catch (error) {
         console.error('Gagal menyimpan data di server:', error);
@@ -92,7 +107,7 @@ function TransaksiIncome2() {
 
   const handleDelete = async (index) => {
     try {
-      await axios.delete(`http://url-to-your-api-endpoint/${data[index].id}`);
+      await axios.delete(`http://localhost:3002/pemasukan/${data[index].id}`);
       setAlertMessage('Data berhasil dihapus.');
       fetchData(); // Memperbarui data setelah penghapusan
     } catch (error) {
@@ -113,47 +128,13 @@ function TransaksiIncome2() {
     setAlertMessage('');
   };
 
-
-  const generateFakeData = () => {
-    const fakeData = [
-      {
-        id: 1,
-        tanggal: '2023-06-01',
-        nama: 'John Doe',
-        nik: '1234567890',
-        grade: 'A',
-        nominal: 1000000,
-        unitKerja: 'Unit 1',
-        status: 'Aktif',
-      },
-      {
-        id: 2,
-        tanggal: '2023-06-02',
-        nama: 'Jane Smith',
-        nik: '0987654321',
-        grade: 'B',
-        nominal: 2000000,
-        unitKerja: 'Unit 2',
-        status: 'Non-Aktif',
-      },
-      // Tambahkan data palsu lainnya di sini
-    ];
-
-    setData(fakeData);
-  };
-
-
   const [showModal, setShowModal] = useState(false);
-  const dataa = [
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-    { no: '1', tanggal: 25, nama: 'mandala', nik:3212387192, grade:'4-6', nominal:20000,unit:'dasdahn',status:'lunas' },
-  ];
+
+  const formatDate = (date) => {
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formattedDate = new Date(date).toLocaleDateString('id-ID', options);
+    return formattedDate;
+  };
 
   return (
     <>
@@ -277,8 +258,8 @@ function TransaksiIncome2() {
                 <tbody>
                   {data.map((item, index) => (
                     <tr key={index}>
-                      <td>{item.no}</td>
-                      <td>{item.tanggal}</td>
+                      <td>{item.id}</td>
+                      <td>{formatDate(item.tanggal)}</td>
                       <td>{item.nama}</td>
                       <td>{item.nik}</td>
                       <td>{item.grade}</td>

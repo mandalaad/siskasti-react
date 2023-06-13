@@ -1,0 +1,13 @@
+{
+  "pemasukan": [
+    {
+      "tanggal": "6/14/2023",
+      "nama": "dani",
+      "grade": "11-12",
+      "nominal": 75000,
+      "unitKerja": "Unit 1",
+      "status": "succes",
+      "id": 1
+    }
+  ]
+}
