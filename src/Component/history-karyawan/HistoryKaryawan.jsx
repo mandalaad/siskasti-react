@@ -14,7 +14,7 @@ function Historykaryawan() {
     // Fungsi untuk mendapatkan data dari API
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3002/pembayaran');
+        const response = await axios.get('http://localhost:3001/pemasukan');
         setData(response.data);
       } catch (error) {
         console.log(error);
@@ -134,7 +134,7 @@ function Historykaryawan() {
     const doc = new jsPDF();
     doc.autoTable({
       head: [['No', 'Nama', 'Tanggal', 'NIK', 'Grade', 'Nominal', 'Unit Kerja', 'Status']],
-      body: filteredData.map(({ id, nama, tanggal, nik, grade, nominal, unitkerja, status }) => [id, nama, tanggal, nik, grade, nominal, unitkerja, status]),
+      body: filteredData.map(({ id, nama, tanggal, nik, grade, nominal, unitKerja, status }) => [id, nama, tanggal, nik, grade, nominal, unitKerja, status]),
     });
     doc.save('table.pdf');
   };
@@ -189,7 +189,7 @@ function Historykaryawan() {
           </tr>
         </thead>
         <tbody>
-          {filteredData.map(({ id, nama, tanggal, nik, grade, nominal, unitkerja, status  }) => (
+          {filteredData.map(({ id, nama, tanggal, nik, grade, nominal, unitKerja, status  }) => (
               <tr key={id}>
               <td>{id}</td>
               <td>{nama}</td>
@@ -197,7 +197,7 @@ function Historykaryawan() {
               <td>{nik}</td>
               <td>{grade}</td>
               <td>{nominal}</td>
-              <td>{unitkerja}</td>
+              <td>{unitKerja}</td>
               <td>{status}</td>
             </tr>
           ))}

@@ -14,7 +14,7 @@ function Historypemasukan() {
     // Fungsi untuk mendapatkan data dari API
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/pemasukan');
+        const response = await axios.get('https://648805000e2469c038fcc87f.mockapi.io/historypemasukanadmin/api/v1/super-admin');
         setData(response.data);
       } catch (error) {
         console.log(error);

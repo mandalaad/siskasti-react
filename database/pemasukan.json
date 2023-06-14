@@ -1,24 +1,33 @@
 {
-  "pemasukan": [
-    {
-      "tanggal": "2023-05-29T17:00:00.000Z",
-      "nama": "agung",
-      "nik": "76767676",
-      "grade": "B",
-      "nominal": "80000",
-      "unitKerja": "QA",
-      "status": "aktif",
-      "id": 1
-    },
-    {
-      "tanggal": "2023-05-13T17:00:00.000Z",
-      "nama": "mandala",
-      "nik": "343434",
-      "grade": "A",
-      "nominal": "12121212",
-      "unitKerja": "sales",
-      "status": "lunas",
-      "id": 2
-    }
-  ]
+    "pemasukan": [{
+            "tanggal": "2023-06-13T17:00:00.000Z",
+            "nama": "Mandala",
+            "nik": "3232323232",
+            "grade": "B",
+            "nominal": "200000",
+            "unitKerja": "Finance",
+            "status": "Lunas",
+            "id": 3
+        },
+        {
+            "tanggal": "2023-06-07T17:00:00.000Z",
+            "nama": "Rama",
+            "nik": "23232323232",
+            "grade": "A",
+            "nominal": "35000",
+            "unitKerja": "Finance",
+            "status": "Lunas",
+            "id": 4
+        },
+        {
+            "tanggal": "2023-06-08T17:00:00.000Z",
+            "nama": "Farhan",
+            "nik": "32323232",
+            "grade": "A",
+            "nominal": "20000",
+            "unitKerja": "Finance",
+            "status": "Lunas",
+            "id": 5
+        }
+    ]
 }
