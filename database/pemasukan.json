@@ -8,6 +8,35 @@
       "unitKerja": "Unit 1",
       "status": "succes",
       "id": 1
+    },
+    {
+      "tanggal": "6/14/2023",
+      "nama": "Mandala",
+      "nik": "22232323",
+      "grade": "B",
+      "nominal": "200000",
+      "unitKerja": "Finance",
+      "status": "Lunas",
+      "id": 2
+    },
+    {
+      "tanggal": "6/14/2023",
+      "nama": "aaa",
+      "grade": "7-8",
+      "nominal": 35000,
+      "unitKerja": "Unit 1",
+      "status": "Lunas",
+      "id": 3
+    },
+    {
+      "tanggal": "6/14/2023",
+      "nama": "Rama",
+      "nik": "323232",
+      "grade": "A",
+      "nominal": "200000000",
+      "unitKerja": "sssss",
+      "status": "lunas",
+      "id": 4
     }
   ]
 }

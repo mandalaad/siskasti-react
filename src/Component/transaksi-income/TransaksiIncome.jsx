@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Modal, Table } from "react-bootstrap"
+import { Button, Modal, Table } from "react-bootstrap"
 import './TransaksiIncome.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -146,9 +146,9 @@ function TransaksiIncome2() {
             <div className="buton">
             <button onClick={() => setShowModal(true)}>Masukan Data</button>
             </div>
-            <Button variant="primary" onClick={generateFakeData}>
+            {/* <Button variant="primary" onClick={generateFakeData}>
              Generate Fake Data
-            </Button>
+            </Button> */}
             <Modal
               className="modal"
               show={showModal} onHide={() => setShowModal(false)}
