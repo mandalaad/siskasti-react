@@ -1,0 +1,10 @@
+{
+  "pembayaran": [
+    {
+      "jabatan": "Karyawan",
+      "nominal": 35000,
+      "unitKerja": "Marketing",
+      "id": 1
+    }
+  ]
+}

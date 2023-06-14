@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './TransaksiKaryawan.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -6,7 +6,21 @@ import axios from 'axios';
 
 
 function TransaksiKaryawan() {
+  // const [data, setData] = useState([]);
 
+  useEffect(() => {
+  // Fungsi untuk mendapatkan data dari API
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://localhost:3002/pembayaran');
+      setData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  fetchData();
+}, []);
     // input file
     const [selectedFile, setSelectedFile] = useState(null);
     const handleFileChange = (event) => {
@@ -33,14 +47,18 @@ function TransaksiKaryawan() {
 
     // data grade otomatis 
     const [data, setData] = useState({
+        tanggal:'',
         grade: '',
         jabatan: '',
         nominal: '',
-        unitKerja: ''
+        unitKerja: '',
+        nama: '',
+        status:'',
+
       });
     
       const handleInput = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value });
+        setData({ ...data, [e.target.nama]: e.target.value });
       };
     
       const handleGradeChange = (e) => {
@@ -83,16 +101,16 @@ function TransaksiKaryawan() {
     
       const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('/api/save-data', data)
+        axios.post('http://localhost:3002/pembayaran', data)
         .then(response => {
           console.log(response.data);
           // Lakukan tindakan setelah data disimpan, misalnya mengosongkan input atau menampilkan pesan sukses
           setData({
-            name: '',
+            nama: '',
             tanggal: '',
             grade: '',
             jabatan: '',
-            nominal: '',
+            // nominal: '',
             unitKerja: '',
             file: ''
           });

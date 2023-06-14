@@ -40,7 +40,7 @@ function TransaksiIncome2() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://url-to-your-api-endpoint');
+      const response = await axios.get('http://localhost:3001/pemasukan');
       setData(response.data);
     } catch (error) {
       console.error('Gagal mendapatkan data dari server:', error);
