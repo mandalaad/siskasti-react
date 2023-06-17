@@ -1,96 +1,133 @@
-import React from 'react';
-import TableContainer from '@mui/material/TableContainer';
+import * as React from 'react';
+import './Laporank.css'
+import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
-import TableHead from '@mui/material/TableHead';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableRow from '@mui/material/TableRow';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
-import Paper from '@mui/material/Paper';
+import TableRow from '@mui/material/TableRow';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 
-function Laporank(props) {
-    const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+const columns = [
+  { id: 'name', label: 'Name', minWidth: 170 },
+  { id: 'code', label: 'ISO', minWidth: 100 },
+  {
+    id: 'population',
+    label: 'Population',
+    minWidth: 170,
+    align: 'right',
+    format: (value) => value.toLocaleString('en-US'),
+  },
+  {
+    id: 'size',
+    label: 'Size\u00a0(km\u00b2)',
+    minWidth: 170,
+    align: 'right',
+    format: (value) => value.toLocaleString('en-US'),
+  },
+  {
+    id: 'density',
+    label: 'Density',
+    minWidth: 170,
+    align: 'right',
+    format: (value) => value.toFixed(2),
+  },
+];
+
+const StickyHeadTable = () => {
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rows, setRows] = useState([]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
+    setRowsPerPage(+event.target.value);
     setPage(0);
   };
 
-  const columns = [
-    { id: 'name', label: 'Name' },
-    { id: 'age', label: 'Age' },
-    { id: 'email', label: 'Email' },
-  ];
+  useEffect(() => {
+    axios
+      .get('https://api.example.com/data') // Ganti URL API dengan URL yang sesuai
+      .then((response) => {
+        setRows(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
-  const rows = [
-    { name: 'John Doe', age: 25, email: 'john.doe@example.com' },
-    { name: 'Jane Smith', age: 30, email: 'jane.smith@example.com' },
-    { name: 'John Doe', age: 25, email: 'john.doe@example.com' },
-    { name: 'Jane Smith', age: 30, email: 'jane.smith@example.com' },
-    { name: 'John Doe', age: 25, email: 'john.doe@example.com' },
-    { name: 'Jane Smith', age: 30, email: 'jane.smith@example.com' },
-    { name: 'John Doe', age: 25, email: 'john.doe@example.com' },
-    { name: 'Jane Smith', age: 30, email: 'jane.smith@example.com' },
-    { name: 'John Doe', age: 25, email: 'john.doe@example.com' },
-    { name: 'Jane Smith', age: 30, email: 'jane.smith@example.com' },
-    { name: 'John Doe', age: 25, email: 'john.doe@example.com' },
-    { name: 'Jane Smith', age: 30, email: 'jane.smith@example.com' },
-    { name: 'John Doe', age: 25, email: 'john.doe@example.com' },
-    { name: 'Jane Smith', age: 30, email: 'jane.smith@example.com' },
-    { name: 'John Doe', age: 25, email: 'john.doe@example.com' },
-    { name: 'Jane Smith', age: 30, email: 'jane.smith@example.com' },
-    // Tambahkan data lainnya...
-  ];
-   
-    
   return (
-    <>
     <div className="content">
-        <div className="wrap">
-            <div className="laporan-karyawan">
-            <Paper>
-            <TableContainer>
-                <Table>
-                <TableHead>
-                    <TableRow>
-                    {columns.map((column) => (
-                        <TableCell key={column.id}>{column.label}</TableCell>
-                    ))}
+      <div className="wrap">
+        <div className="laporan">
+          <div className="header">
+            <h4>Laporan</h4>
+          </div>
+        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+          <TableContainer sx={{ maxHeight: 440 }}>
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                  {columns.map((column) => (
+                    <TableCell
+                      key={column.id}
+                      align={column.align}
+                      style={{ minWidth: column.minWidth }}
+                    >
+                      {column.label}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row) => (
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      key={row.code}
+                    >
+                      {columns.map((column) => {
+                        const value = row[column.id];
+                        return (
+                          <TableCell
+                            key={column.id}
+                            align={column.align}
+                          >
+                            {column.format && typeof value === 'number'
+                              ? column.format(value)
+                              : value}
+                          </TableCell>
+                        );
+                      })}
                     </TableRow>
-                </TableHead>
-                <TableBody>
-                    {rows
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((row, index) => (
-                        <TableRow key={index}>
-                        {columns.map((column) => (
-                            <TableCell key={column.id}>{row[column.id]}</TableCell>
-                        ))}
-                        </TableRow>
-                    ))}
-                </TableBody>
-                </Table>
-            </TableContainer>
-            <TablePagination
-                rowsPerPageOptions={[5, 10, 25]}
-                component="div"
-                count={rows.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-            </Paper>
-            </div>
+                  ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <TablePagination
+            rowsPerPageOptions={[10, 25, 100]}
+            component="div"
+            count={rows.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </Paper>
         </div>
+      </div>
     </div>
-    </>
-  )
-}
+  );
+};
 
-export default Laporank
+export default StickyHeadTable;
