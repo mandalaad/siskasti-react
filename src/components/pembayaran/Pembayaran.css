@@ -1,0 +1,50 @@
+.pembayaran .header {
+  background-color: #20A94D;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  color: white;
+}
+.pembayaran .content1 {
+  margin-top: 30px;
+}
+.pembayaran .content1 .content-field {
+  display: flex;
+  justify-content: space-around;
+}
+.pembayaran .content1 .content-field .field {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.pembayaran .content1 .content-field .field p {
+  padding-right: 50px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.pembayaran .content1 .content-field .field input {
+  height: 30px;
+  width: 250px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+.pembayaran .content1 .content-field .field .input-gambar {
+  height: 30px;
+  width: 260px;
+}
+.pembayaran .content1 .button {
+  display: flex;
+  justify-content: end;
+  margin-right: 70px;
+}
+.pembayaran .content1 .button button {
+  width: 150px;
+  height: 30px;
+  background-color: #20A94D;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}/*# sourceMappingURL=Pembayaran.css.map */
