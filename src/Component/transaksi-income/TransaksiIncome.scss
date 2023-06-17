@@ -36,7 +36,8 @@
             font-weight: 700;
             font-size: 20px;
         }
-        input, select {
+        input,
+        select {
             height: 40px;
             width: 250px;
             padding-left: 10px;
@@ -63,4 +64,8 @@
             border-radius: 20px;
         }
     }
+}
+
+.alert1 {
+    display: none;
 }

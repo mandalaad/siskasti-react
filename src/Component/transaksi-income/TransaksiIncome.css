@@ -36,7 +36,8 @@
   font-weight: 700;
   font-size: 20px;
 }
-.modal .field input, .modal .field select {
+.modal .field input,
+.modal .field select {
   height: 40px;
   width: 250px;
   padding-left: 10px;
@@ -61,4 +62,8 @@
   width: 200px;
   height: 35px;
   border-radius: 20px;
+}
+
+.alert1 {
+  display: none;
 }/*# sourceMappingURL=TransaksiIncome.css.map */

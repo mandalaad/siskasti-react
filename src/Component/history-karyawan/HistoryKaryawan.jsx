@@ -22,7 +22,7 @@ function Historykaryawan() {
   
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3002/pemasukan');
+        const response = await axios.get('http://10.87.10.30:8080/api/auth/login');
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);

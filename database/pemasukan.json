@@ -6,7 +6,7 @@
       "grade": "11-12",
       "nominal": 75000,
       "unitKerja": "Unit 1",
-      "status": "succes",
+      "status": "Lunas",
       "id": 1
     },
     {
@@ -20,23 +20,34 @@
       "id": 2
     },
     {
-      "tanggal": "6/14/2023",
-      "nama": "aaa",
-      "grade": "7-8",
-      "nominal": 35000,
+      "tanggal": "6/15/2023",
+      "nama": "Nama",
+      "nik": "6969696969",
+      "grade": "",
+      "nominal": 20000,
       "unitKerja": "Unit 1",
       "status": "Lunas",
-      "id": 3
+      "id": 4
     },
     {
-      "tanggal": "6/14/2023",
-      "nama": "Rama",
-      "nik": "323232",
-      "grade": "A",
-      "nominal": "200000000",
-      "unitKerja": "sssss",
-      "status": "lunas",
-      "id": 4
+      "tanggal": "6/15/2023",
+      "nama": "Mamat",
+      "nik": "232323",
+      "grade": "4-6",
+      "nominal": 20000,
+      "unitKerja": "Unit 1",
+      "status": "Lunas",
+      "id": 5
+    },
+    {
+      "tanggal": "6/15/2023",
+      "nama": "mandala",
+      "nik": "32323232",
+      "grade": "4-6",
+      "nominal": 20000,
+      "unitKerja": "Unit 1",
+      "status": "Lunas",
+      "id": 6
     }
   ]
 }

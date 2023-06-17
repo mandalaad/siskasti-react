@@ -33,9 +33,15 @@ function TransaksiIncome2() {
   const [status, setStatus] = useState('');
   const [editIndex, setEditIndex] = useState(-1);
   const [alertMessage, setAlertMessage] = useState('');
-
+  const [jabatan, setJabatan] = useState('');
+  const [selectedGrade, setSelectedGrade] = useState('');
+  const [grades, setGrades] = useState([]);
   useEffect(() => {
     fetchData();
+  }, []);
+
+  useEffect(() => {
+    fetchGrades();
   }, []);
 
   const fetchData = async () => {
@@ -54,12 +60,12 @@ function TransaksiIncome2() {
       tanggal : new Date().toLocaleDateString('en-US'),
       nama,
       nik,
-      grade,
+      grade:selectedGrade,
       nominal,
       unitKerja,
       status,
     };
-
+const alert1 = document.getElementById('alert2');
     if (editIndex !== -1) {
       // Jika sedang dalam mode edit
       try {
@@ -74,7 +80,8 @@ function TransaksiIncome2() {
       // Jika sedang dalam mode tambah data baru
       try {
         await axios.post('http://localhost:3002/pemasukan', newData);
-        setAlertMessage('Data berhasil disimpan.');
+        // setAlertMessage('Data berhasil disimpan.');
+        alert1.style.display = 'block';
       } catch (error) {
         console.error('Gagal menyimpan data di server:', error);
         setAlertMessage('Gagal menyimpan data.');
@@ -104,7 +111,7 @@ function TransaksiIncome2() {
     setStatus(selectedData.status);
     setEditIndex(index);
   };
-
+  const alert1 = document.getElementById('alert1');
   const handleDelete = async (index) => {
     try {
       await axios.delete(`http://localhost:3002/pemasukan/${data[index].id}`);
@@ -112,7 +119,8 @@ function TransaksiIncome2() {
       fetchData(); // Memperbarui data setelah penghapusan
     } catch (error) {
       console.error('Gagal menghapus data dari server:', error);
-      setAlertMessage('Gagal menghapus data.');
+      // setAlertMessage('Gagal menghapus data.');
+      alert1.style.display = 'block';
     }
   };
 
@@ -135,14 +143,45 @@ function TransaksiIncome2() {
     const formattedDate = new Date(date).toLocaleDateString('id-ID', options);
     return formattedDate;
   };
+  const fetchGrades = async () => {
+    try {
+      const response = await axios.get('http://localhost:3001/grades');
+      setGrades(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleGradeChange = (e) => {
+    const selectedGrade = e.target.value;
+    setSelectedGrade(selectedGrade);
+
+    // Set data lain berdasarkan pilihan grade
+    const selectedOption = grades.find((grade) => grade.grade === selectedGrade);
+    if (selectedOption) {
+      setJabatan(selectedOption.jabatan);
+      setNominal(selectedOption.nominal);
+      setUnitKerja(selectedOption.unitKerja);
+    } else {
+      setJabatan('');
+      setNominal('');
+      setUnitKerja('');
+    }
+  };
 
   return (
     <>
     <div className="content">
       <div className="tabel-income-admin">
         <h3>Kas Masuk</h3>
+        <div id='alert1' className='mt-2 alert1'>
+            <p style={{color:'red'}}>Gagal menghapus data</p>
+        </div>  
+        <div id='alert2' className='mt-2 alert1'>
+            <p style={{color:'#00AB4E'}}>Sukses menambahkan data</p>
+        </div>                              
         <div className="content1 mt-4">
-          {alertMessage && <div>{alertMessage}</div>}
+          {alert1 && <div>{alert1}</div>}
             <div className="buton">
             <button onClick={() => setShowModal(true)}>Masukan Data</button>
             </div>
@@ -190,7 +229,7 @@ function TransaksiIncome2() {
                   value={nik} onChange={e => setNIK(e.target.value)}
                 />
                 </div>
-                <div className="field">
+                {/* <div className="field">
                     <p>Grade</p>
                     <select name="grade" value={grade} onChange={e => setGrade(e.target.value)}>
                         <option value="">Pilih Grade</option>
@@ -217,6 +256,43 @@ function TransaksiIncome2() {
                   placeholder="Unit Kerja"
                   value={unitKerja} onChange={e => setUnitKerja(e.target.value)}
                 />
+                </div> */}
+                <div className="field">
+                    <p>Grade</p>
+                    <select value={selectedGrade} onChange={handleGradeChange}>
+                      <option value="">Select Grade</option>
+                      {grades.map((grade) => (
+                        <option key={grade.id} value={grade.grade}>
+                          {grade.grade}
+                        </option>
+                      ))}
+                    </select>
+                </div>
+                <div className="field">
+                    <p>Jabatan</p>
+                    <input 
+                    name="jabatan"
+                    type="text" value={jabatan} readOnly
+                    required
+                    />
+                </div>
+                <div className="field">
+                    <p>Nominal</p>
+                    <input 
+                    type="number" 
+                    name="nominal"
+                    value={nominal} readOnly
+                    required
+                    />
+                </div>
+                <div className="field">
+                    <p>Unit Kerja</p>
+                    <input 
+                    type="text" 
+                    name="unitKerja"
+                    value={unitKerja} readOnly
+                    required
+                    />
                 </div>
                 <div className="field">
                 <p>Status</p>
