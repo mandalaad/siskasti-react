@@ -1,0 +1,49 @@
+.divisi .header {
+  background-color: #20A94D;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.midleside-content {
+  margin-top: 40px;
+  width: 98%;
+}
+.midleside-content .kartu {
+  background-color: #009551;
+  width: 18rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+.midleside-content .kartu .kartu-content {
+  padding: 20px;
+  color: white;
+}
+.midleside-content .kartu .logo-kartu {
+  background-color: white;
+  margin: auto;
+  height: 40px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+}
+
+.card:hover {
+  transform: scale(120%);
+  transition: 0.2s;
+  margin-left: 20px;
+}
+
+.kartu:hover {
+  transform: scale(110%);
+  transition: 0.2s;
+  z-index: 1;
+}
+
+.dashboard-link {
+  text-decoration: none;
+}/*# sourceMappingURL=dashboarddivisi.css.map */
