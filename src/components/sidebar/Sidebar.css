@@ -142,6 +142,12 @@
   pointer-events: none;
   transition: 0.4s;
 }
+.sidebar li a .links_name i{
+  font-size: 25px;
+  margin-left: 55px;
+  text-align: right;
+  box-sizing: border-box;
+}
 .sidebar.open li a .links_name{
   opacity: 1;
   pointer-events: auto;

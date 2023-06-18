@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'
 import { Collapse } from 'react-bootstrap';
+import { MdArrowDropDownCircle } from 'react-icons/md';
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,25 +49,30 @@ function Sidebar() {
         <li>
           <Link onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
             <i className="bx bx-user"></i>
-            <span className="links_name">User</span>
-            <i className="down-arrow"></i>
+            <span className="links_name">Transaksi <i><MdArrowDropDownCircle/></i></span>
           </Link>
-          <span className="tooltip">User</span>
           <Collapse in={open}>
             <ul className='list-menu'>
               <li>
-                <Link to='/'>
+                <Link to='/kas-masuk'>
                   <i className="bx bx-user"></i>
-                  <span className="links_name">User</span>
+                  <span className="links_name">Kas masuk</span>
                 </Link>
-                <span className="tooltip">pusing</span>
+                <span className="tooltip">Kas Masuk</span>
               </li>
               <li>
                 <Link to='/'>
                   <i className="bx bx-user"></i>
-                  <span className="links_name">User</span>
+                  <span className="links_name">Penyerahan Kas</span>
                 </Link>
-                <span className="tooltip">bangat</span>
+                <span className="tooltip">Penyerahan Kas</span>
+              </li>
+              <li>
+                <Link to='/'>
+                  <i className="bx bx-user"></i>
+                  <span className="links_name">Dana</span>
+                </Link>
+                <span className="tooltip">Dana</span>
               </li>
             </ul>
           </Collapse>
