@@ -14,7 +14,7 @@ function Dashboarddivisi() {
                     <h4>Dashboard Bendahara Divisi</h4>
                     <div className='midleside-content'>
             <Row>
-              <Col xxl = {3} md = {6}>
+              <Col xxl = {4} md = {6} sm={12}>
                 <Link to="/penerimaan" className='dashboard-link'>
                   <div className='kartu mt-4'>
                     <div className="kartu-content">
@@ -31,7 +31,7 @@ function Dashboarddivisi() {
                   </div>
                 </Link>
               </Col>
-              <Col xxl = {3} md = {6}>
+              <Col xxl = {4} md = {6} sm={12}>
                 <Link to="/pengeluaran" className='dashboard-link'>
                   <div className='kartu mt-4'>
                     <div className="kartu-content">
@@ -48,7 +48,7 @@ function Dashboarddivisi() {
                   </div>
                 </Link>
               </Col>
-              <Col xxl = {3} md = {6}>
+              <Col xxl = {4} md = {6} sm={12}>
                 <div className='kartu mt-4'>
                   <div className="kartu-content">
                     <div>
@@ -60,21 +60,6 @@ function Dashboarddivisi() {
                   </div>
                   <div className='logo-kartu'>
                       <i><AiOutlineDollarCircle style={{color:'grey', fontSize:'1.5rem'}}/></i>
-                  </div>
-                </div>
-              </Col>
-              <Col xxl = {3} md = {6}>
-                <div className='kartu mt-4'>
-                  <div className="kartu-content">
-                    <div>
-                      <h5>Jumlah User</h5>
-                    </div>
-                    <div className='user' id='jumlahuser'>
-                      <h5>2</h5>
-                    </div>
-                  </div>
-                  <div className='logo-kartu'>
-                      <i><MdSupervisorAccount style={{color:'grey', fontSize:'1.5rem'}}/></i>
                   </div>
                 </div>
               </Col>
