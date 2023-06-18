@@ -10,7 +10,7 @@ import DashboardDivisi from './pages/dashboard-bendahara-divisi/DashboardDivisi'
 import PenyerahanKasAdmin from './pages/penyerahan-kas-admin/PenyerahanKasAdmin';
 import Memintadana from './pages/Meminta-dana/Memintadana'
 import Login from './login/Login'
-
+import KasmasukDivisi from './pages/kasmasuk-divisi/KasmasukDivisi';
 
 function App() {
   return (
@@ -26,6 +26,8 @@ function App() {
       <Route path='/dashboard-divisi' Component={DashboardDivisi}/>
       <Route path='/penyerahan-kas' Component={PenyerahanKasAdmin}/>
       <Route path='/permintaan-dana' Component={Memintadana}/>
+      <Route path='/kasmasuk-divisi' Component={KasmasukDivisi}/>
+
     </Routes>
     </>
   );
