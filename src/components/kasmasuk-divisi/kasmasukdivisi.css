@@ -1,1 +1,17 @@
-/*# sourceMappingURL=kasmasukdivisi.css.map */
+.kasmasuk-divisi .header {
+  background-color: #20A94D;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.button-tabel1 {
+  background: red;
+  background-color: red;
+  outline: none;
+  border: none;
+}/*# sourceMappingURL=kasmasukdivisi.css.map */

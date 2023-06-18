@@ -12,7 +12,7 @@ import Memintadana from './pages/Meminta-dana/Memintadana';
 import PenerimaanDana from './pages/penerimaandana/PenerimaanDana';
 import DashboardSuperAdmin from './pages/DashboardSuperAdmin/DashboardSuperAdmin';
 import Login from './login/Login'
-
+import KasmasukDivisi from './pages/kasmasuk-divisi/KasmasukDivisi';
 
 function App() {
   return (
@@ -29,6 +29,7 @@ function App() {
       <Route path='/dashboard-sa' Component={DashboardSuperAdmin}/>
       <Route path='/penyerahan-kas' Component={PenyerahanKasAdmin}/>
       <Route path='/permintaan-dana' Component={Memintadana}/>
+      <Route path='/kasmasuk-divisi' Component={KasmasukDivisi}/>
       <Route path='/penerimaan-dana' Component={PenerimaanDana}/>
     </Routes>
     </>

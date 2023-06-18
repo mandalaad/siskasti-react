@@ -246,9 +246,10 @@ const Dashboarddept = () => {
             <button className="button-cetak" onClick={handlePrint}>Print</button>
           </div>
             <MaterialReactTable
+              enableColumnFilters={false}
               columns={columns}
               data={data}
-              enableRowSelection
+              // enableRowSelection
               getRowId={(row) => row.phoneNumber}
               initialState={{ showColumnFilters: true }}
               // manualFiltering
