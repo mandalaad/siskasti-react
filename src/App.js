@@ -5,7 +5,7 @@ import Pembayarankaryawan from './pages/pembayaran-karyawan/Pembayarankaryawan';
 import Profilekaryawan from './pages/profile-karyawan/Profilekaryawan';
 import LaporanKaryawan from './pages/LaporanKaryawan/LaporanKaryawan';
 import KasMasuk from './pages/kas-masuk/KasMasuk';
-
+import DashboardDepartemen from './pages/dashboard-departemen/DashboardDepartemen'
 function App() {
   return (
     <>
@@ -15,6 +15,7 @@ function App() {
       <Route path='/profile' Component={Profilekaryawan}/>
       <Route path='/laporan-karyawan' Component={LaporanKaryawan}/>
       <Route path='/kas-masuk' Component={KasMasuk}/>
+      <Route path='/dashboard-dept' Component={DashboardDepartemen}/>
     </Routes>
     </>
   );
