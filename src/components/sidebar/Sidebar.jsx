@@ -61,14 +61,14 @@ function Sidebar() {
                 <span className="tooltip">Kas Masuk</span>
               </li>
               <li>
-                <Link to='/'>
+                <Link to='/penyerahan-kas'>
                   <i className="bx bx-user"></i>
                   <span className="links_name">Penyerahan Kas</span>
                 </Link>
                 <span className="tooltip">Penyerahan Kas</span>
               </li>
               <li>
-                <Link to='/'>
+                <Link to='/permintaan-dana'>
                   <i className="bx bx-user"></i>
                   <span className="links_name">Dana</span>
                 </Link>

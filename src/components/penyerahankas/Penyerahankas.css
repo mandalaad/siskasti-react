@@ -1,0 +1,55 @@
+.penyerahan-kas .header {
+  background-color: #20A94D;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+.penyerahan-kas .content1 {
+  display: flex;
+  justify-content: space-around;
+}
+.penyerahan-kas .content1 .field {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.penyerahan-kas .content1 .field p {
+  font-size: 18px;
+  font-weight: 600;
+}
+.penyerahan-kas .content1 .field input {
+  height: 30px;
+  width: 250px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  margin-left: 60px;
+}
+.penyerahan-kas .content1 .field .input-gambar {
+  height: 30px;
+  width: 300px;
+  margin-bottom: 10px;
+}
+.penyerahan-kas .content1 h6 {
+  justify-content: end;
+  display: flex;
+  text-align: right;
+  font-size: 14px;
+}
+.penyerahan-kas .button {
+  display: flex;
+  justify-content: end;
+  margin-right: 70px;
+}
+.penyerahan-kas .button button {
+  width: 150px;
+  height: 30px;
+  background-color: #20A94D;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}/*# sourceMappingURL=Penyerahankas.css.map */

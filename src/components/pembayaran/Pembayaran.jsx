@@ -132,7 +132,7 @@ function Pembayaran() {
                             locale={id}
                             required
                             />
-                    </div>
+                            </div>
                         </div>
                         <div className="field">
                             <p>Nominal :</p>
