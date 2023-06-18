@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import dashboard from './pages/dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Pembayarankaryawan from './pages/pembayaran-karyawan/Pembayarankaryawan';
 import Profilekaryawan from './pages/profile-karyawan/Profilekaryawan';
 import LaporanKaryawan from './pages/LaporanKaryawan/LaporanKaryawan';
-import Dashboarddepartemen from './pages/dashboard-departemen/DashboardDepartemen';
+import KasMasuk from './pages/kas-masuk/KasMasuk';
+
 function App() {
   return (
     <>
@@ -14,8 +14,7 @@ function App() {
       <Route path='/pembayaran' Component={Pembayarankaryawan}/>
       <Route path='/profile' Component={Profilekaryawan}/>
       <Route path='/laporan-karyawan' Component={LaporanKaryawan}/>
-      <Route path='/dashboard' Component={dashboard}/>
-      <Route path='/dashboard-dept' Component={Dashboarddepartemen}/>
+      <Route path='/kas-masuk' Component={KasMasuk}/>
     </Routes>
     </>
   );

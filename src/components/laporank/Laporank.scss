@@ -9,4 +9,29 @@
         color: white;
         margin-bottom: 20px;
     }
+    .cetak {
+        display: flex;
+        justify-content: end;
+        margin-bottom: 20px;
+        .tanggal {
+            .date {
+                width: 150px;
+                margin-right: 20px;
+                padding-left: 5px;
+            }
+        }
+        .button {
+            button {
+                width: 110px;
+                background-color: #20A94D;
+                border: none;
+                color: white;
+                border-radius: 10px;
+                height: 30px;
+            }
+        }
+    }
+    .table {
+        box-shadow: 5px 5px 10px 3px black;
+    }
 }
