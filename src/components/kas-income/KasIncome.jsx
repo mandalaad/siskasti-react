@@ -107,7 +107,7 @@ const Example = () => {
         <MaterialReactTable
           columns={columns}
           data={data}
-          enableRowSelection="false"
+          // enableRowSelection="false"
           getRowId={(row) => row.id}
           initialState={{ showColumnFilters: true }}
           enableColumnResizing
