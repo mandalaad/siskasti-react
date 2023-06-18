@@ -13,6 +13,7 @@ import PenerimaanDana from './pages/penerimaandana/PenerimaanDana';
 import DashboardSuperAdmin from './pages/DashboardSuperAdmin/DashboardSuperAdmin';
 import Login from './login/Login'
 import KasmasukDivisi from './pages/kasmasuk-divisi/KasmasukDivisi';
+import ParameterDataKaryawan from './pages/ParameterDataKaryawan/ParameterDataKaryawan';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <Route path='/permintaan-dana' Component={Memintadana}/>
       <Route path='/kasmasuk-divisi' Component={KasmasukDivisi}/>
       <Route path='/penerimaan-dana' Component={PenerimaanDana}/>
+      <Route path='/data-karyawan' Component={ParameterDataKaryawan}/>
     </Routes>
     </>
   );

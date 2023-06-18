@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'
 import { Collapse } from 'react-bootstrap';
-import { MdArrowDropDownCircle } from 'react-icons/md';
+import { MdArrowDropDownCircle,MdOutlinePayments } from 'react-icons/md';
+import { HiOutlineDocumentReport } from 'react-icons/hi';
+import { AiFillDatabase, AiOutlineTransaction } from 'react-icons/ai';
+import { FaShare, FaReply } from 'react-icons/fa';
+import { TbMoneybag } from 'react-icons/tb';
+import { RxDashboard } from 'react-icons/rx';
+import { FiDatabase } from 'react-icons/fi';
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,42 +40,49 @@ function Sidebar() {
       <ul className="nav-list">
         <li>
           <Link to="/pembayaran">
-            <i className="bx bx-grid-alt"></i>
+            <i><MdOutlinePayments/></i>
             <span className="links_name">Pembayaran</span>
           </Link>
           <span className="tooltip">Pembayaran</span>
         </li>
         <li>
           <Link to="/laporan-karyawan">
-            <i className="bx bx-grid-alt"></i>
+            <i><HiOutlineDocumentReport/></i>
             <span className="links_name">Laporan</span>
           </Link>
           <span className="tooltip">laporan</span>
         </li>
         <li>
+          <Link to="/dashboard-dept">
+            <i><RxDashboard/></i>
+            <span className="links_name">Dashboard Dept</span>
+          </Link>
+          <span className="tooltip">Dashboard Dept</span>
+        </li>
+        <li>
           <Link onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
-            <i className="bx bx-user"></i>
+            <i><AiOutlineTransaction/></i>
             <span className="links_name">Transaksi <i><MdArrowDropDownCircle/></i></span>
           </Link>
           <Collapse in={open}>
             <ul className='list-menu'>
               <li>
                 <Link to='/kas-masuk'>
-                  <i className="bx bx-user"></i>
+                  <i><FaShare/></i>
                   <span className="links_name">Kas masuk</span>
                 </Link>
                 <span className="tooltip">Kas Masuk</span>
               </li>
               <li>
                 <Link to='/penyerahan-kas'>
-                  <i className="bx bx-user"></i>
+                  <i><FaReply/></i>
                   <span className="links_name">Penyerahan Kas</span>
                 </Link>
                 <span className="tooltip">Penyerahan Kas</span>
               </li>
               <li>
                 <Link to='/permintaan-dana'>
-                  <i className="bx bx-user"></i>
+                  <i><TbMoneybag/></i>
                   <span className="links_name">Dana</span>
                 </Link>
                 <span className="tooltip">Dana</span>
@@ -78,42 +91,42 @@ function Sidebar() {
           </Collapse>
         </li>
         <li>
-          <Link to="/messages">
-            <i className="bx bx-chat"></i>
-            <span className="links_name">Messages</span>
+          <Link to="/dashboard-divisi">
+            <i><RxDashboard/></i>
+            <span className="links_name">Dashboard Divisi</span>
           </Link>
-          <span className="tooltip">Messages</span>
+          <span className="tooltip">Dashboard Divisi</span>
         </li>
         <li>
-          <Link to="/analytics">
-            <i className="bx bx-pie-chart-alt-2"></i>
-            <span className="links_name">Analytics</span>
+          <Link to="/kasmasuk-divisi">
+            <i><FaShare/></i>
+            <span className="links_name">Kas Masuk Div</span>
           </Link>
-          <span className="tooltip">Analytics</span>
+          <span className="tooltip">Kas Masuk Div</span>
         </li>
         <li>
-          <Link to="/file-manager">
-            <i className="bx bx-folder"></i>
-            <span className="links_name">File Manager</span>
+          <Link to="/penerimaan-dana">
+            <i><TbMoneybag/></i>
+            <span className="links_name">Penerimaan Dana</span>
           </Link>
-          <span className="tooltip">Files</span>
+          <span className="tooltip">Penerimaan Dana</span>
         </li>
         <li>
-          <Link to="/order">
-            <i className="bx bx-cart-alt"></i>
-            <span className="links_name">Order</span>
+          <Link to="/dashboard-sa">
+            <i><RxDashboard/></i>
+            <span className="links_name">Dashboard SA</span>
           </Link>
-          <span className="tooltip">Order</span>
+          <span className="tooltip">Dashboard SA</span>
         </li>
         <li>
-          <Link to="/saved">
-            <i className="bx bx-heart"></i>
-            <span className="links_name">Saved</span>
+          <Link to="/data-karyawan">
+            <i><FiDatabase/></i>
+            <span className="links_name">Data Karyawan</span>
           </Link>
-          <span className="tooltip">Saved</span>
+          <span className="tooltip">Data Karyawan</span>
         </li>
         <li>
-          <Link to="/settings">
+          <Link to="/">
             <i className="bx bx-cog"></i>
             <span className="links_name">Setting</span>
           </Link>
