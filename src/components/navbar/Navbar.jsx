@@ -17,7 +17,7 @@ function Navbarr() {
             <Dropdown className='dropdown'>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 <i className='me-2'><MdOutlineAccountCircle style={style1}/></i>
-                <h6 className='mt-1'>Dear POJ Project Ko Gratis</h6>
+                <h6 className='mt-1'>El Pardo</h6>
               </Dropdown.Toggle>
 
               <Dropdown.Menu>

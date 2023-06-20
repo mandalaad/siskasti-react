@@ -1,4 +1,4 @@
-.dashboardsa {
+.divisi {
     .header {
         background-color: #20A94D;
         width: 100%;
@@ -14,17 +14,13 @@
         width: 98%;
         .kartu {
             background-color: #009551;
-            width: 22rem;   
-            min-height: 150px;
+            width: 18rem;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
             border-radius: 10px;
             margin: auto;
-            text-align: center;
-            align-content: space-between;
             .kartu-content {
                 padding: 20px;
                 color: white;
-                align-content: space-between;
             }
             .logo-kartu {
                 background-color: white;
@@ -33,16 +29,15 @@
                 padding: 5px;
                 text-align: center;
                 border-radius: 0 0 10px 10px;
+                // outline: black solid 1px;
             }
         }
     }
-    
     .card:hover {
         transform: scale(120%);
         transition: 0.2s;
         margin-left: 20px;
     }
-    
     .kartu:hover {
         transform: scale(110%);
         transition: 0.2s;
@@ -52,6 +47,3 @@
         text-decoration: none;
     }
 }
-
-
-

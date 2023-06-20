@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Sidebar.css'
-import { Collapse } from 'react-bootstrap';
+import { Collapse} from 'react-bootstrap';
 import { MdArrowDropDownCircle,MdOutlinePayments } from 'react-icons/md';
 import { HiOutlineDocumentReport } from 'react-icons/hi';
 import { AiFillDatabase, AiOutlineTransaction } from 'react-icons/ai';
@@ -29,6 +29,12 @@ function Sidebar() {
   };
 
   const [open, setOpen] = useState(false);
+  const navLinkStyles = ({isActive}) => {
+    return{
+      fontWeight: isActive ? 'bold' : 'normal',
+      textDecoration: isActive ? 'none' : 'none',
+    }
+  }
 
   return (
     <>
@@ -39,17 +45,17 @@ function Sidebar() {
       </div>
       <ul className="nav-list">
         <li>
-          <Link to="/pembayaran">
+          <NavLink style={navLinkStyles} to="/pembayaran" >
             <i><MdOutlinePayments/></i>
             <span className="links_name">Pembayaran</span>
-          </Link>
+          </NavLink>
           <span className="tooltip">Pembayaran</span>
         </li>
         <li>
-          <Link to="/laporan-karyawan">
+          <NavLink style={navLinkStyles} to="/laporan-karyawan">
             <i><HiOutlineDocumentReport/></i>
             <span className="links_name">Laporan</span>
-          </Link>
+          </NavLink>
           <span className="tooltip">laporan</span>
         </li>
         <li>

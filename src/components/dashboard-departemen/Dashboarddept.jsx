@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { MaterialReactTable } from 'material-react-table';
 import './dashboarddepartemen.css'
 import jsPDF from 'jspdf';
+import 'react-bootstrap'
 import axios from 'axios';
 const Dashboarddept = () => {
 
@@ -17,8 +18,24 @@ const Dashboarddept = () => {
   //   fetchData();
   // }, []);
   
+  
+  // const [data, setData] = useState([]);
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isRefetching, setIsRefetching] = useState(false);
+  const [rowCount, setRowCount] = useState(0);
+
+  //table state
+  const [columnFilters, setColumnFilters] = useState([]);
+  const [globalFilter, setGlobalFilter] = useState('');
+  const [sorting, setSorting] = useState([]);
+  const [pagination, setPagination] = useState({
+    pageIndex: 0,
+    pageSize: 10,
+  });
+
   //data and fetching state
-   const [data, setData] = useState([
+  const [data, setData] = useState([
     {
       id: 1,
       tanggal: '2023-06-01',
@@ -124,20 +141,6 @@ const Dashboarddept = () => {
   useEffect(() => {
     setFilteredData(data);
   }, [data]);
-  // const [data, setData] = useState([]);
-  const [isError, setIsError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isRefetching, setIsRefetching] = useState(false);
-  const [rowCount, setRowCount] = useState(0);
-
-  //table state
-  const [columnFilters, setColumnFilters] = useState([]);
-  const [globalFilter, setGlobalFilter] = useState('');
-  const [sorting, setSorting] = useState([]);
-  const [pagination, setPagination] = useState({
-    pageIndex: 0,
-    pageSize: 10,
-  });
 
   // if you want to avoid useEffect, look at the React Query example instead
   useEffect(() => {
@@ -230,7 +233,7 @@ const Dashboarddept = () => {
     const doc = new jsPDF();
     doc.autoTable({
       head: [['No', 'Nama', 'Tanggal', 'NIK', 'Grade', 'Nominal', 'Unit Kerja', 'Status']],
-      body: filteredData.map(({ id, name, tanggal, nik, grade, nominal, payment, status }) => [id, name, tanggal, nik, grade, nominal, payment, status]),
+      body: filteredData.map(({ id, nama, tanggal, nik, grade, nominal, payment, status }) => [id, nama, tanggal, nik, grade, nominal, payment, status]),
     });
     doc.save('table.pdf');
   };
@@ -242,8 +245,8 @@ const Dashboarddept = () => {
           <div className='header'>
             <h4>Dashboard Bendahara Departemen</h4>
           </div>
-          <div>
-            <button className="button-cetak" onClick={handlePrint}>Print</button>
+          <div className='text-end'>
+            <button className="button-cetak mb-3" onClick={handlePrint}>Print</button>
           </div>
             <MaterialReactTable
               enableColumnFilters={false}

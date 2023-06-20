@@ -100,6 +100,89 @@ function Kasmasukdivisi() {
     
     },
   ]);
+
+  // data 2
+  const [data2, setData2] = useState([
+    {
+      id: 1,
+      tanggal: '2023-06-01',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+    //   aksi: ,
+    },
+    {
+      id: 2,
+      tanggal: '2023-06-02',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+      
+    },
+    {
+      id: 3,
+      tanggal: '2023-06-05',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+      
+    },
+    {
+      id: 4,
+      tanggal: '2023-06-08',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+      
+    },
+    {
+      id: 5,
+      tanggal: '2023-06-10',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+      
+    },
+    {
+      id: 6,
+      tanggal: '2023-06-11',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+    },
+    {
+      id: 7,
+      tanggal: '2023-06-12',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+      
+    },
+    {
+      id: 8,
+      tanggal: '2023-06-13',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+      
+    },
+    {
+      id: 9,
+      tanggal: '2023-07-01',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+      
+    },
+    {
+      id: 10,
+      tanggal: '2023-07-02',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+    
+    },
+  ]);
   
   useEffect(() => {
     setFilteredData(data);

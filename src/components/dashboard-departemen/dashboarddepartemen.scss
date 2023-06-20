@@ -10,3 +10,16 @@
         margin-bottom: 20px;
     }
 }
+
+.button-cetak {
+    background-color: #20A94D;
+    color: white;
+    width: 120px;
+    border-radius: 30px;
+    border: none;
+}
+
+.button-cetak:hover {
+    background-color: orange;
+    transition: 0.2s;
+}
