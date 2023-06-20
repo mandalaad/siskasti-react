@@ -1,180 +1,370 @@
-import * as React from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import './Laporank.css'
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import { MaterialReactTable } from 'material-react-table'
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
-import { useState } from 'react';
-import { useEffect } from 'react';
-// import { useEffect } from 'react';
-// import axios from 'axios';
+import {AiFillCheckCircle}from 'react-icons/ai'
+import { Button } from 'react-bootstrap';
 
-const Laporank = () => {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [rows, setRows] = useState([]);
-  const [filteredRows, setFilteredRows] = useState([]);
-
-  useEffect(() => {
-    // Ambil data dari API atau sumber lainnya dan simpan ke state rows
-    // Misalnya menggunakan Axios:
-    // axios.get('/api/data').then(response => setRows(response.data));
-    const fakeRows = [
-      { no: 1, namakaryawan: 'John Doe', bulan: 'Januari', jumlah: 100, keterangan: 'Lorem ipsum', status: 'Aktif' },
-      { no: 2, namakaryawan: 'Jane Smith', bulan: 'Januari', jumlah: 200, keterangan: 'Dolor sit amet', status: 'Non-Aktif' },
-      { no: 3, namakaryawan: 'John Doe', bulan: 'Januari', jumlah: 100, keterangan: 'Lorem ipsum', status: 'Aktif' },
-      { no: 4, namakaryawan: 'Jane Smith', bulan: 'Juni', jumlah: 200, keterangan: 'Dolor sit amet', status: 'Non-Aktif' },
-      { no: 5, namakaryawan: 'John Doe', bulan: 'Juni', jumlah: 100, keterangan: 'Lorem ipsum', status: 'Aktif' },
-      { no: 6, namakaryawan: 'Jane Smith', bulan: 'Juni', jumlah: 200, keterangan: 'Dolor sit amet', status: 'Non-Aktif' },
-      { no: 7, namakaryawan: 'Jane Smith', bulan: 'Juni', jumlah: 200, keterangan: 'Dolor sit amet', status: 'Non-Aktif' },
-      { no: 8, namakaryawan: 'John Doe', bulan: 'Juni', jumlah: 100, keterangan: 'Lorem ipsum', status: 'Aktif' },
-      { no: 9, namakaryawan: 'Jane Smith', bulan: 'Juni', jumlah: 200, keterangan: 'Dolor sit amet', status: 'Non-Aktif' },
-      { no: 10, namakaryawan: 'Jane Smith', bulan: 'Juni', jumlah: 200, keterangan: 'Dolor sit amet', status: 'Non-Aktif' },
-      { no: 11, namakaryawan: 'John Doe', bulan: 'Juni', jumlah: 100, keterangan: 'Lorem ipsum', status: 'Aktif' },
-      { no: 12, namakaryawan: 'Jane Smith', bulan: 'Juni', jumlah: 200, keterangan: 'Dolor sit amet', status: 'Non-Aktif' },
-      // Data lainnya...
-    ];
-    setRows(fakeRows);
-  }, []);
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-
-    // Filter data berdasarkan bulan yang dipilih
-    const filteredRowsByMonth = rows.filter(row => row.bulan === date.toLocaleString('default', { month: 'long' }));
-    setFilteredRows(filteredRowsByMonth);
-    setPage(0);
-  };
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
-  const handlePrintData = () => {
-    if (selectedDate) {
-      // Mengurutkan data berdasarkan bulan yang dipilih
-      const sortedRows = rows
-        .filter((row) => row.bulan === selectedDate.toLocaleString('default', { month: 'long' }))
-        .sort((a, b) => a.no - b.no);
-  
-      // Membuat objek jsPDF
-      const doc = new jsPDF();
-  
-      // Menentukan properti tabel
-      const tableColumn = ['No', 'Nama Karyawan', 'Bulan', 'Jumlah', 'Keterangan', 'Status'];
-      const tableRows = sortedRows.map((row) => [row.no, row.namakaryawan, row.bulan, row.jumlah, row.keterangan, row.status]);
-  
-      // Mengatur posisi dan tampilan judul
-      doc.setFontSize(18);
-      doc.text(`Data Laporan Bulan ${selectedDate.toLocaleString('default', { month: 'long' })}`, 14, 22);
-  
-      // Membuat tabel menggunakan autotable
-      doc.autoTable({
-        columns: tableColumn,
-        body: tableRows,
-        startY: 30,
-      });
-  
-      // Mengunduh file PDF
-      doc.save(`laporan-${selectedDate.toLocaleString('default', { month: 'long' })}.pdf`);
-    } else {
-      alert('Pilih tanggal terlebih dahulu.');
-    }
-  };
-
+function Kasmasukdivisi() {
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await axios.get('http://localhost:3002/pemasukan');
+  //     setData(response.data);
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //   }
+  // };
   // useEffect(() => {
-  //   axios
-  //     .get('https://api.example.com/data') // Ganti URL API dengan URL yang sesuai
-  //     .then((response) => {
-  //       setRows(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching data:', error);
-  //     });
+  //   fetchData();
   // }, []);
+  
+  //data and fetching state
+  const [data, setData] = useState([
+    {
+      id: 1,
+      tanggal: '2023-06-01',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+    //   aksi: ,
+    },
+    {
+      id: 2,
+      tanggal: '2023-06-02',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+      
+    },
+    {
+      id: 3,
+      tanggal: '2023-06-05',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+      
+    },
+    {
+      id: 4,
+      tanggal: '2023-06-08',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+      
+    },
+    {
+      id: 5,
+      tanggal: '2023-06-10',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+      
+    },
+    {
+      id: 6,
+      tanggal: '2023-06-11',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+    },
+    {
+      id: 7,
+      tanggal: '2023-06-12',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+      
+    },
+    {
+      id: 8,
+      tanggal: '2023-06-13',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+      
+    },
+    {
+      id: 9,
+      tanggal: '2023-07-01',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+      
+    },
+    {
+      id: 10,
+      tanggal: '2023-07-02',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+    
+    },
+  ]);
 
-  return (
-    <div className="content">
-      <div className="wrap">
-        <div className="laporan">
-          <div className="header">
-            <h4>Laporan</h4>
-          </div>
-          <div className="cetak">
-            <div className="tanggal">
-              {/* Pilih tanggal */}
-              <DatePicker
-                className='date'
-                selected={selectedDate}
-                onChange={handleDateChange}
-                dateFormat="MMMM yyyy"
-                showMonthYearPicker
-                placeholderText="Pilih bulan"
-              />
-            </div>
-            <div className="button">
-              {/* Tombol Cetak */}
-              <button variant="contained" onClick={handlePrintData}>Cetak Data</button>
-            </div>
-          </div>
-          {/* Tabel */}
-          <TableContainer className='table' component={Paper}>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>No</TableCell>
-                  <TableCell>Nama Karyawan</TableCell>
-                  <TableCell>Bulan</TableCell>
-                  <TableCell>Jumlah</TableCell>
-                  <TableCell>Keterangan</TableCell>
-                  <TableCell>Status</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {filteredRows
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row) => (
-                    <TableRow key={row.no}>
-                      <TableCell>{row.no}</TableCell>
-                      <TableCell>{row.namakaryawan}</TableCell>
-                      <TableCell>{row.bulan}</TableCell>
-                      <TableCell>{row.jumlah}</TableCell>
-                      <TableCell>{row.keterangan}</TableCell>
-                      <TableCell>{row.status}</TableCell>
-                    </TableRow>
-                  ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+  // data 2
+  const [data2, setData2] = useState([
+    {
+      id: 1,
+      tanggal: '2023-06-01',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+    //   aksi: ,
+    },
+    {
+      id: 2,
+      tanggal: '2023-06-02',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+      
+    },
+    {
+      id: 3,
+      tanggal: '2023-06-05',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+      
+    },
+    {
+      id: 4,
+      tanggal: '2023-06-08',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+      
+    },
+    {
+      id: 5,
+      tanggal: '2023-06-10',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+      
+    },
+    {
+      id: 6,
+      tanggal: '2023-06-11',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+    },
+    {
+      id: 7,
+      tanggal: '2023-06-12',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+      
+    },
+    {
+      id: 8,
+      tanggal: '2023-06-13',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+      
+    },
+    {
+      id: 9,
+      tanggal: '2023-07-01',
+      nama: 'John Doe',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 1000000,
+      
+    },
+    {
+      id: 10,
+      tanggal: '2023-07-02',
+      nama: 'Jane Smith',
+      departement: 'Departemen IT Business Analyst',
+      nominal: 2000000,
+    
+    },
+  ]);
+  
+  useEffect(() => {
+    setFilteredData(data);
+  }, [data]);
+  // const [data, setData] = useState([]);
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isRefetching, setIsRefetching] = useState(false);
+  const [rowCount, setRowCount] = useState(0);
 
-          {/* Paginasi */}
-          <TablePagination
-            rowsPerPageOptions={[5, 10, 15, 25]}
-            component="div"
-            count={filteredRows.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        </div>
-      </div>
-    </div>
-  );
+  //table state
+  const [columnFilters, setColumnFilters] = useState([]);
+  const [globalFilter, setGlobalFilter] = useState('');
+  const [sorting, setSorting] = useState([]);
+  const [pagination, setPagination] = useState({
+    pageIndex: 0,
+    pageSize: 10,
+  });
+
+  // if you want to avoid useEffect, look at the React Query example instead
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       if (!data.length) {
+//         setIsLoading(true);
+//       } else {
+//         setIsRefetching(true);
+//       }
+
+//       const url = new URL(
+//         '/api/data',
+//         process.env.NODE_ENV === 'production'
+//           ? 'https://www.material-react-table.com'
+//           : 'http://localhost:3000',
+//       );
+//       url.searchParams.set(
+//         'start',
+//         `${pagination.pageIndex * pagination.pageSize}`,
+//       );
+//       url.searchParams.set('size', `${pagination.pageSize}`);
+//       url.searchParams.set('filters', JSON.stringify(columnFilters ?? []));
+//       url.searchParams.set('globalFilter', globalFilter ?? '');
+//       url.searchParams.set('sorting', JSON.stringify(sorting ?? []));
+
+//       try {
+//         const response = await fetch(url.href);
+//         const json = await response.json();
+//         setData(json.data);
+//         setRowCount(json.meta.totalRowCount);
+//       } catch (error) {
+//         setIsError(true);
+//         console.error(error);
+//         return;
+//       }
+//       setIsError(false);
+//       setIsLoading(false);
+//       setIsRefetching(false);
+//     };
+//     fetchData();
+//     // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, [
+//     columnFilters,
+//     globalFilter,
+//     pagination.pageIndex,
+//     pagination.pageSize,
+//     sorting,
+//   ]);
+  const handleEditClick = (id) => {
+    // Handle edit button click for the corresponding row
+    console.log(`Edit button clicked for ID: ${id}`);
+  };
+
+const handleButton1Click = (id) => {
+  // Handle button 1 click for the corresponding row
+  console.log(`Button 1 clicked for ID: ${id}`);
 };
 
-export default Laporank;
+const handleButton2Click = (id) => {
+  // Handle button 2 click for the corresponding row
+  console.log(`Button 2 clicked for ID: ${id}`);
+};
+
+  const columns = useMemo(
+    () => [
+      {
+        accessorKey: 'id',
+        header: 'No',
+      },
+      {
+        accessorKey: 'tanggal',
+        header: 'Tanggal',
+      },
+      {
+        accessorKey: 'bulan',
+        header: 'Bulan',
+      },
+      {
+        accessorKey: 'nominal',
+        header: 'Nominal',
+      },
+      {
+        accessorKey: 'status',
+        header: 'Status',
+      },
+      // column definitions...
+    ],
+    []
+  );
+
+  const totalValue = useMemo(() => {
+    return data.reduce((total, item) => total + item.nominal, 0);
+  }, [data]);
+
+  // Create a separate row for the total
+  const totalRow = useMemo(() => {
+    return [
+      {
+        id: 'total',
+        tanggal: '',
+        bulan: '',
+        nominal: totalValue, // Update the nominal property with the total value
+        status: '', // Set an empty string for the status property in the total row
+      },
+    ];
+  }, [totalValue]);
+
+  const tableData = useMemo(() => [...data, ...totalRow], [data, totalRow]);
+
+
+  const [filteredData, setFilteredData] = useState([]);
+  const handlePrint = () => {
+    const doc = new jsPDF();
+    doc.autoTable({
+      head: [['No', 'Nama', 'Tanggal', 'NIK', 'Grade', 'Nominal', 'Unit Kerja', 'Status']],
+      body: filteredData.map(({ id, name, tanggal, nik, grade, nominal, payment, status }) => [id, name, tanggal, nik, grade, nominal, payment, status]),
+    });
+    doc.save('table.pdf');
+  };
+  
+  return (
+    <div className='content'>
+        <div className='wrap'>
+            <div className='kasmasuk-divisi'>
+                <div className='header'>
+                    <h4>Kas Masuk Bendahara Divisi</h4>
+                </div>
+                    <MaterialReactTable
+                        enableColumnFilters={false}
+                        columns={columns}
+                        data={tableData}
+                        // enableRowSelection
+                        getRowId={(row) => row.phoneNumber}
+                        initialState={{ showColumnFilters: true }}
+                        // manualFiltering
+                        manualPagination
+                        manualSorting
+                        muiToolbarAlertBannerProps={
+                            isError
+                            ? {
+                                color: 'error',
+                                children: 'Error loading data',
+                                }
+                            : undefined
+                        }
+                        onColumnFiltersChange={setColumnFilters}
+                        onGlobalFilterChange={setGlobalFilter}
+                        onPaginationChange={setPagination}
+                        onSortingChange={setSorting}
+                        rowCount={rowCount}
+                        state={{
+                          columnFilters,
+                          globalFilter,
+                          isLoading,
+                          pagination,
+                          showAlertBanner: isError,
+                          showProgressBars: isRefetching,
+                          sorting,
+                        }}
+                        />
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default Kasmasukdivisi

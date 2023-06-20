@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Pembayaran.css'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -31,6 +31,28 @@ function Pembayaran() {
         setSelectedDate(date);
     };
 
+    // datepicker bulan doang
+    const handleMonthChange = (date) => {
+        setSelectedMonth(date);
+      };
+    
+      const CustomDatePickerInput = ({ value, onClick }) => (
+        <input
+          className="datepicker-input"
+          value={value ? value.toLocaleString('default', { month: 'long' }) : ''}
+          onClick={onClick}
+          readOnly
+        />
+      );
+
+    //   datepicker tahun doang
+    
+    const handleYearChange = (date) => {
+        setSelectedYear(date);
+    };
+    
+    const [selectedYear, setSelectedYear] = useState(null);
+    const [selectedMonth, setSelectedMonth] = useState(null);
     const [nomorKaryawan, setNomorKaryawan] = useState('');
     const [namaKaryawan, setNamaKaryawan] = useState('');
     const [akunBendaharaDep, setAkunBendaharaDep] = useState('');
@@ -38,6 +60,7 @@ function Pembayaran() {
     const [open, setOpen] = useState(false);
     const [popupMessage, setPopupMessage] = useState('');
     const [isSuccess, setIsSuccess] = useState(false);
+    const [options, setOptions] = useState([]);
 
     const togglePopup = (message, success) => {
         setOpen(!open);
@@ -56,6 +79,8 @@ function Pembayaran() {
         selectedFile,
         tanggal: selectedDate ? selectedDate.toISOString() : '',
         nominal,
+        bulan: selectedMonth ? selectedMonth.toISOString() : '',
+        tahun: selectedYear ? selectedYear.toISOString() : '',
         };
         try {
             // Kirim data ke API endpoint menggunakan metode POST
@@ -72,6 +97,19 @@ function Pembayaran() {
             setOpen(false);
           };
 
+        //   mengambil data dropdow
+          useEffect(() => {
+            const fetchData = async () => {
+              try {
+                const response = await axios.get('URL_API');
+                setOptions(response.data);
+              } catch (error) {
+                console.error('Error fetching data:', error);
+              }
+            };
+        
+            fetchData();
+          }, []);
 
 
   return (
@@ -103,11 +141,16 @@ function Pembayaran() {
                         </div>
                         <div className="field">
                             <p>Akun Bendahara Dep :</p>
-                            <input 
+                            {/* <input 
                             type='text'
                             value={akunBendaharaDep}
                             onChange={(e) => setAkunBendaharaDep(e.target.value)}
-                            />
+                            /> */}
+                            <select>
+                            {options.map((option) => (
+                                <option key={option.id} value={option.value}>{option.label}</option>
+                            ))}
+                            </select>
                         </div>
                         <div className="field">
                             <p>Bukti Pembayaran :</p>
@@ -141,6 +184,34 @@ function Pembayaran() {
                             value={nominal}
                             onChange={(e) => setNominal(e.target.value)}
                             />
+                        </div>
+                        <div className="field">
+                            <p>Bulan :</p>
+                            <div>
+                            <DatePicker
+                            selected={selectedMonth}
+                            onChange={handleMonthChange}
+                            dateFormat="MM"
+                            showMonthYearPicker
+                            customInput={<CustomDatePickerInput />}
+                            locale={id}
+                            required
+                            />
+                            </div>
+                        </div>
+                        <div className="field">
+                            <p>Tanggal :</p>
+                            <div>
+                            <DatePicker
+                            selected={selectedYear}
+                            onChange={handleYearChange}
+                            dateFormat="yyyy"
+                            showYearPicker
+                            placeholderText="Select year"
+                            locale={id}
+                            required
+                            />
+                            </div>
                         </div>
                     </div>
                     </div>
