@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import id from 'date-fns/locale/id';
 import axios from 'axios';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
 
 function Penyerahankas() {
@@ -71,6 +72,10 @@ function Penyerahankas() {
         setOpen(false);
       };
 
+    const currentYear = new Date().getFullYear();
+    const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+
   
 
   return (
@@ -134,7 +139,14 @@ function Penyerahankas() {
                                 />
                             </div>
                             <div className="field">
-                                <p>Memo :</p>
+                                <p>Maximal :</p>
+                                <input type="text" 
+                                value={memo}
+                                onChange={(e) => setMemo(e.target.value)}
+                                />
+                            </div>
+                            <div className="field">
+                                <p>Keterangan :</p>
                                 <input type="text" 
                                 value={memo}
                                 onChange={(e) => setMemo(e.target.value)}
@@ -157,6 +169,28 @@ function Penyerahankas() {
                     </Button>
                 </DialogActions>
                 </Dialog>
+                <div className="table">
+                <TableContainer component={Paper}>
+                <Table>
+                    <TableHead>
+                    <TableRow>
+                        <TableCell></TableCell>
+                        {months.map((month) => (
+                        <TableCell key={month}>{month}</TableCell>
+                        ))}
+                    </TableRow>
+                    </TableHead>
+                    <TableBody>
+                    <TableRow>
+                        <TableCell>{currentYear}</TableCell>
+                        {months.map((month) => (
+                        <TableCell key={month}></TableCell>
+                        ))}
+                    </TableRow>
+                    </TableBody>
+                </Table>
+                </TableContainer>
+                </div>
             </div>
         </div>
     </div>

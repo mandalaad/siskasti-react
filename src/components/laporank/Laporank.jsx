@@ -326,7 +326,7 @@ const handleButton2Click = (id) => {
         <div className='wrap'>
             <div className='kasmasuk-divisi'>
                 <div className='header'>
-                    <h4>Kas Masuk Bendahara Divisi</h4>
+                    <h4>Laporan Karyawan</h4>
                 </div>
                     <MaterialReactTable
                         enableColumnFilters={false}
