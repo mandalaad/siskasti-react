@@ -19,9 +19,10 @@
             p{
                 font-size: 18px;
                 font-weight: 600;
+                line-height: 40px;
             }
             input {
-                height: 30px;
+                height: 40px;
                 width: 250px;
                 padding-left: 10px;
                 box-sizing: border-box;
@@ -29,7 +30,7 @@
                 margin-left: 60px;
             }
             .input-gambar {
-                height: 30px;
+                height: 40px;
                 width: 300px;
                 margin-bottom: 10px;
             }
@@ -44,14 +45,18 @@
     .button {
         display: flex;
         justify-content: end;
-        margin-right: 70px;
+        margin-right: 130px;
+        margin-top: 10px;
         button {
             width: 150px;
-            height: 30px;
+            height: 40px;
             background-color: #20A94D;
             color: white;
             border-radius: 10px;
             border: none;
         }
+    }
+    .table {
+        margin-top: 30px;
     }
 }

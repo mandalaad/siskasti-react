@@ -14,6 +14,7 @@ import DashboardSuperAdmin from './pages/DashboardSuperAdmin/DashboardSuperAdmin
 import Login from './login/Login'
 import KasmasukDivisi from './pages/kasmasuk-divisi/KasmasukDivisi';
 import ParameterDataKaryawan from './pages/ParameterDataKaryawan/ParameterDataKaryawan';
+import LaporanKeluaran from './pages/LaporanKeluaran/LaporanKeluaran';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
       <Route path='/kasmasuk-divisi' Component={KasmasukDivisi}/>
       <Route path='/penerimaan-dana' Component={PenerimaanDana}/>
       <Route path='/data-karyawan' Component={ParameterDataKaryawan}/>
+      <Route path='/laporan-keluaran' Component={LaporanKeluaran}/>
     </Routes>
     </>
   );

@@ -1,4 +1,8 @@
 .departemen {
+    a {
+        list-style: none;
+        text-decoration: none;
+    }
     .header {
         background-color: #20A94D;
         width: 100%;
@@ -9,17 +13,34 @@
         color: white;
         margin-bottom: 20px;
     }
+    .midleside-content {
+    margin-top: 40px;
+    width: 98%;
+    .kartu {
+        background-color: #009551;
+        width: 18rem;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+        border-radius: 10px;
+        min-height: 145px;
+        margin: auto;
+        position: relative;
+        .kartu-content {
+            padding: 20px;
+            color: white;
+        }
+        .logo-kartu {
+            background-color: white;
+            margin: auto;
+            height: 40px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            // outline: black solid 1px;
+        }
+    }
 }
 
-.button-cetak {
-    background-color: #20A94D;
-    color: white;
-    width: 120px;
-    border-radius: 30px;
-    border: none;
-}
-
-.button-cetak:hover {
-    background-color: orange;
-    transition: 0.2s;
 }
