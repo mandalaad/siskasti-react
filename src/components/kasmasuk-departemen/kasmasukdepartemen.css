@@ -1,0 +1,51 @@
+.kasmasuk-departemen .header {
+  background-color: #20A94D;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.button-tabel1 {
+  background: red;
+  background-color: red;
+  outline: none;
+  border: none;
+}
+
+.laporan-kasmasuk {
+  margin-top: 100px;
+}
+.laporan-kasmasuk .header {
+  background-color: #20A94D;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.button-tabel1 {
+  background: red;
+  background-color: red;
+  outline: none;
+  border: none;
+}
+
+.button-cetak {
+  background-color: #20A94D;
+  color: white;
+  width: 120px;
+  border-radius: 30px;
+  border: none;
+}
+
+.button-cetak:hover {
+  background-color: orange;
+  transition: 0.2s;
+}/*# sourceMappingURL=kasmasukdepartemen.css.map */
