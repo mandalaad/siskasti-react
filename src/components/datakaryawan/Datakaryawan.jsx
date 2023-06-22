@@ -3,6 +3,10 @@ import { MaterialReactTable } from 'material-react-table';
 import './Datakaryawan.css'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import { Button, Col, Modal, Row } from 'react-bootstrap';
+import axios from 'axios';
+import DatePicker from 'react-datepicker'
+import { id } from 'date-fns/locale';
 
 function Datakaryawan() {
     const [data, setData] = useState([
@@ -99,7 +103,7 @@ function Datakaryawan() {
         accessorKey: 'aksi',
         header: 'Aksi',
         Cell: ({ row }) => (
-          <button onClick={() => handleEditClick(row.id)}>Edit</button>
+          <button onClick={() => handleShow(row.id)}>Edit</button>
         ),
       },
     ],
@@ -110,6 +114,118 @@ function Datakaryawan() {
     // Handle edit button click for the corresponding row
     console.log(`Edit button clicked for ID: ${id}`);
   };
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+   // input file
+    const [selectedFile, setSelectedFile] = useState(null);
+    const handleFileChange = (event) => {
+    const file = event.target.files[0];
+        // Memeriksa tipe file
+      if (file && file.type !== 'image/jpeg/png') {
+        alert('Mohon pilih file dengan format JPG!');
+        return;
+      }
+  
+      // Memeriksa ukuran file
+      if (file && file.size > 2 * 1024 * 1024) {
+        alert('Ukuran file melebihi batas 2MB!');
+        return;
+      }
+        setSelectedFile(file);
+    };
+
+    // react-datepicker
+    const [selectedDate, setSelectedDate] = useState(null);
+    const handleChange = date => {
+        setSelectedDate(date);
+    };
+
+    // datepicker bulan doang
+    const handleMonthChange = (date) => {
+        setSelectedMonth(date);
+      };
+    
+      const CustomDatePickerInput = ({ value, onClick }) => (
+        <input
+          className="datepicker-input"
+          value={value ? value.toLocaleString('default', { month: 'long' }) : ''}
+          onClick={onClick}
+          readOnly
+        />
+      );
+
+    //   datepicker tahun doang
+    
+    const handleYearChange = (date) => {
+        setSelectedYear(date);
+    };
+    
+    const [selectedYear, setSelectedYear] = useState(null);
+    const [selectedMonth, setSelectedMonth] = useState(null);
+    const [nomorKaryawan, setNomorKaryawan] = useState('');
+    const [nikKaryawan, setNikKaryawan] = useState([]);
+    const [gradeKaryawan, setGradeKaryawan] = useState([]);
+    const [namaKaryawan, setNamaKaryawan] = useState('');
+    const [emailKaryawan, setEmailKaryawan] = useState('');
+    const [akunBendaharaDep, setAkunBendaharaDep] = useState('');
+    const [nominal, setNominal] = useState('');
+    const [open, setOpen] = useState(false);
+    const [popupMessage, setPopupMessage] = useState('');
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [options, setOptions] = useState([]);
+
+    const togglePopup = (message, success) => {
+        setOpen(!open);
+        setPopupMessage(message);
+        setIsSuccess(success);
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        // Buat objek data dengan nilai-nilai input
+        const data = {
+        nomorKaryawan,
+        namaKaryawan,
+        akunBendaharaDep,
+        selectedFile,
+        tanggal: selectedDate ? selectedDate.toISOString() : '',
+        nominal,
+        bulan: selectedMonth ? selectedMonth.toISOString() : '',
+        tahun: selectedYear ? selectedYear.toISOString() : '',
+        };
+        try {
+            // Kirim data ke API endpoint menggunakan metode POST
+            const response = await axios.post('URL_API_ANDA', data);
+            console.log('Data berhasil disimpan:', response.data);
+            togglePopup('Data berhasil ditambahkan ke database.', true);
+          } catch (error) {
+            console.error('Gagal menyimpan data:', error);
+            togglePopup('Gagal menambahkan data ke database.', false);
+          }
+        };
+
+        // const handleClose = () => {
+        //     setOpen(false);
+        //   };
+
+        //   mengambil data dropdow
+          useEffect(() => {
+            const fetchData = async () => {
+              try {
+                const response = await axios.get('URL_API');
+                setOptions(response.data);
+              } catch (error) {
+                console.error('Error fetching data:', error);
+              }
+            };
+        
+            fetchData();
+          }, []);
+
 
   return (
     <>
@@ -172,6 +288,125 @@ function Datakaryawan() {
                     sorting,
                   }}
                 />
+                <Modal show={show} onHide={handleClose}
+                size="lg">
+                  <Modal.Header closeButton>
+                    <Modal.Title>Edit data karyawan</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                  <form onSubmit={handleSubmit}>
+                    <Row>
+                      <Col lg = {6}>
+                    <div className="content-left">
+                        <div className="field">
+                            <p>Nama Karyawan :</p>
+                            <input 
+                            type='text'
+                            value={namaKaryawan}
+                            onChange={(e) => setNamaKaryawan(e.target.value)}
+                            />
+                        </div>
+                        <div className="field">
+                            <p>NIk :</p>
+                            <input 
+                            type='number'
+                            value={nikKaryawan}
+                            onChange={(e) => setNikKaryawan(e.target.value)}
+                            />
+                        </div>
+                        <div className="field">
+                            <p>Grade :</p>
+                            <select onChange={(e) => setGradeKaryawan(e.target.value)}>
+                            {options.map((option) => (
+                                <option key={option.id} value={option.value}>{option.label}</option>
+                            ))}
+                            </select>
+                        </div>
+                        <div className="field">
+                            <p>Jabatan :</p>
+                            {/* <input 
+                            type='text'
+                            value={akunBendaharaDep}
+                            onChange={(e) => setAkunBendaharaDep(e.target.value)}
+                            /> */}
+                            <select>
+                            {options.map((option) => (
+                                <option key={option.id} value={option.value}>{option.label}</option>
+                            ))}
+                            </select>
+                        </div>
+                        <div className="field">
+                            <p>Unit Kerja :</p>
+                            <select>
+                            {options.map((option) => (
+                                <option key={option.id} value={option.value}>{option.label}</option>
+                            ))}
+                            </select>
+                        </div>
+                        <div className="field">
+                            <p>Tanggal :</p>
+                            <div>
+                            <DatePicker
+                            dateFormat="dd MMMM yyyy"
+                            selected={selectedDate}
+                            onChange={handleChange}
+                            minDate={new Date()}
+                            className='control'
+                            name='tanggal'
+                            locale={id}
+                            required
+                            />
+                            </div>
+                        </div>
+                        <div className="field">
+                            <p>Email :</p>
+                            <input 
+                            type='email'
+                            value={emailKaryawan}
+                            onChange={(e) => setEmailKaryawan(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    </Col>
+                      <Col lg = {6}>
+                        {/* <div className="field2">
+                            <div className="gambar">
+                              <img src="" alt="" />
+                            </div>
+                            <h6>Ukuran Foto Max 400mb</h6>
+                            <input type="file" />
+                        </div> */}
+                        <div className="field2">
+                            <div className="gambar">
+                              <img src="" alt="" />
+                            </div>
+                            <p>Upload Foto :</p>
+                            <input 
+                            className='input-gambar'
+                            type="file" 
+                            name='file'
+                            onChange={handleFileChange} />
+                            <h6 style={{color:"red"}}>Ukuran Foto Max 2mb</h6>
+                        </div>
+                      </Col>
+                    </Row>
+                    </form>
+                  {/* <div className="content-left">
+                        
+                      </div>
+                      <div className="content-right">
+                        
+                      </div> */}
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                      Save Changes
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
             </div>
         </div>
     </div>

@@ -84,7 +84,7 @@ function Penyerahankas() {
         <div className="wrap">
             <div className="penyerahan-kas">
                 <div className="header">
-                    <h4>Penyerahan Kas</h4>
+                    <h4>Kas Keluar</h4>
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className="content1">

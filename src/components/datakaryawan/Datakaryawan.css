@@ -38,4 +38,56 @@
   color: white;
   border-radius: 10px;
   border: none;
+}
+
+.content-left .field {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.content-left .field p {
+  font-size: 12px;
+}
+.content-left .field input {
+  height: 30px;
+  width: 250px;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+.content-left .field select {
+  height: 30px;
+  width: 250px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+.content-left .field2 {
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.content-left .field2 p {
+  font-size: 12px;
+}
+.content-left .field2 input {
+  height: 30px;
+  width: 250px;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+.content-left .field2 select {
+  height: 30px;
+  width: 250px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+.content-right .field2 {
+  margin-top: 15px;
+}
+
+.gambar {
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
 }/*# sourceMappingURL=Datakaryawan.css.map */

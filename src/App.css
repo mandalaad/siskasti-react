@@ -18,7 +18,7 @@
   transition: all 0.5s ease;
   padding-bottom: 35px;
   .wrap {
-    box-shadow: 5px 4px 7px 1px black;
+    box-shadow: 5px 4px 7px 1px rgba(0, 0, 0, .2);
     border-radius: 10px;
     width: 92%;
     min-height: 80vh;

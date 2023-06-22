@@ -82,17 +82,17 @@ function Sidebar() {
               <li>
                 <Link to='/penyerahan-kas'>
                   <i><FaReply/></i>
-                  <span className="links_name">Penyerahan Kas</span>
+                  <span className="links_name">Kas Keluar</span>
                 </Link>
-                <span className="tooltip">Penyerahan Kas</span>
+                <span className="tooltip">Kas Keluar</span>
               </li>
-              <li>
+              {/* <li>
                 <Link to='/permintaan-dana'>
                   <i><TbMoneybag/></i>
                   <span className="links_name">Dana</span>
                 </Link>
                 <span className="tooltip">Dana</span>
-              </li>
+              </li> */}
             </ul>
           </Collapse>
         </li>

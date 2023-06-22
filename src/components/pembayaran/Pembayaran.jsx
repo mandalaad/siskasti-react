@@ -200,7 +200,7 @@ function Pembayaran() {
                             </div>
                         </div>
                         <div className="field">
-                            <p>Tanggal :</p>
+                            <p>Tahun :</p>
                             <div>
                             <DatePicker
                             selected={selectedYear}
