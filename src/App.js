@@ -16,6 +16,8 @@ import KasmasukDivisi from './pages/kasmasuk-divisi/KasmasukDivisi';
 import ParameterDataKaryawan from './pages/ParameterDataKaryawan/ParameterDataKaryawan';
 import KasmasukDepartemen from './pages/kasmasuk-departemen/KasmasukDepartemen';
 import LaporanKeluaran from './pages/LaporanKeluaran/LaporanKeluaran';
+import DivisiKasKeluar from './pages/kaskeluar-divisi/DivisiKasKeluar';
+import Grade from './pages/Grade/Grade';
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
       <Route path='/data-karyawan' Component={ParameterDataKaryawan}/>
       <Route path='/kasmasuk-departemen' Component={KasmasukDepartemen}/>
       <Route path='/laporan-keluaran' Component={LaporanKeluaran}/>
+      <Route path='/kas-keluar-divisi' Component={DivisiKasKeluar}/>
+      <Route path='/grade' Component={Grade}/>
     </Routes>
     </>
   );

@@ -1,0 +1,95 @@
+.kas-keluar-divisi .header {
+  background-color: #20A94D;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+.kas-keluar-divisi .header2 {
+  background-color: #20A94D;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+.kas-keluar-divisi .content1 {
+  margin-top: 30px;
+  padding: 0px 100px;
+}
+.kas-keluar-divisi .content1 .content-field {
+  display: flex;
+  justify-content: space-between;
+}
+.kas-keluar-divisi .content1 .content-field .field {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.kas-keluar-divisi .content1 .content-field .field p {
+  padding-right: 70px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 40px;
+}
+.kas-keluar-divisi .content1 .content-field .field input {
+  height: 40px;
+  width: 250px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+.kas-keluar-divisi .content1 .content-field .field .input-gambar {
+  height: 40px;
+  width: 260px;
+}
+.kas-keluar-divisi .content1 .content-field .field select {
+  height: 40px;
+  width: 250px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+.kas-keluar-divisi .content1 .button {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+.kas-keluar-divisi .content1 .button button {
+  width: 150px;
+  height: 30px;
+  background-color: #20A94D;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+.kas-keluar-divisi .content2 .datepicker-container {
+  position: relative;
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+}
+.kas-keluar-divisi .content2 .datepicker-container input {
+  width: 200px;
+  height: 30px;
+  padding-left: 10px;
+}
+.kas-keluar-divisi .content2 .datepicker-container .button button {
+  width: 150px;
+  height: 30px;
+  background-color: #20A94D;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+.kas-keluar-divisi .content2 .table {
+  position: relative;
+  z-index: 1;
+}/*# sourceMappingURL=KasKeluarDivisi.css.map */

@@ -27,6 +27,18 @@
   border-radius: 10px;
   border: none;
 }
+.data-karyawan .data .content-left .button {
+  display: flex;
+  margin-right: 20px;
+}
+.data-karyawan .data .content-left .button button {
+  width: 150px;
+  height: 40px;
+  background-color: #20A94D;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
 .data-karyawan .data .content-right .button {
   display: flex;
   justify-content: end;
@@ -39,54 +51,51 @@
   border-radius: 10px;
   border: none;
 }
-
-.content-left .field {
+.data-karyawan .content-left .field {
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
 }
-.content-left .field p {
+.data-karyawan .content-left .field p {
   font-size: 12px;
 }
-.content-left .field input {
+.data-karyawan .content-left .field input {
   height: 30px;
   width: 250px;
   box-sizing: border-box;
   border-radius: 2px;
 }
-.content-left .field select {
+.data-karyawan .content-left .field select {
   height: 30px;
   width: 250px;
   padding-left: 10px;
   box-sizing: border-box;
   border-radius: 2px;
 }
-.content-left .field2 {
+.data-karyawan .content-left .field2 {
   justify-content: space-between;
   margin-top: 15px;
 }
-.content-left .field2 p {
+.data-karyawan .content-left .field2 p {
   font-size: 12px;
 }
-.content-left .field2 input {
+.data-karyawan .content-left .field2 input {
   height: 30px;
   width: 250px;
   box-sizing: border-box;
   border-radius: 2px;
 }
-.content-left .field2 select {
+.data-karyawan .content-left .field2 select {
   height: 30px;
   width: 250px;
   padding-left: 10px;
   box-sizing: border-box;
   border-radius: 2px;
 }
-
-.content-right .field2 {
+.data-karyawan .content-right .field2 {
   margin-top: 15px;
 }
-
-.gambar {
+.data-karyawan .gambar {
   width: 250px;
   height: 250px;
   border: 1px solid black;

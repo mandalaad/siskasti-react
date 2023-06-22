@@ -139,13 +139,6 @@ function Penyerahankas() {
                                 />
                             </div>
                             <div className="field">
-                                <p>Maximal :</p>
-                                <input type="text" 
-                                value={memo}
-                                onChange={(e) => setMemo(e.target.value)}
-                                />
-                            </div>
-                            <div className="field">
                                 <p>Keterangan :</p>
                                 <input type="text" 
                                 value={memo}
@@ -169,6 +162,9 @@ function Penyerahankas() {
                     </Button>
                 </DialogActions>
                 </Dialog>
+                <div className="header2">
+                    <h4>Riwayat Kas Keluar</h4>
+                </div>
                 <div className="table">
                 <TableContainer component={Paper}>
                 <Table>

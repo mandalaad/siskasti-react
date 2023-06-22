@@ -110,10 +110,6 @@ function Datakaryawan() {
     []
   );
 
-  const handleEditClick = (id) => {
-    // Handle edit button click for the corresponding row
-    console.log(`Edit button clicked for ID: ${id}`);
-  };
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -237,7 +233,9 @@ function Datakaryawan() {
                 </div>
                 <div className="data">
                     <div className="content-left">
-                        <h5>Data Karyawan</h5>
+                        <div className="button">
+                            <button>tambah</button>
+                        </div>
                         <DropdownButton  id="dropdown-item-button" title="Departemen">
                             <Dropdown.ItemText></Dropdown.ItemText>
                             <Dropdown.Item as="button">Devisi Pengembangan Aplikasi TI</Dropdown.Item>

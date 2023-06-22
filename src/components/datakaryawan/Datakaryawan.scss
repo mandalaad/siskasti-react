@@ -26,6 +26,18 @@
                 border-radius: 10px;
                 border: none;
             }
+            .button {
+                display: flex;
+                margin-right: 20px;
+                button {
+                    width: 150px;
+                    height: 40px;
+                    background-color: #20A94D;
+                    color: white;
+                    border-radius: 10px;
+                    border: none;
+                }
+            }
         }
         .content-right {
             .button {
@@ -42,60 +54,60 @@
             }
         }
     }
-}
-
-.content-left {
-    .field {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 15px;
-        p {
-            font-size: 12px;
+    .content-left {
+        .field {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            p {
+                font-size: 12px;
+            }
+            input {
+                height: 30px;
+                width: 250px;
+                box-sizing: border-box;
+                border-radius: 2px;
+            }
+            select {
+                height: 30px;
+                width: 250px;
+                padding-left: 10px;
+                box-sizing: border-box;
+                border-radius: 2px;
+            }
         }
-        input {
-            height: 30px;
-            width: 250px;
-            box-sizing: border-box;
-            border-radius: 2px;
-        }
-        select {
-            height: 30px;
-            width: 250px;
-            padding-left: 10px;
-            box-sizing: border-box;
-            border-radius: 2px;
+        .field2 {
+            justify-content: space-between;
+            margin-top: 15px;
+            p {
+                font-size: 12px;
+            }
+            input {
+                height: 30px;
+                width: 250px;
+                box-sizing: border-box;
+                border-radius: 2px;
+            }
+            select {
+                height: 30px;
+                width: 250px;
+                padding-left: 10px;
+                box-sizing: border-box;
+                border-radius: 2px;
+            }
         }
     }
-    .field2 {
-        justify-content: space-between;
-        margin-top: 15px;
-        p {
-            font-size: 12px;
+    
+    .content-right {
+        .field2 {
+            margin-top: 15px;
         }
-        input {
-            height: 30px;
-            width: 250px;
-            box-sizing: border-box;
-            border-radius: 2px;
-        }
-        select {
-            height: 30px;
-            width: 250px;
-            padding-left: 10px;
-            box-sizing: border-box;
-            border-radius: 2px;
-        }
+    }
+    
+    .gambar {
+        width: 250px;
+        height: 250px;
+        border: 1px solid black;
     }
 }
 
-.content-right {
-    .field2 {
-        margin-top: 15px;
-    }
-}
-
-.gambar {
-    width: 250px;
-    height: 250px;
-    border: 1px solid black;
-}

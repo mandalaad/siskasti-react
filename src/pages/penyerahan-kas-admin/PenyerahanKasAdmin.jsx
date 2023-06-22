@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Navbar from '../../components/navbar/Navbar'
-import Penyerahankas from '../../components/penyerahankas/Penyerahankas'
+import Penyerahankas from '../../components/kas-keluar-departement/Penyerahankas'
 
 
 function PenyerahanKasAdmin() {

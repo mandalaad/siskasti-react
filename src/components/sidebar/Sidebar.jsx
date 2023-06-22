@@ -66,6 +66,27 @@ function Sidebar() {
           <span className="tooltip">Dashboard Dept</span>
         </li>
         <li>
+          <Link to="/kas-masuk">
+            <i><FaShare/></i>
+            <span className="links_name">Kas Masuk</span>
+          </Link>
+          <span className="tooltip">Kas Masuk</span>
+        </li>
+        <li>
+          <Link to="/penyerahan-kas">
+            <i><FaReply/></i>
+            <span className="links_name">Kas Keluar</span>
+          </Link>
+          <span className="tooltip">Kas Keluar</span>
+        </li>
+        <li>
+          <Link to="/laporan-keluaran">
+            <i><FaReply/></i>
+            <span className="links_name">Kas Keluar</span>
+          </Link>
+          <span className="tooltip">Kas Keluar</span>
+        </li>
+        {/* <li>
           <Link onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
             <i><AiOutlineTransaction/></i>
             <span className="links_name">Transaksi <i><MdArrowDropDownCircle/></i></span>
@@ -86,16 +107,9 @@ function Sidebar() {
                 </Link>
                 <span className="tooltip">Kas Keluar</span>
               </li>
-              {/* <li>
-                <Link to='/permintaan-dana'>
-                  <i><TbMoneybag/></i>
-                  <span className="links_name">Dana</span>
-                </Link>
-                <span className="tooltip">Dana</span>
-              </li> */}
             </ul>
           </Collapse>
-        </li>
+        </li> */}
         <li>
           <Link to="/dashboard-divisi">
             <i><RxDashboard/></i>
@@ -111,12 +125,19 @@ function Sidebar() {
           <span className="tooltip">Kas Masuk Div</span>
         </li>
         <li>
+          <Link to="/kas-keluar-divisi">
+            <i><FaReply/></i>
+            <span className="links_name">Kas Keluar Divisi</span>
+          </Link>
+          <span className="tooltip">Kas Keluar Divisi</span>
+        </li>
+        {/* <li>
           <Link to="/penerimaan-dana">
             <i><TbMoneybag/></i>
             <span className="links_name">Penerimaan Dana</span>
           </Link>
           <span className="tooltip">Penerimaan Dana</span>
-        </li>
+        </li> */}
         <li>
           <Link to="/dashboard-sa">
             <i><RxDashboard/></i>
@@ -130,6 +151,13 @@ function Sidebar() {
             <span className="links_name">Data Karyawan</span>
           </Link>
           <span className="tooltip">Data Karyawan</span>
+        </li>
+        <li>
+          <Link to="/grade">
+            <i><FiDatabase/></i>
+            <span className="links_name">Grade</span>
+          </Link>
+          <span className="tooltip">Grade</span>
         </li>
         <li>
           <Link to="/">

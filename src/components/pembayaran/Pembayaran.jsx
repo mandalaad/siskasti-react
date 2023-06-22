@@ -124,7 +124,7 @@ function Pembayaran() {
                     <div className="content-field">
                     <div className="content-left">
                         <div className="field">
-                            <p>Nomor Karyawan :</p>
+                            <p>Nomor Induk Karyawan :</p>
                             <input 
                             type='text'
                             value={nomorKaryawan}
@@ -140,7 +140,7 @@ function Pembayaran() {
                             />
                         </div>
                         <div className="field">
-                            <p>Akun Bendahara Dep :</p>
+                            <p>Departement :</p>
                             {/* <input 
                             type='text'
                             value={akunBendaharaDep}

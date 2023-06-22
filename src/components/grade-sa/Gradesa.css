@@ -1,0 +1,37 @@
+.grade .header {
+  background-color: #20A94D;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+.grade .data {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 0 30px;
+}
+.grade .data .content-left {
+  display: flex;
+}
+.grade .data .content-left h5 {
+  margin-right: 30px;
+}
+.grade .data .content-left .button {
+  display: flex;
+  margin-right: 20px;
+}
+.grade .data .content-left .button button {
+  width: 150px;
+  height: 40px;
+  background-color: #20A94D;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+.grade .modal .field {
+  display: flex;
+}/*# sourceMappingURL=Gradesa.css.map */

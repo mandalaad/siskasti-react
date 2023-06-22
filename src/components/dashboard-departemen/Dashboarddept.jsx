@@ -3,7 +3,6 @@ import './dashboarddepartemen.css'
 import { Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { MdOutlineSettingsInputComposite } from 'react-icons/md'
-import { AiOutlineDollarCircle } from 'react-icons/ai'
 import { VscOutput } from 'react-icons/vsc'
 function Dashboarddivisi() {
   return (
@@ -16,7 +15,7 @@ function Dashboarddivisi() {
                 <div className='midleside-content'>
                 <Row>
                   <Col xxl = {4} md = {6} sm={12}>
-                    <Link to="/penerimaan" className='dashboard-link'>
+                    <Link to="/kas-masuk" className='dashboard-link'>
                       <div className='kartu mt-4'>
                         <div className="dsad">
                           <div className="kartu-content">
@@ -35,7 +34,7 @@ function Dashboarddivisi() {
                     </Link>
                   </Col>
                   <Col xxl = {4} md = {6} sm={12}>
-                    <Link to="/pengeluaran" className='dashboard-link'>
+                    <Link to="/kas-masuk" className='dashboard-link'>
                       <div className='kartu mt-4'>
                         <div className="kartu-content">
                           <div>
@@ -52,7 +51,7 @@ function Dashboarddivisi() {
                     </Link>
                   </Col>
                   <Col xxl = {4} md = {6} sm={12}>
-                    <Link to="/pengeluaran" className='dashboard-link'>
+                    <Link to="/kas-masuk" className='dashboard-link'>
                       <div className='kartu mt-4'>
                         <div className="kartu-content">
                           <div>
