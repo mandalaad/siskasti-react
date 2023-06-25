@@ -7,36 +7,58 @@ import backgroundlogin from '../assets/Abstract-Green-Wave-PNG-File.png'
 
 function Login() {
 
-    const [isClicked, setIsClicked] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const navigate = useNavigate();
-    const handleLogin = async (e) => {
-        if (!isClicked && !isLoading) {
-        setIsClicked(true);
-        setIsLoading(true);
-        e.preventDefault();
-        const username = e.target.elements.username.value;
-        const password = e.target.elements.password.value;
-        const passalert = document.getElementById('pw-alert');
-        try {
-          const response = await axios.post('http://10.254.45.224:8080/api/auth/login', { username, password });
-          // Handle the successful login response here
-          console.log(response.data);
-          navigate('/dashboard');
-        } catch (error) {
-          // Handle any error that occurred during login
-          console.error(error);
-          //pass alert
-          passalert.style.display = 'block';
+  const [isClicked, setIsClicked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-        } finally {
-            setIsLoading(false);
-        }
-        }
-      };
-    //   if(username === 'Admin'){
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-    //   }
+    if (!isClicked && !isLoading) {
+      setIsClicked(true);
+      setIsLoading(true);
+
+      const username = e.target.elements.username.value;
+      const password = e.target.elements.password.value;
+      const passalert = document.getElementById('pw-alert');
+
+      try {
+        const response = await axios.post('http://10.254.45.224:8080/api/auth/login', { username, password });
+        // Handle the successful login response here
+        console.log(response.data);
+
+        // Dapatkan peran dari respons dan arahkan ke halaman yang sesuai
+        const { role } = response.data;
+        switch (role) {
+          case 'karyawan':
+            navigate('/pembayaran');
+            break;
+          case 'bendahara-departemen':
+            navigate('/dashboard-dept');
+            break;
+          case 'bendahara-divisi':
+            navigate('/dashboard-divisi');
+            break;
+          case 'super-admin':
+            navigate('/dashboard-sa');
+            break;
+          default:
+            // Jika peran tidak dikenali, arahkan ke halaman utama
+            navigate('/');
+            break;
+        }
+      } catch (error) {
+        // Handle any error that occurred during login
+        console.error(error);
+        // Tampilkan pesan kesalahan
+        passalert.style.display = 'block';
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  };
+      
+      
     
   return (
     <body>
