@@ -43,7 +43,7 @@ function Sidebar() {
         <div className="logo_name">Siskasti</div>
         <i className={`buka bx ${isOpen ? "bx-menu-alt-right" : "bx-menu"}`} id="btn" onClick={toggleSidebar}></i>
       </div>
-      <ul className="nav-list">
+      <ul className="nav-list scrol">
         <li>
           <NavLink style={navLinkStyles} to="/pembayaran" >
             <i><MdOutlinePayments/></i>
