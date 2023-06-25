@@ -1,46 +1,38 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react'
+import './databendaharadivisi.css'
+import { Button, Col, Dropdown, DropdownButton, Modal, Row } from 'react-bootstrap';
 import { MaterialReactTable } from 'material-react-table';
-import './Datakaryawan.css'
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import { Button, Col, Modal, Row } from 'react-bootstrap';
 import axios from 'axios';
-import DatePicker from 'react-datepicker'
-import { id } from 'date-fns/locale';
-
-function Datakaryawan() {
+function Databendaharadivisi() {
     const [data, setData] = useState([
         {
           no: 1,
-          namakaryawan: 'John Doe',
+          name: 'Farhan',
           foto: 'image-url.jpg',
           nik: '123456789',
-          grade: 'A',
-          jabatan: 'Manager',
-          unitkerja: 'HR',
-          email: 'john.doe@example.com',
+          departement: 'Manager',
+          norek: '3333333333',
+          email: 'farhan@example.com',
           nohp: '1234567890',
         },
         {
           no: 2,
-          namakaryawan: 'John Doe',
+          name: 'Rama',
           foto: 'image-url.jpg',
           nik: '123456789',
-          grade: 'A',
-          jabatan: 'Manager',
-          unitkerja: 'HR',
-          email: 'john.doe@example.com',
+          departement: 'Manager',
+          norek: '22222222',
+          email: 'rama@example.com',
           nohp: '1234567890',
         },
         {
           no: 3,
-          namakaryawan: 'Jane Smith',
+          name: 'Putri',
           foto: 'image-url.jpg',
           nik: '987654321',
-          grade: 'B',
-          jabatan: 'Accountant',
-          unitkerja: 'Finance',
-          email: 'jane.smith@example.com',
+          departement: 'Accountant',
+          norek: '444444444',
+          email: 'putri@example.com',
           nohp: '0987654321',
         },
         // ... add other data here
@@ -67,8 +59,8 @@ function Datakaryawan() {
         size:'20',
       },
       {
-        accessorKey: 'namakaryawan',
-        header: 'Nama Karyawan',
+        accessorKey: 'name',
+        header: 'Nama Bendahara Departement',
       },
       {
         accessorKey: 'foto',
@@ -79,17 +71,12 @@ function Datakaryawan() {
         header: 'NIK',
       },
       {
-        accessorKey: 'grade',
-        header: 'Grade',
-        size:'100',
+        accessorKey: 'departement',
+        header: 'Departement',
       },
       {
-        accessorKey: 'jabatan',
-        header: 'Jabatan',
-      },
-      {
-        accessorKey: 'unitkerja',
-        header: 'Unit Kerja',
+        accessorKey: 'norek',
+        header: 'No.Rekening',
       },
       {
         accessorKey: 'email',
@@ -110,115 +97,6 @@ function Datakaryawan() {
     []
   );
 
-  
-  //  // input file
-  //   const [selectedFile, setSelectedFile] = useState(null);
-  //   const handleFileChange = (event) => {
-  //   const file = event.target.files[0];
-  //       // Memeriksa tipe file
-  //     if (file && file.type !== 'image/jpeg/png') {
-  //       alert('Mohon pilih file dengan format JPG!');
-  //       return;
-  //     }
-  
-  //     // Memeriksa ukuran file
-  //     if (file && file.size > 2 * 1024 * 1024) {
-  //       alert('Ukuran file melebihi batas 2MB!');
-  //       return;
-  //     }
-  //       setSelectedFile(file);
-  //   };
-
-  //   // react-datepicker
-  //   const [selectedDate, setSelectedDate] = useState(null);
-  //   const handleChange = date => {
-  //       setSelectedDate(date);
-  //   };
-
-  //   // datepicker bulan doang
-  //   const handleMonthChange = (date) => {
-  //       setSelectedMonth(date);
-  //     };
-    
-  //     const CustomDatePickerInput = ({ value, onClick }) => (
-  //       <input
-  //         className="datepicker-input"
-  //         value={value ? value.toLocaleString('default', { month: 'long' }) : ''}
-  //         onClick={onClick}
-  //         readOnly
-  //       />
-  //     );
-
-  //   //   datepicker tahun doang
-    
-  //   const handleYearChange = (date) => {
-  //       setSelectedYear(date);
-  //   };
-    
-  //   const [selectedYear, setSelectedYear] = useState(null);
-  //   const [selectedMonth, setSelectedMonth] = useState(null);
-  //   const [nomorKaryawan, setNomorKaryawan] = useState('');
-  //   const [nikKaryawan, setNikKaryawan] = useState([]);
-  //   const [gradeKaryawan, setGradeKaryawan] = useState([]);
-  //   const [namaKaryawan, setNamaKaryawan] = useState('');
-  //   const [emailKaryawan, setEmailKaryawan] = useState('');
-  //   const [akunBendaharaDep, setAkunBendaharaDep] = useState('');
-  //   const [nominal, setNominal] = useState('');
-  //   const [open, setOpen] = useState(false);
-  //   const [popupMessage, setPopupMessage] = useState('');
-  //   const [isSuccess, setIsSuccess] = useState(false);
-  //   const [options, setOptions] = useState([]);
-
-  //   const togglePopup = (message, success) => {
-  //       setOpen(!open);
-  //       setPopupMessage(message);
-  //       setIsSuccess(success);
-  //   };
-
-  //   const handleSubmit = async (event) => {
-  //       event.preventDefault();
-
-  //       // Buat objek data dengan nilai-nilai input
-  //       const data = {
-  //       namaKaryawan,
-  //       nikKaryawan,
-  //       selectedFile,
-  //       tanggal: selectedDate ? selectedDate.toISOString() : '',
-  //       nominal,
-  //       bulan: selectedMonth ? selectedMonth.toISOString() : '',
-  //       tahun: selectedYear ? selectedYear.toISOString() : '',
-  //       };
-  //       try {
-  //           // Kirim data ke API endpoint menggunakan metode POST
-  //           const response = await axios.post('URL_API_ANDA', data);
-  //           console.log('Data berhasil disimpan:', response.data);
-  //           togglePopup('Data berhasil ditambahkan ke database.', true);
-  //         } catch (error) {
-  //           console.error('Gagal menyimpan data:', error);
-  //           togglePopup('Gagal menambahkan data ke database.', false);
-  //         }
-  //       };
-
-  //       // const handleClose = () => {
-  //       //     setOpen(false);
-  //       //   };
-
-  //       //   mengambil data dropdow
-  //         useEffect(() => {
-  //           const fetchData = async () => {
-  //             try {
-  //               const response = await axios.get('URL_API');
-  //               setOptions(response.data);
-  //             } catch (error) {
-  //               console.error('Error fetching data:', error);
-  //             }
-  //           };
-        
-  //           fetchData();
-  //         }, []);
-          
-  //inputan modal
-  // input file
   const [selectedFile, setSelectedFile] = useState(null);
   const handleFileChange = (event) => {
   const file = event.target.files[0];
@@ -244,8 +122,8 @@ function Datakaryawan() {
 
   // data grade otomatis 
   const [nama, setNama] = useState('');
-  const [grades, setGrades] = useState([]);
-  const [selectedGrade, setSelectedGrade] = useState('');
+  const [departement, setDepartement] = useState([]);
+  const [selectedDepartement, setSelectedDepartement] = useState('');
   const [jabatan, setJabatan] = useState('');
   const [nominal, setNominal] = useState('');
   const [unitKerja, setUnitKerja] = useState('');
@@ -258,6 +136,7 @@ function Datakaryawan() {
     const [gradeKaryawan, setGradeKaryawan] = useState([]);
     // const [namaKaryawan, setNamaKaryawan] = useState('');
     const [emailKaryawan, setEmailKaryawan] = useState('');
+    const [norek, setNorek] = useState('');
 
   useEffect(() => {
     fetchGrades();
@@ -266,18 +145,18 @@ function Datakaryawan() {
   const fetchGrades = async () => {
     try {
       const response = await axios.get('http://localhost:3001/grades');
-      setGrades(response.data);
+      setDepartement(response.data);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleGradeChange = (e) => {
-    const selectedGrade = e.target.value;
-    setSelectedGrade(selectedGrade);
+  const handleDepartementChange = (e) => {
+    const selectedDepartement = e.target.value;
+    setSelectedDepartement(selectedDepartement);
 
     // Set data lain berdasarkan pilihan grade
-    const selectedOption = grades.find((grade) => grade.grade === selectedGrade);
+    const selectedOption = departement.find((departement) => departement.departement === selectedDepartement);
     if (selectedOption) {
       setJabatan(selectedOption.jabatan);
       setNominal(selectedOption.nominal);
@@ -302,8 +181,9 @@ function Datakaryawan() {
     const data = {
       nama,
       nik,
+      norek: norek,
       tanggal: selectedDate ? selectedDate.toISOString() : '',
-      grade: selectedGrade,
+      departement: selectedDepartement,
       jabatan: jabatan,
       nominal: nominal,
       unitKerja: unitKerja,
@@ -321,11 +201,11 @@ function Datakaryawan() {
       setSelectedDate(null);
       setNama('');
       setNama('');
-      setSelectedGrade('');
+      setSelectedDepartement('');
       setJabatan('');
       setNominal('');
       setUnitKerja('');
-
+      setNorek('')
       setIsDataSubmitted(true);
 
       setTimeout(() => {
@@ -360,13 +240,14 @@ const closeModal = () => {
 
           const handleClose2 = () => setShow2(false);
           const handleShow2 = () => setShow2(true);
+
   return (
     <>
     <div className="content">
         <div className="wrap">
             <div className="data-karyawan">
                 <div className="header">
-                  <h4>Data Karyawan</h4>
+                  <h4>Data Bendahara Divisi</h4>
                 </div>
                 <div className="data">
                     <div className="content-left">
@@ -426,7 +307,7 @@ const closeModal = () => {
                 <Modal className='mymodal1' show={show} onHide={handleClose}
                 size="lg">
                   <Modal.Header closeButton>
-                    <Modal.Title>Edit data karyawan</Modal.Title>
+                    <Modal.Title>Edit data bendahara divisi</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
                   <form onSubmit={handleSubmit}>
@@ -455,20 +336,18 @@ const closeModal = () => {
                             />
                         </div>
                         <div className="field1">
-                            <p>Grade :</p>
-                            <select onChange={(e) => setGradeKaryawan(e.target.value)} 
-                            // required
-                            >
-                            <option value="">Select Grade</option>
-                            {grades.map((grade) => (
-                              <option key={grade.id} value={grade.grade}>
-                                {grade.grade}
-                              </option>
-                            ))}
-                            </select>
+                            <p>No.Rekening :</p>
+                            <input 
+                            type='number'
+                            name='norek'
+                            value={norek}
+                            onChange={(e) => setNorek(e.target.value)}
+                            required
+                            />
                         </div>
+
                         <div className="field1">
-                            <p>Jabatan :</p>
+                            <p>Departement :</p>
                             {/* <input 
                             type='text'
                             value={akunBendaharaDep}
@@ -477,15 +356,15 @@ const closeModal = () => {
                             <select 
                             // required
                             >
-                              <option value="">Pilih Jabatan</option>
-                              {grades.map((grade) => (
-                                <option key={grade.id} value={grade.grade}>
-                                  {grade.grade}
+                              <option value="">Pilih Departement</option>
+                              {departement.map((departemen) => (
+                                <option key={departemen.id} value={departemen.departemen}>
+                                  {departemen.departemen}
                                 </option>
                               ))}
                             </select>
                         </div>
-                        <div className="field1">
+                        {/* <div className="field1">
                             <p>Unit Kerja :</p>
                             <select 
                             // required
@@ -497,7 +376,7 @@ const closeModal = () => {
                                 </option>
                               ))}
                             </select>
-                        </div>
+                        </div> */}
                         {/* <div className="field1">
                             <p>Tanggal :</p>
                             <div>
@@ -594,4 +473,4 @@ const closeModal = () => {
   )
 }
 
-export default Datakaryawan
+export default Databendaharadivisi

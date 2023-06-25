@@ -19,7 +19,8 @@ import LaporanKeluaran from './pages/LaporanKeluaran/LaporanKeluaran';
 import DivisiKasKeluar from './pages/kaskeluar-divisi/DivisiKasKeluar';
 import Grade from './pages/Grade/Grade';
 import TransaksiKaryawan from './components/coba/coba';
-
+import DataBendaharaDept from './pages/DataBendaharadept/DataBendaharaDept';
+import DataBendaharaDivisi from './pages/DataBendaharaDivisi/DataBendaharaDivisi';
 function App() {
   return (
     <>
@@ -43,6 +44,8 @@ function App() {
       <Route path='/kas-keluar-divisi' Component={DivisiKasKeluar}/>
       <Route path='/grade' Component={Grade}/>
       <Route path='/tk' Component={TransaksiKaryawan}/>
+      <Route path='/data-bendaharadept' Component={DataBendaharaDept}/>
+      <Route path='/data-bendaharadiv' Component={DataBendaharaDivisi}/>
 
     </Routes>
     </>
