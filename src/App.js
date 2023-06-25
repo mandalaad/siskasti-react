@@ -1,6 +1,6 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { useState } from 'react';
-import LoginPage from './login/Login';
+import Login from './login/Login';
 import Pembayarankaryawan from './pages/pembayaran-karyawan/Pembayarankaryawan';
 import Profilekaryawan from './pages/profile-karyawan/Profilekaryawan';
 import LaporanKaryawan from './pages/LaporanKaryawan/LaporanKaryawan';
@@ -20,44 +20,64 @@ import Grade from './pages/Grade/Grade';
 import TransaksiKaryawan from './components/coba/coba';
 import DataBendaharaDept from './pages/DataBendaharadept/DataBendaharaDept';
 import DataBendaharaDivisi from './pages/DataBendaharaDivisi/DataBendaharaDivisi';
+import Sidebar from './components/sidebar/Sidebar';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userRole, setUserRole] = useState('');
 
-  // Fungsi untuk menandai status login
   const handleLogin = (role) => {
     setIsLoggedIn(true);
     setUserRole(role);
   };
 
-  // Fungsi untuk menandai status logout
   const handleLogout = () => {
     setIsLoggedIn(false);
     setUserRole('');
   };
 
-  // Komponen untuk mengarahkan pengguna ke halaman login jika tidak diotentikasi
   const AuthenticatedRoute = ({ element: Element, roles, ...rest }) => {
     if (!isLoggedIn || !roles.includes(userRole)) {
       return <Navigate to="/login" />;
     }
-    return <Element />;
+
+    let ComponentToShow;
+    if (userRole === 'karyawan') {
+      ComponentToShow = Pembayarankaryawan;
+    } else if (userRole === 'bendahara-departemen') {
+      ComponentToShow = DashboardDepartemen;
+    } else if (userRole === 'bendahara-divisi') {
+      ComponentToShow = DashboardDivisi;
+    } else if (userRole === 'super-admin') {
+      ComponentToShow = DashboardSuperAdmin;
+    } else {
+      ComponentToShow = null;
+    }
+
+    return <ComponentToShow />;
+
+    
   };
 
-
-
-function App() {
-
   return (
+    <>
     <Routes>
-
-      <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
-      <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
-      <Route
-        path="/profile"
-        element={<AuthenticatedRoute element={<Profilekaryawan />} roles={['karyawan', 'bendahara-departemen', 'bendahara-divisi']} />}
-      />
+    <Route
+          path="/"
+          element={
+            isLoggedIn ? (
+              <AuthenticatedRoute
+                roles={['karyawan', 'bendahara-departemen', 'bendahara-divisi', 'super-admin']}
+              />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
+        {userRole && (
+          <Sidebar userRole={userRole} />
+        )}
       <Route
         path="/pembayaran"
         element={<AuthenticatedRoute element={<Pembayarankaryawan />} roles={['karyawan']} />}
@@ -123,8 +143,7 @@ function App() {
         element={<AuthenticatedRoute element={<Grade />} roles={['super-admin']} />}
       />
       <Route path="*" element={<Navigate to="/" />} />
-
-      <Route path='/' Component={Login}/>
+      {/* <Route path='/' Component={Login}/>
       <Route path='/login' Component={Login}/>
       <Route path='/pembayaran' Component={Pembayarankaryawan}/>
       <Route path='/profile' Component={Profilekaryawan}/>
@@ -144,10 +163,9 @@ function App() {
       <Route path='/grade' Component={Grade}/>
       <Route path='/tk' Component={TransaksiKaryawan}/>
       <Route path='/data-bendaharadept' Component={DataBendaharaDept}/>
-      <Route path='/data-bendaharadiv' Component={DataBendaharaDivisi}/>
-
-
+      <Route path='/data-bendaharadiv' Component={DataBendaharaDivisi}/> */}
     </Routes>
+    </>
   );
 };
 

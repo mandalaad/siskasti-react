@@ -18,11 +18,14 @@ const RequireRole = (WrappedComponent, isLoggedIn, userRole) => {
       if (userRole === 'karyawan') {
         return true; // Karyawan memiliki akses
       } else if (
-        userRole === 'bendahara_departemen' ||
-        userRole === 'bendahara_divisi'
+        userRole === 'bendahara-departemen'
       ) {
         return true; // Bendahara departemen dan bendahara divisi memiliki akses
-      } else if (userRole === 'super_admin') {
+      } else if (
+        userRole === 'bendahara-divisi'
+      ) {
+        return true; // Bendahara departemen dan bendahara divisi memiliki akses
+      } else if (userRole === 'super-admin') {
         return true; // Super admin memiliki akses
       } else {
         return false; // Peran tidak valid

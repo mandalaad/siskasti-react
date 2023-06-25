@@ -10,7 +10,7 @@ import { TbMoneybag } from 'react-icons/tb';
 import { RxDashboard } from 'react-icons/rx';
 import { FiDatabase } from 'react-icons/fi';
 
-function Sidebar() {
+function Sidebar({userRole}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -43,7 +43,9 @@ function Sidebar() {
         <div className="logo_name">Siskasti</div>
         <i className={`buka bx ${isOpen ? "bx-menu-alt-right" : "bx-menu"}`} id="btn" onClick={toggleSidebar}></i>
       </div>
-      <ul className="nav-list scrol">
+      <ul className="nav-list">
+      {userRole === "karyawan" && (
+            <>
         <li>
           <NavLink style={navLinkStyles} to="/pembayaran" >
             <i><MdOutlinePayments/></i>
@@ -58,6 +60,10 @@ function Sidebar() {
           </NavLink>
           <span className="tooltip">laporan</span>
         </li>
+        </>
+          )}
+          {userRole === "bendahara-departemen" && (
+            <>
         <li>
           <Link to="/dashboard-dept">
             <i><RxDashboard/></i>
@@ -86,30 +92,10 @@ function Sidebar() {
           </Link>
           <span className="tooltip">Kas Keluar</span>
         </li>
-        {/* <li>
-          <Link onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
-            <i><AiOutlineTransaction/></i>
-            <span className="links_name">Transaksi <i><MdArrowDropDownCircle/></i></span>
-          </Link>
-          <Collapse in={open}>
-            <ul className='list-menu'>
-              <li>
-                <Link to='/kas-masuk'>
-                  <i><FaShare/></i>
-                  <span className="links_name">Kas masuk</span>
-                </Link>
-                <span className="tooltip">Kas Masuk</span>
-              </li>
-              <li>
-                <Link to='/penyerahan-kas'>
-                  <i><FaReply/></i>
-                  <span className="links_name">Kas Keluar</span>
-                </Link>
-                <span className="tooltip">Kas Keluar</span>
-              </li>
-            </ul>
-          </Collapse>
-        </li> */}
+        </>
+        )}
+        {userRole === "bendahara-divisi" && (
+        <>
         <li>
           <Link to="/dashboard-divisi">
             <i><RxDashboard/></i>
@@ -138,6 +124,10 @@ function Sidebar() {
           </Link>
           <span className="tooltip">Penerimaan Dana</span>
         </li> */}
+        </>
+          )}
+          {userRole === "super-admin" && (
+            <>
         <li>
           <Link to="/dashboard-sa">
             <i><RxDashboard/></i>
@@ -159,6 +149,8 @@ function Sidebar() {
           </Link>
           <span className="tooltip">Grade</span>
         </li>
+        </>
+          )}
         <li>
           <Link to="/">
             <i className="bx bx-cog"></i>
