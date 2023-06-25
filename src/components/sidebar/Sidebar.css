@@ -238,15 +238,15 @@
 }
 
 /* sidebar scroll */
-.scrol:hover {
+/* .scrol:hover {
     overflow-x: hidden;
     overflow-y: auto;
-    /* direction: rtl; */
+    direction: rtl;
 }
 
-/* .scrol>div {
+.scrol>li {
   direction: ltr;
-} */
+}
 .scrol::-webkit-scrollbar {
     width: 10px;
 }
@@ -259,7 +259,7 @@
 .scrol::-webkit-scrollbar-thumb {
     background: orange;
     border-radius: 20px;
-}
+} */
 @media (max-width: 420px) {
   .sidebar li .tooltip{
     display: none;
