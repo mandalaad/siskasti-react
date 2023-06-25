@@ -18,7 +18,7 @@ import KasmasukDepartemen from './pages/kasmasuk-departemen/KasmasukDepartemen';
 import LaporanKeluaran from './pages/LaporanKeluaran/LaporanKeluaran';
 import DivisiKasKeluar from './pages/kaskeluar-divisi/DivisiKasKeluar';
 import Grade from './pages/Grade/Grade';
-
+import TransaksiKaryawan from './components/coba/coba';
 
 function App() {
   return (
@@ -42,6 +42,8 @@ function App() {
       <Route path='/laporan-keluaran' Component={LaporanKeluaran}/>
       <Route path='/kas-keluar-divisi' Component={DivisiKasKeluar}/>
       <Route path='/grade' Component={Grade}/>
+      <Route path='/tk' Component={TransaksiKaryawan}/>
+
     </Routes>
     </>
   );

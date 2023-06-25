@@ -51,52 +51,50 @@
   border-radius: 10px;
   border: none;
 }
-.data-karyawan .content-left .field {
+
+.mymodal1 .modal-content .modal-body form .content-left1 .field1 {
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
 }
-.data-karyawan .content-left .field p {
+.mymodal1 .modal-content .modal-body form .content-left1 .field1 p {
   font-size: 12px;
 }
-.data-karyawan .content-left .field input {
+.mymodal1 .modal-content .modal-body form .content-left1 .field1 input {
   height: 30px;
   width: 250px;
   box-sizing: border-box;
   border-radius: 2px;
 }
-.data-karyawan .content-left .field select {
+.mymodal1 .modal-content .modal-body form .content-left1 .field1 select {
   height: 30px;
   width: 250px;
   padding-left: 10px;
   box-sizing: border-box;
   border-radius: 2px;
 }
-.data-karyawan .content-left .field2 {
+.mymodal1 .modal-content .modal-body form .field2 {
   justify-content: space-between;
   margin-top: 15px;
 }
-.data-karyawan .content-left .field2 p {
+.mymodal1 .modal-content .modal-body form .field2 .gambar {
+  outline: 1px solid black;
+  width: 200px;
+  height: 200px;
+}
+.mymodal1 .modal-content .modal-body form .field2 p {
   font-size: 12px;
 }
-.data-karyawan .content-left .field2 input {
+.mymodal1 .modal-content .modal-body form .field2 input {
   height: 30px;
   width: 250px;
   box-sizing: border-box;
   border-radius: 2px;
 }
-.data-karyawan .content-left .field2 select {
+.mymodal1 .modal-content .modal-body form .field2 select {
   height: 30px;
   width: 250px;
   padding-left: 10px;
   box-sizing: border-box;
   border-radius: 2px;
-}
-.data-karyawan .content-right .field2 {
-  margin-top: 15px;
-}
-.data-karyawan .gambar {
-  width: 250px;
-  height: 250px;
-  border: 1px solid black;
 }/*# sourceMappingURL=Datakaryawan.css.map */
