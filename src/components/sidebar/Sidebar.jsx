@@ -80,11 +80,18 @@ function Sidebar() {
           <span className="tooltip">Kas Keluar</span>
         </li>
         <li>
+          <Link to="/laporan-kas-masuk">
+            <i><FaShare/></i>
+            <span className="links_name">Laporan kas masuk</span>
+          </Link>
+          <span className="tooltip">Laporan kas masuk</span>
+        </li>
+        <li>
           <Link to="/laporan-keluaran">
             <i><FaReply/></i>
-            <span className="links_name">Kas Keluar</span>
+            <span className="links_name">Laporan Kas Keluar</span>
           </Link>
-          <span className="tooltip">Kas Keluar</span>
+          <span className="tooltip">Laporan Kas Keluar</span>
         </li>
         {/* <li>
           <Link onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>

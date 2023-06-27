@@ -15,7 +15,7 @@ function Dashboarddivisi() {
                 <div className='midleside-content'>
                 <Row>
                   <Col xxl = {4} md = {6} sm={12}>
-                    <Link to="/kas-masuk" className='dashboard-link'>
+                    <Link className='dashboard-link'>
                       <div className='kartu mt-4'>
                         <div className="dsad">
                           <div className="kartu-content">
@@ -34,7 +34,7 @@ function Dashboarddivisi() {
                     </Link>
                   </Col>
                   <Col xxl = {4} md = {6} sm={12}>
-                    <Link to="/kas-masuk" className='dashboard-link'>
+                    <Link className='dashboard-link'>
                       <div className='kartu mt-4'>
                         <div className="kartu-content">
                           <div>
@@ -51,7 +51,7 @@ function Dashboarddivisi() {
                     </Link>
                   </Col>
                   <Col xxl = {4} md = {6} sm={12}>
-                    <Link to="/kas-masuk" className='dashboard-link'>
+                    <Link className='dashboard-link'>
                       <div className='kartu mt-4'>
                         <div className="kartu-content">
                           <div>

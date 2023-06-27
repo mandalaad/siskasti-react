@@ -174,33 +174,6 @@ function KasIncome() {
                 enableColumnFilters={false}
               />
             </div>
-            <div className="header2">
-              <h4>Riwayat Kas Masuk</h4>
-            </div>
-            <div className="table">
-              <TableContainer component={Paper}>
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell></TableCell>
-                      {months.map((month) => (
-                        <TableCell key={month}>{month}</TableCell>
-                      ))}
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {karyawanData.map((karyawan) => (
-                      <TableRow key={karyawan.nama}>
-                        <TableCell>{karyawan.nama}</TableCell>
-                        {months.map((month) => (
-                          <TableCell key={month}></TableCell>
-                        ))}
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </div>
           </div>
         </div>
       </div>

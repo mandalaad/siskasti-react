@@ -71,10 +71,6 @@ function Datakaryawan() {
         header: 'Nama Karyawan',
       },
       {
-        accessorKey: 'foto',
-        header: 'Foto',
-      },
-      {
         accessorKey: 'nik',
         header: 'NIK',
       },
@@ -375,7 +371,6 @@ const closeModal = () => {
                         </div>
                         <DropdownButton  id="dropdown-item-button" title="Departemen">
                             <Dropdown.ItemText></Dropdown.ItemText>
-                            <Dropdown.Item as="button">Devisi Pengembangan Aplikasi TI</Dropdown.Item>
                             <Dropdown.Item as="button">Departemen IT Business Analyst</Dropdown.Item>
                             <Dropdown.Item as="button">Departemen Integrasi Aplikasi</Dropdown.Item>
                             <Dropdown.Item as="button">Departemen Aplikasi Bisnis</Dropdown.Item>

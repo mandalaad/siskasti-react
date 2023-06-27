@@ -15,26 +15,6 @@ function Databendaharadivisi() {
           email: 'farhan@example.com',
           nohp: '1234567890',
         },
-        {
-          no: 2,
-          name: 'Rama',
-          foto: 'image-url.jpg',
-          nik: '123456789',
-          departement: 'Manager',
-          norek: '22222222',
-          email: 'rama@example.com',
-          nohp: '1234567890',
-        },
-        {
-          no: 3,
-          name: 'Putri',
-          foto: 'image-url.jpg',
-          nik: '987654321',
-          departement: 'Accountant',
-          norek: '444444444',
-          email: 'putri@example.com',
-          nohp: '0987654321',
-        },
         // ... add other data here
       ]);
   const [isError, setIsError] = useState(false);
@@ -61,10 +41,6 @@ function Databendaharadivisi() {
       {
         accessorKey: 'name',
         header: 'Nama Bendahara Departement',
-      },
-      {
-        accessorKey: 'foto',
-        header: 'Foto',
       },
       {
         accessorKey: 'nik',

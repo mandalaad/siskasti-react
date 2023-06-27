@@ -17,11 +17,11 @@ function Dashboardsa() {
                     <div className='midleside-content'>
                         <Row>
                             <Col xxl = {3} md = {6}>
-                                <Link to="/penerimaan" className='dashboard-link'>
+                                <Link to="/data-karyawan" className='dashboard-link'>
                                 <div className='kartu mt-4'>
                                     <div className="kartu-content">
                                     <div>
-                                        <h5>KARYAWAN</h5>
+                                        <h5>Karyawan</h5>
                                     </div>
                                     <div className='jumlahpenerimaan' id='jumlahpenerimaan'>
                                         {/* <h5>Rp. 1.000.000.000,00</h5> */}
@@ -34,7 +34,7 @@ function Dashboardsa() {
                                 </Link>
                             </Col>
                             <Col xxl = {3} md = {6}>
-                                <Link to="/pengeluaran" className='dashboard-link'>
+                                <Link to="/data-bendaharadept" className='dashboard-link'>
                                 <div className='kartu mt-4'>
                                     <div className="kartu-content">
                                     <div>
@@ -51,6 +51,7 @@ function Dashboardsa() {
                                 </Link>
                             </Col>
                             <Col xxl = {3} md = {6}>
+                                <Link to="/data-bendaharadiv" className='dashboard-link'>
                                 <div className='kartu mt-4'>
                                 <div className="kartu-content">
                                     <div>
@@ -64,12 +65,14 @@ function Dashboardsa() {
                                     <i><AiOutlineDollarCircle style={{color:'grey', fontSize:'1.5rem'}}/></i>
                                 </div>
                                 </div>
+                                </Link>
                             </Col>
                             <Col xxl = {3} md = {6}>
+                                <Link to="/grade" className='dashboard-link'>
                                 <div className='kartu mt-4'>
                                 <div className="kartu-content">
                                     <div>
-                                    <h5>Grade, Unit Kerja/Jabatan, Kelompok Jabatan</h5>
+                                    <h5>Level</h5>
                                     </div>
                                     <div className='user' id='jumlahuser'>
                                     </div>
@@ -78,6 +81,7 @@ function Dashboardsa() {
                                     <i><MdSupervisorAccount style={{color:'grey', fontSize:'1.5rem'}}/></i>
                                 </div>
                                 </div>
+                                </Link>
                             </Col>
                         </Row>
                     </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import './kasmasukdivisi.css'
 import { MaterialReactTable } from 'material-react-table'
 import jsPDF from 'jspdf';
-import {AiFillCheckCircle}from 'react-icons/ai'
+import {AiFillCheckCircle, AiFillCloseCircle, AiFillExclamationCircle}from 'react-icons/ai'
 import { Button } from 'react-bootstrap';
 import 'jspdf-autotable';
 function Kasmasukdivisi() {
@@ -278,11 +278,19 @@ function Kasmasukdivisi() {
       },
       {
         accessorKey: 'aksi',
-        header: 'Aksi',
+        header: 'Status',
         Cell: ({ row }) => (
+          <div>
             <Button variant='outline' onClick={() => handleEditClick(row.id)}>
                 <AiFillCheckCircle style={{fontSize:"1.5em", color:"green"}}/>
                 </Button>
+            <Button variant='outline' onClick={() => handleEditClick(row.id)}>
+            <AiFillExclamationCircle style={{fontSize:"1.5em", color:"orange"}}/>
+                </Button>
+            <Button variant='outline' onClick={() => handleEditClick(row.id)}>
+            <AiFillCloseCircle style={{fontSize:"1.5em", color:"red"}}/>
+                </Button>
+            </div>
           ),   
       },
       //column definitions...

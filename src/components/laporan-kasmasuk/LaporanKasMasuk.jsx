@@ -1,16 +1,17 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { MaterialReactTable } from 'material-react-table';
-import './LaporanKasKeluar.css';
+import './LaporanKasMassuk.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { startOfYear, endOfYear, isWithinInterval } from 'date-fns';
+import { startOfYear, endOfYear, isWithinInterval, endOfMonth, startOfMonth } from 'date-fns';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 
-function LaporanKasKeluar() {
+function LaporanKasMasuk() {
   const [data] = useState([
     {
       id: 1,
+      nama: 'akbar',
       tanggal: '2023-06-01',
       jumlah: 5000,
       bulan: 'Januari',
@@ -18,6 +19,7 @@ function LaporanKasKeluar() {
     },
     {
       id: 2,
+      nama: 'umar',
       tanggal: '2023-06-02',
       jumlah: 8000,
       bulan: 'Februari',
@@ -26,13 +28,13 @@ function LaporanKasKeluar() {
     // Tambahkan data lainnya di sini
   ]);
 
-  const [selectedYear, setSelectedYear] = useState(null);
+  const [selectedMonth, setSelectedMonth] = useState(null);
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
-    if (selectedYear) {
-      const startDate = startOfYear(selectedYear);
-      const endDate = endOfYear(selectedYear);
+    if (selectedMonth) {
+      const startDate = startOfMonth(selectedMonth);
+      const endDate = endOfMonth(selectedMonth);
       const filtered = data.filter((item) =>
         isWithinInterval(new Date(item.tanggal), { start: startDate, end: endDate })
       );
@@ -40,10 +42,10 @@ function LaporanKasKeluar() {
     } else {
       setFilteredData(data);
     }
-  }, [data, selectedYear]);
+  }, [data, selectedMonth]);
 
-  const handleYearChange = (year) => {
-    setSelectedYear(year);
+  const handleMonthChange = (month) => {
+    setSelectedMonth(month);
   };
 
   const handlePrint = () => {
@@ -51,7 +53,7 @@ function LaporanKasKeluar() {
     const tableData = filteredData.map((item) => [item.id, item.tanggal, item.bulan, item.jumlah, item.status]);
 
     doc.autoTable({
-      head: [['No', 'Tanggal', 'Bulan', 'Jumlah', 'Status']],
+      head: [['No','nama', 'Tanggal', 'Bulan', 'Jumlah', 'Status']],
       body: tableData,
     });
 
@@ -64,6 +66,10 @@ function LaporanKasKeluar() {
         accessorKey: 'id',
         header: 'No',
         size: 70,
+      },
+      {
+        accessorKey: 'nama',
+        header: 'nama',
       },
       {
         accessorKey: 'tanggal',
@@ -93,6 +99,7 @@ function LaporanKasKeluar() {
     return [
       {
         id: 'total',
+        nama: '',
         tanggal: '',
         bulan: '',
         jumlah: totalValue,
@@ -107,16 +114,16 @@ function LaporanKasKeluar() {
     <>
       <div className="content">
         <div className="wrap">
-          <div className="laporan-kas-keluar">
+          <div className="laporan-kas-masuk">
             <div className="header">
-              <h4>Laporan Kas Keluar</h4>
+              <h4>Laporan Kas Masuk</h4>
             </div>
             <div className="datepicker-container">
               <DatePicker
-                selected={selectedYear}
-                onChange={handleYearChange}
-                dateFormat="yyyy"
-                showYearPicker
+                selected={selectedMonth}
+                onChange={handleMonthChange}
+                dateFormat="MMMM yyyy"
+                showMonthYearPicker
               />
                 <div className="button">
                 <button onClick={handlePrint}>Cetak</button>
@@ -140,4 +147,4 @@ function LaporanKasKeluar() {
   );
 }
 
-export default LaporanKasKeluar;
+export default LaporanKasMasuk;
