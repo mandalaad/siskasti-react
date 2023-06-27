@@ -21,10 +21,10 @@ function Dashboardsa() {
                                 <div className='kartu mt-4'>
                                     <div className="kartu-content">
                                     <div>
-                                        <h5>Total Penerimaan</h5>
+                                        <h5>KARYAWAN</h5>
                                     </div>
                                     <div className='jumlahpenerimaan' id='jumlahpenerimaan'>
-                                        <h5>Rp. 1.000.000.000,00</h5>
+                                        {/* <h5>Rp. 1.000.000.000,00</h5> */}
                                     </div>
                                     </div>
                                     <div className='logo-kartu'>
@@ -38,10 +38,10 @@ function Dashboardsa() {
                                 <div className='kartu mt-4'>
                                     <div className="kartu-content">
                                     <div>
-                                        <h5>Total Pengeluaran</h5>
+                                        <h5>Bendahara Departemen</h5>
                                     </div>
                                     <div className='jumlahpengeluaran' id='jumlahpengeluaran'>
-                                        <h5>Rp. 1.500.000.000,00</h5>
+                                        {/* <h5>Rp. 1.500.000.000,00</h5> */}
                                     </div>
                                     </div>
                                     <div className='logo-kartu'>
@@ -54,10 +54,10 @@ function Dashboardsa() {
                                 <div className='kartu mt-4'>
                                 <div className="kartu-content">
                                     <div>
-                                    <h5>Saldo</h5>
+                                    <h5>Bendahara Divisi</h5>
                                     </div>
                                     <div className='saldo' id='jumlahsaldo'>
-                                    <h5>Rp. 3.000.000.000,00</h5>
+                                    {/* <h5>Rp. 3.000.000.000,00</h5> */}
                                     </div>
                                 </div>
                                 <div className='logo-kartu'>
@@ -69,10 +69,9 @@ function Dashboardsa() {
                                 <div className='kartu mt-4'>
                                 <div className="kartu-content">
                                     <div>
-                                    <h5>Jumlah User</h5>
+                                    <h5>Grade, Unit Kerja/Jabatan, Kelompok Jabatan</h5>
                                     </div>
                                     <div className='user' id='jumlahuser'>
-                                    <h5>2</h5>
                                     </div>
                                 </div>
                                 <div className='logo-kartu'>

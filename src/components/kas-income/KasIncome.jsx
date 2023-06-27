@@ -100,9 +100,9 @@ function KasIncome() {
             <Button variant="outline" onClick={() => handleEditClick1(row.id)}>
               <AiFillCheckCircle style={{ fontSize: '1.5em', color: 'green' }} />
             </Button>
-            <Button variant="outline" onClick={() => handleEditClick2(row.id)}>
+            {/* <Button variant="outline" onClick={() => handleEditClick2(row.id)}>
               <AiFillExclamationCircle style={{ fontSize: '1.5em', color: 'purple' }} />
-            </Button>
+            </Button> */}
             <Button variant="outline" onClick={() => handleEditClick3(row.id)}>
               <AiFillCloseCircle style={{ fontSize: '1.5em', color: 'red' }} />
             </Button>

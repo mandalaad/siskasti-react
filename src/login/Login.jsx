@@ -19,10 +19,10 @@ function Login() {
         const password = e.target.elements.password.value;
         const passalert = document.getElementById('pw-alert');
         try {
-          const response = await axios.post('http://10.254.45.224:8080/api/auth/login', { username, password });
+          const response = await axios.post('http://10.254.45.249:8080/api/auth/login', { username, password });
           // Handle the successful login response here
           console.log(response.data);
-          navigate('/dashboard');
+          navigate('/dashboard-divisi');
         } catch (error) {
           // Handle any error that occurred during login
           console.error(error);

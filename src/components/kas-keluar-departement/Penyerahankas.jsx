@@ -162,7 +162,7 @@ function Penyerahankas() {
                     </Button>
                 </DialogActions>
                 </Dialog>
-                <div className="header2">
+                {/* <div className="header2">
                     <h4>Riwayat Kas Keluar</h4>
                 </div>
                 <div className="table">
@@ -186,7 +186,7 @@ function Penyerahankas() {
                     </TableBody>
                 </Table>
                 </TableContainer>
-                </div>
+                </div> */}
             </div>
         </div>
     </div>
