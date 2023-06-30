@@ -19,8 +19,13 @@ function Login() {
         const password = e.target.elements.password.value;
         const passalert = document.getElementById('pw-alert');
         try {
-          const response = await axios.post('http://10.254.45.249:8080/api/auth/login', { username, password });
+          const response = await axios.post('http://localhost:8080/api/auth/login', { username, password });
           // Handle the successful login response here
+          const data = response.data;
+          localStorage.setItem('token', data.data.token);
+          localStorage.setItem('username', data.data.username);
+          localStorage.setItem('role', data.data.role);
+          console.log(localStorage);
           console.log(response.data);
           navigate('/dashboard-divisi');
         } catch (error) {

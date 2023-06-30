@@ -23,6 +23,7 @@
     "json-server": "^0.17.3",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.29",
+    "jwt-decode": "^3.1.2",
     "material-react-table": "^1.14.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
