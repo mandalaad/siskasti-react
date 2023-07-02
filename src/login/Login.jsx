@@ -4,6 +4,8 @@ import './Login.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import backgroundlogin from '../assets/Abstract-Green-Wave-PNG-File.png'
+import jwt_decode from 'jwt-decode';
+
 
 function Login() {
 
@@ -19,8 +21,15 @@ function Login() {
         const password = e.target.elements.password.value;
         const passalert = document.getElementById('pw-alert');
         try {
-          const response = await axios.post('http://10.254.45.249:8080/api/auth/login', { username, password });
+          const response = await axios.post('http://localhost:8080/api/auth/login', { username, password });
           // Handle the successful login response here
+        //   .then((res)=>{
+        //         const data = res.data
+        //       })
+          const { token } = response.data;
+          localStorage.setItem('token', token);
+        //   const decoded = jwt_decode(token);
+
           console.log(response.data);
           navigate('/dashboard-divisi');
         } catch (error) {
