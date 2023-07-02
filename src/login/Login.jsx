@@ -24,10 +24,25 @@ function Login() {
           const data = response.data;
           localStorage.setItem('token', data.data.token);
           localStorage.setItem('username', data.data.username);
-          localStorage.setItem('role', data.data.role);
+          localStorage.setItem('userRole', data.data.role);
           console.log(localStorage);
           console.log(response.data);
-          navigate('/dashboard-divisi');
+          const userRole = data.data.role;
+        if (userRole === 'Karyawan') {
+        navigate('/pembayaran');
+        } else if (userRole === "Bendahara Departemen IT Bussines Analyst" || 
+        userRole === "Bendahara Departemen Integrasi Aplikasi" ||
+        userRole === "Bendahara Departemen Aplikasi Bisnis" ||
+        userRole === "Bendahara Departemen Aplikasi Support" ||
+        userRole === "Bendahara Departemen Aplikasi Bisnis Digita" ||
+        userRole === "Bendahara Departemen IT Quality Assurance"
+        ) {
+        navigate('/dashboard-dept');
+        } else if (userRole === 'Bendahara Divisi') {
+        navigate('/dashboard-divisi');
+        } else if (userRole === 'Superadmin') {
+        navigate('/dashboard-sa');
+        }
         } catch (error) {
           // Handle any error that occurred during login
           console.error(error);
@@ -39,10 +54,8 @@ function Login() {
         }
         }
       };
-    //   if(username === 'Admin'){
 
-    //   }
-    
+      
   return (
     <body>
         <div className="login">
