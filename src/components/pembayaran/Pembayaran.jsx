@@ -26,10 +26,10 @@ function Pembayaran() {
     };
 
     // react-datepicker
-    const [selectedDate, setSelectedDate] = useState(null);
-    const handleChange = date => {
-        setSelectedDate(date);
-    };
+    // const [tanggal, setSelectedDate] = useState(null);
+    // const handleChange = date => {
+    //     setSelectedDate(date);
+    // };
 
     // datepicker bulan doang
     const handleMonthChange = (date) => {
@@ -50,7 +50,7 @@ function Pembayaran() {
     const handleYearChange = (date) => {
         setSelectedYear(date);
     };
-    
+    const [tanggal, setTanggal] = useState('');
     const [selectedYear, setSelectedYear] = useState(null);
     const [selectedMonth, setSelectedMonth] = useState(null);
     const [nomor, setNomorKaryawan] = useState('');
@@ -77,7 +77,9 @@ function Pembayaran() {
         nama,
         akunBendaharaDep,
         selectedFile,
-        tanggal: selectedDate ? selectedDate.toISOString() : '',
+        tanggal 
+        // tanggal ? tanggal.toISOString() : ''
+        ,
         nominal,
         bulan: selectedMonth ? selectedMonth.toISOString() : '',
         tahun: selectedYear ? selectedYear.toISOString() : '',
@@ -163,11 +165,13 @@ function Pembayaran() {
                             <div>
                             <DatePicker
                             dateFormat="dd MMMM yyyy"
-                            selected={selectedDate}
-                            onChange={handleChange}
-                            minDate={new Date()}
+                            selected={tanggal}
+                            onChange={setTanggal}
+                            maxDate={new Date()}
                             className='control'
                             name='tanggal'
+                            value={tanggal}
+                           
                             locale={id}
                             required
                             />
