@@ -23,7 +23,7 @@ import DataBendaharaDept from './pages/DataBendaharadept/DataBendaharaDept';
 import DataBendaharaDivisi from './pages/DataBendaharaDivisi/DataBendaharaDivisi';
 import LaporanPemasukan from './pages/laporanpemasukan/LaporanPemasukan';
 function App() {
-  
+  const token = 'token';
   return (
     <>
     <Routes>
