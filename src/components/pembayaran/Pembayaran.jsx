@@ -53,8 +53,8 @@ function Pembayaran() {
     
     const [selectedYear, setSelectedYear] = useState(null);
     const [selectedMonth, setSelectedMonth] = useState(null);
-    const [nomorKaryawan, setNomorKaryawan] = useState('');
-    const [namaKaryawan, setNamaKaryawan] = useState('');
+    const [nomor, setNomorKaryawan] = useState('');
+    const [nama, setNamaKaryawan] = useState('');
     const [akunBendaharaDep, setAkunBendaharaDep] = useState('');
     const [nominal, setNominal] = useState('');
     const [open, setOpen] = useState(false);
@@ -73,8 +73,8 @@ function Pembayaran() {
 
         // Buat objek data dengan nilai-nilai input
         const data = {
-        nomorKaryawan,
-        namaKaryawan,
+        nomor,
+        nama,
         akunBendaharaDep,
         selectedFile,
         tanggal: selectedDate ? selectedDate.toISOString() : '',
@@ -84,7 +84,7 @@ function Pembayaran() {
         };
         try {
             // Kirim data ke API endpoint menggunakan metode POST
-            const response = await axios.post('URL_API_ANDA', data);
+            const response = await axios.post('http://localhost:8080/api/v1/transaksi-kas', data);
             console.log('Data berhasil disimpan:', response.data);
             togglePopup('Data berhasil ditambahkan ke database.', true);
           } catch (error) {
@@ -98,18 +98,19 @@ function Pembayaran() {
           };
 
         //   mengambil data dropdow
-          useEffect(() => {
-            const fetchData = async () => {
-              try {
-                const response = await axios.get('URL_API');
-                setOptions(response.data);
-              } catch (error) {
-                console.error('Error fetching data:', error);
-              }
-            };
+          // useEffect(() => {
+          //   const fetchData = async () => {
+          //     try {
+          //       const response = await axios.get('http://localhost:8080/api/v1/karyawan');
+          //       setOptions(response.data);
+          //     } catch (error) {
+          //       console.error('Error fetching data:', error);
+          //     }
+          //   };
         
-            fetchData();
-          }, []);
+          //   fetchData();
+          // }, []);
+
 
 
   return (
@@ -127,7 +128,7 @@ function Pembayaran() {
                             <p>Nomor Induk Karyawan :</p>
                             <input 
                             type='text'
-                            value={nomorKaryawan}
+                            value={nomor}
                             onChange={(e) => setNomorKaryawan(e.target.value)}
                             />
                         </div>
@@ -135,22 +136,17 @@ function Pembayaran() {
                             <p>Nama Karyawan :</p>
                             <input 
                             type='text'
-                            value={namaKaryawan}
+                            value={nama}
                             onChange={(e) => setNamaKaryawan(e.target.value)}
                             />
                         </div>
                         <div className="field">
                             <p>Departement :</p>
-                            {/* <input 
+                            <input 
                             type='text'
                             value={akunBendaharaDep}
                             onChange={(e) => setAkunBendaharaDep(e.target.value)}
-                            /> */}
-                            <select>
-                            {options.map((option) => (
-                                <option key={option.id} value={option.value}>{option.label}</option>
-                            ))}
-                            </select>
+                            />
                         </div>
                         <div className="field">
                             <p>Bukti Pembayaran :</p>
@@ -185,7 +181,7 @@ function Pembayaran() {
                             onChange={(e) => setNominal(e.target.value)}
                             />
                         </div>
-                        <div className="field">
+                        {/* <div className="field">
                             <p>Bulan :</p>
                             <div>
                             <DatePicker
@@ -198,8 +194,8 @@ function Pembayaran() {
                             required
                             />
                             </div>
-                        </div>
-                        <div className="field">
+                        </div> */}
+                        {/* <div className="field">
                             <p>Tahun :</p>
                             <div>
                             <DatePicker
@@ -212,7 +208,7 @@ function Pembayaran() {
                             required
                             />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     </div>
                     <div className="button">

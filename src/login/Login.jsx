@@ -40,7 +40,7 @@ function Login() {
         navigate('/dashboard-dept');
         } else if (userRole === 'Bendahara Divisi') {
         navigate('/dashboard-divisi');
-        } else if (userRole === 'Superadmin') {
+        } else if (userRole === 'Super Admin') {
         navigate('/dashboard-sa');
         }
         } catch (error) {
