@@ -10,41 +10,55 @@ import { id } from 'date-fns/locale';
 
 function Datakaryawan() {
     const [data, setData] = useState([
-        {
-          no: 1,
-          namakaryawan: 'John Doe',
-          foto: 'image-url.jpg',
-          nik: '123456789',
-          grade: 'A',
-          jabatan: 'Manager',
-          unitkerja: 'HR',
-          email: 'john.doe@example.com',
-          nohp: '1234567890',
-        },
-        {
-          no: 2,
-          namakaryawan: 'John Doe',
-          foto: 'image-url.jpg',
-          nik: '123456789',
-          grade: 'A',
-          jabatan: 'Manager',
-          unitkerja: 'HR',
-          email: 'john.doe@example.com',
-          nohp: '1234567890',
-        },
-        {
-          no: 3,
-          namakaryawan: 'Jane Smith',
-          foto: 'image-url.jpg',
-          nik: '987654321',
-          grade: 'B',
-          jabatan: 'Accountant',
-          unitkerja: 'Finance',
-          email: 'jane.smith@example.com',
-          nohp: '0987654321',
-        },
-        // ... add other data here
+        // {
+        //   no: 1,
+        //   namakaryawan: 'John Doe',
+        //   foto: 'image-url.jpg',
+        //   nik: '123456789',
+        //   grade: 'A',
+        //   jabatan: 'Manager',
+        //   unitkerja: 'HR',
+        //   email: 'john.doe@example.com',
+        //   nohp: '1234567890',
+        // },
+        // {
+        //   no: 2,
+        //   namakaryawan: 'John Doe',
+        //   foto: 'image-url.jpg',
+        //   nik: '123456789',
+        //   grade: 'A',
+        //   jabatan: 'Manager',
+        //   unitkerja: 'HR',
+        //   email: 'john.doe@example.com',
+        //   nohp: '1234567890',
+        // },
+        // {
+        //   no: 3,
+        //   namakaryawan: 'Jane Smith',
+        //   foto: 'image-url.jpg',
+        //   nik: '987654321',
+        //   grade: 'B',
+        //   jabatan: 'Accountant',
+        //   unitkerja: 'Finance',
+        //   email: 'jane.smith@example.com',
+        //   nohp: '0987654321',
+        // },
+        // // ... add other data here
       ]);
+
+      useEffect(() => {
+      // Fungsi untuk mendapatkan data dari API
+      const fetchData = async () => {
+        try {
+          const response = await axios.post('http://localhost:8080/api/v1/karyawan');
+          setData(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+  
+      fetchData();
+    }, []);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isRefetching, setIsRefetching] = useState(false);
@@ -84,7 +98,7 @@ function Datakaryawan() {
         header: 'Jabatan',
       },
       {
-        accessorKey: 'unitkerja',
+        accessorKey: 'unit_kerja',
         header: 'Unit Kerja',
       },
       {
@@ -244,7 +258,7 @@ function Datakaryawan() {
   const [selectedGrade, setSelectedGrade] = useState('');
   const [jabatan, setJabatan] = useState('');
   const [nominal, setNominal] = useState('');
-  const [unitKerja, setUnitKerja] = useState('');
+  const [unit_Kerja, setUnitKerja] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDataSubmitted, setIsDataSubmitted] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -302,7 +316,7 @@ function Datakaryawan() {
       grade: selectedGrade,
       jabatan: jabatan,
       nominal: nominal,
-      unitKerja: unitKerja,
+      unitKerja: unit_Kerja,
     };
 
     if (!isDataSubmitted) {
