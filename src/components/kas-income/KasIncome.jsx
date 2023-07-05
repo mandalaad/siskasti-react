@@ -9,29 +9,63 @@ import { AiFillCheckCircle, AiFillCloseCircle, AiFillExclamationCircle } from 'r
 import { MdOutlinePendingActions } from 'react-icons/md';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import axios from 'axios';
 
 
 function KasIncome() {
-  const [data] = useState([
-    {
-      id: 1,
-      tanggal: '2023-06-01',
-      nik: '1234567890',
-      namakaryawan: 'John Doe',
-      nominal: 5000,
-      buktipembayaran: 'BP001',
-    },
-    {
-      id: 2,
-      tanggal: '2023-06-02',
-      nik: '0987654321',
-      namakaryawan: 'Jane Smith',
-      nominal: 8000,
-      buktipembayaran: 'BP002',
-    },
-    // Add other data here
-  ]);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [tanggal, setTanggal] = useState([]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       await axios
+  //       .get ('http://localhost:8080/api/v1/transaksi-kas')
+  //       .then ((res)=>{
+  //       const data = res.data.data
 
+  //       setData(data)
+  //       console.log(data)
+  //       })
+  //       // const response = await axios.get('http://localhost:8080/api/v1/jabatan');
+  //       // setData(response.data);
+  //       // const data = response.data;
+  //       // setDataGrade(data);
+  //       // console.log(data)
+  //       // setLoading(true);
+  //       // setLoading(false);
+  //     } catch (error) {
+  //       setLoading(false);
+  //       console.error('Error:', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/api/v1/transaksi-kas');
+        const data = response.data.data.map((item) => {
+          const formattedDate = new Date(item.tanggal).toLocaleDateString('en-GB');
+          return {
+            ...item,
+            tanggal: formattedDate,
+          };
+        });
+        setData(data);
+      } catch (error) {
+        setLoading(false);
+        console.error('Error:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  // const [data] = useState([]);
+  
+  const formattedDate = new Date(tanggal).toLocaleDateString();
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [filteredData, setFilteredData] = useState([]);
 
@@ -75,9 +109,10 @@ function KasIncome() {
       {
         accessorKey: 'tanggal',
         header: 'Tanggal',
+        customRenderer: (value) => <span>{value}</span>,
       },
       {
-        accessorKey: 'nik',
+        accessorKey: 'nomor',
         header: 'NIK',
       },
       {

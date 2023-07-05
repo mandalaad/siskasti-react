@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Sidebar.css'
 import { Collapse} from 'react-bootstrap';
-import { MdArrowDropDownCircle,MdOutlinePayments } from 'react-icons/md';
-import { HiOutlineDocumentReport } from 'react-icons/hi';
-import { AiFillDatabase, AiOutlineTransaction } from 'react-icons/ai';
+import { MdArrowDropDownCircle,MdOutlinePayments, MdOutlineGrade } from 'react-icons/md';
+import { HiOutlineDocumentReport, HiOutlineOfficeBuilding } from 'react-icons/hi';
+import { AiFillDatabase, AiOutlineTransaction, AiOutlineUsergroupAdd, AiOutlineGroup } from 'react-icons/ai';
 import { FaShare, FaReply } from 'react-icons/fa';
-import { TbMoneybag } from 'react-icons/tb';
+import { TiGroup } from 'react-icons/ti';
+import { TbMoneybag, TbTransferIn, TbTransferOut } from 'react-icons/tb';
 import { RxDashboard } from 'react-icons/rx';
 import { FiDatabase } from 'react-icons/fi';
 
@@ -100,14 +101,14 @@ function Sidebar() {
         </li>
         <li>
           <Link to="/laporan-kas-masuk">
-            <i><FaShare/></i>
+            <i><TbTransferIn/></i>
             <span className="links_name">Laporan kas masuk</span>
           </Link>
           <span className="tooltip">Laporan kas masuk</span>
         </li>
         <li>
           <Link to="/laporan-keluaran">
-            <i><FaReply/></i>
+            <i><TbTransferOut/></i>
             <span className="links_name">Laporan Kas Keluar</span>
           </Link>
           <span className="tooltip">Laporan Kas Keluar</span>
@@ -181,14 +182,28 @@ function Sidebar() {
         </li>
         <li>
           <Link to="/data-karyawan">
-            <i><FiDatabase/></i>
+            <i><TiGroup/></i>
             <span className="links_name">Data Karyawan</span>
           </Link>
           <span className="tooltip">Data Karyawan</span>
         </li>
         <li>
+          <Link to="/data-bendaharadept">
+            <i><HiOutlineOfficeBuilding/></i>
+            <span className="links_name">Data Bendahara Departement</span>
+          </Link>
+          <span className="tooltip">Data Bendahara Departement</span>
+        </li>
+        <li>
+          <Link to="/data-bendaharadiv">
+            <i><AiOutlineGroup/></i>
+            <span className="links_name">Data Bendahara Divisi</span>
+          </Link>
+          <span className="tooltip">Data Bendahara Divisi</span>
+        </li>
+        <li>
           <Link to="/grade">
-            <i><FiDatabase/></i>
+            <i><MdOutlineGrade/></i>
             <span className="links_name">Grade</span>
           </Link>
           <span className="tooltip">Grade</span>
